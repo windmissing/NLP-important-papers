@@ -6,10 +6,6 @@ We provide a brief description of LSTMs and CRFs, and present a hybrid tagging a
 
 Recurrent neural networks (RNNs) are a family of neural networks that operate on sequential data. They take as input a sequence of vectors (x 1 ,x 2 ,...,x n ) and return another sequence (h 1 ,h 2 ,...,h n ) that represents some information about the sequence at every step in the input. Although RNNs can, in theory, learn long dependencies, in practice they fail to do so and tend to be biased towards their most recent inputs in the sequence (Bengio et al., 1994). Long Short-term Memory Networks (LSTMs) have been designed to combat this issue by incorporating a memory-cell and have been shown to capture long-range dependencies. They do so using several gates that control the proportion of the input to give to the memory cell, and the proportion from the previous state to forget (Hochreiter and Schmidhuber, 1997). We use the following implementation:
 
-> **[success]**   
-输入向量序列x分别正向LSTM和反向LSTM得到向量h1和向量h2，  
-h1和h2合并成一向量，称为h，是关于输入序列的some information  
-
 $$
 \begin{aligned}
 i_t = \sigma(W_{xi}x_t + W_{hi}h_{t-1} + W_{ci}c_{t-1} + b_i)  \\
@@ -20,7 +16,7 @@ h_t = o_t \odot \tanh(c_t)
 $$
 
 > **[success]**   
-LSTM的过程：  
+[LSTM](https://windmissing.github.io/Bible-DeepLearning/Chapter10/10Gate/1LSTM.html)的过程：  
 1. 把$x_t$和$h_{t-1}$合并成一个大的输入向量$[x_t, h_{t-1}]$   
 2. 根据输入向量$[x_t, h_{t-1}]$和缓存状态$C_{t-1}$计算gate  
 3. gate决定输入向量$[x_t, h_{t-1}]$和缓存状态$C_{t-1}$各起多少作用，得到新的缓存状态$C_t$  
@@ -31,6 +27,10 @@ where σ is the element-wise sigmoid function, and $\odot$ is the element-wise p
 For a given sentence (x 1 ,x 2 ,...,x n ) containing n words, each represented as a d-dimensional vector, an LSTM computes a representation $h_t$ of the left context of the sentence at every word t. Naturally, generating a representation of the right context $h_t$ as well should add useful information. This can be achieved using a second LSTM that reads the same sequence in reverse. We will refer to the former as the forward LSTM and the latter as the backward LSTM. These are two distinct networks with different parameters. This forward and backward LSTM pair is referred to as a bidirectional LSTM (Graves and Schmidhuber, 2005).  
 
 The representation of a word using this model is obtained by concatenating its left and right context representations, $h_t = [h_t;h_t]$. These representations effectively include a representation of a word in context, which is useful for numerous tagging applications.
+
+> **[success]**   
+输入向量序列x分别正向LSTM和反向LSTM得到向量ht1和向量ht2，  
+ht1和ht2合并成一向量，称为h，是关于输入序列的some information  
 
 ## CRF Tagging Models
 
@@ -85,7 +85,8 @@ x: 输入的word组成的序列
 y: 由预测的tag组成的序列  
 第一项：tag前后的关联性分数  
 第二项：独立分类的分数  
-P在上一段已经解释，A将在下一段解释。
+P在上一段已经解释，A将在下一段解释。  
+整体上是表示一个句子存在的可能性。  
 
 
 where A is a matrix of transition scores such that A i,j represents the score of a transition from the tag i to tag j. y 0 and y n are the start and end tags of a sentence, that we add to the set of possible tags. A is therefore a square matrix of size k+2.
@@ -138,7 +139,14 @@ bigram interaction是指$s_{i+1}$只依赖于$s_i$的结果，因此可以用DP
 
 ## Parameterization and Training
 
-The scores associated with each tagging decision for each token (i.e., the $P_{i,y}$’s) are defined to be the dot product between the embedding of a word-in-context computed with a bidirectional LSTM—exactly the same as the POS tagging model of Ling et al. (2015b) and these are combined with bigram compatibility scores (i.e., the A y,y 0 ’s). This architecture is shown in figure 1. Circles represent observed variables, diamonds are deterministic functions of their parents, and double circles are random variables.
+The scores associated with each tagging decision for each token (i.e., the $P_{i,y}$’s) are defined to be the dot product between the embedding of a word-in-context computed with a bidirectional LSTM—exactly the same as the POS tagging model of Ling et al. (2015b) and these are combined with bigram compatibility scores (i.e., the $A_{y,y'}$’s).  
+
+> **[success]**   
+根据上面的公式可知，总分由两部分组成，单个token的得分P和前后两个token的转移分数A。  
+其中P的计算公式为：$P = embedding \cdot h$  
+h由双向LSTM得到。  
+
+This architecture is shown in figure 1. Circles represent observed variables, diamonds are deterministic functions of their parents, and double circles are random variables.
 ![](/NANER/assets/2.png)  
 
 > **[success]**   
@@ -152,20 +160,51 @@ c为crf层
 y为输出层  
 用crf层代表softmax层生成y。   
 
-The parameters of this model are thus the matrix of bigram compatibility scores A, and the parameters that give rise to the matrix P, namely the parameters of the bidirectional LSTM, the linear feature weights, and the word embeddings. As in part 2.2, let x i denote the sequence of word embeddings for every word in a sentence, and y i be their associated tags. We return to a discussion of how the embeddings x i are modeled in Section 4. The sequence of word embeddings is given as input to a bidirectional LSTM, which returns a representation of the left and right context for each word as explained in 2.1.
+The parameters of this model are thus **the matrix of bigram compatibility scores A**, and the parameters that give rise to the matrix P, namely **the parameters of the bidirectional LSTM**, the linear feature weights, and the **word embeddings**.   
 
 > **[success]**   
 要训练的参数：  
-A、双向LSTM的参数  
+A、双向LSTM的weights、word embedding    
 
-These representations are concatenated (c i ) and linearly projected onto a layer whose size is equal to the number of distinct tags. Instead of using the softmax output from this layer, we use a CRF as previously described to take into account neighboring tags, yielding the final predictions for every word y i . Additionally, we observed that adding a hidden layer between c i and the CRF layer marginally improved our results. All results reported with this model incorporate this extra-layer. The parameters are trained to maximize Eq. 1 of observed sequences of NER tags in an annotated corpus, given the observed words.
+As in part 2.2, let xi denote the sequence of word embeddings for every word in a sentence, and yi be their associated tags. We return to a discussion of how the embeddings xi are modeled in Section 4. The sequence of word embeddings is given as input to a bidirectional LSTM, which returns a representation of the left and right context for each word as explained in 2.1.
+
+> **[success]**   
+word embedding的生成将在[4]中介绍。  
+LSTM的输入是word embedding.  
+LSTM的输出（经过一个隐藏层f）是一个token的P。  
+
+These representations are concatenated (ci ) and linearly projected onto a layer whose size is equal to the number of distinct tags. Instead of using the softmax output from this layer, we use a CRF as previously described to take into account neighboring tags, yielding the final predictions for every word yi .  
+
+> **[success]**   
+CRF层代替softmax层来产生结果。  
+
+Additionally, we observed that adding a hidden layer between c i and the CRF layer marginally improved our results. All results reported with this model incorporate this extra-layer. The parameters are trained to maximize Eq. 1 of observed sequences of NER tags in an annotated corpus, given the observed words.
+
+> **[info]**  
+annotated corpus：附码语料库  
 
 ## Tagging Schemes
 
-The task of named entity recognition is to assign a named entity label to every word in a sentence. A single named entity could span several tokens within a sentence. Sentences are usually represented in the IOB format (Inside, Outside, Beginning) where every token is labeled as B-label if the token is the beginning of a named entity, I-label if it is inside a named entity but not the first token within the named entity, or O otherwise. However, we decided to use the IOBES tagging scheme, a variant of IOB commonly used for named entity recognition, which encodes information about singleton entities (S) and explicitly marks the end of named entities (E). Using this scheme, tagging a word as I-label with high-confidence narrows down the choices for the subsequent word to I-label or E-label, however, the IOB scheme is only capable of determining that the subsequent word cannot be the interior of another label. Ratinov and Roth (2009) and Dai et al. (2015) showed that using a more expressive tagging scheme like IOBES improves model performance marginally. However, we did not observe a significant improvement over the IOB tagging scheme.
+The task of named entity recognition is to assign a named entity label to every word in a sentence. A single named entity could span several tokens within a sentence. Sentences are usually represented in the **IOB format** (Inside, Outside, Beginning) where every token is labeled as B-label if the token is the beginning of a named entity, I-label if it is inside a named entity but not the first token within the named entity, or O otherwise.   
+
+> **[success] IOB format**   
+B: token是name entity的第一个单词  
+I：token是name entity的一部分，但不是第一个单词  
+O：token不是name entity
+
+However, we decided to use the **IOBES tagging scheme**, a variant of IOB commonly used for named entity recognition, which encodes information about singleton entities (S) and explicitly marks the end of named entities (E).   
+
+> **[success] IOBES tagging scheme**   
+B: token是name entity的第一个单词  
+I：token是name entity的一部分，但不是第一个单词，也不是最后一个单词。  
+E：token是name entity的最后一个单词  
+S：token是name entity，且name entity只包含这一个token  
+O：token不是name entity
+
+Using this scheme, tagging a word as I-label with high-confidence narrows down the choices for the subsequent word to I-label or E-label, however, the IOB scheme is only capable of determining that the subsequent word cannot be the interior of another label. Ratinov and Roth (2009) and Dai et al. (2015) showed that using a more expressive tagging scheme like IOBES **improves model performance** marginally. However, we did not observe a significant improvement over the IOB tagging scheme.
 
 > **[success]**   
-IOB format: 
-Inside, Outside, Beginning  
-IOBES tagging scheme：  
-Single Entity, End of Entity
+本文使用IOBES代替IOB  
+理论上IOBES能提升性能，实际没有发现明显地提升。  
+
+
