@@ -4,3 +4,4 @@
     * [Abstract](NANER/Abstract.md)
     * [Introduction](NANER/Introduction.md)
     * [LSTM-CRF Model](NANER/LSTMCRF.md)
+    * [Transition-Based Chunking Model](NANER/Chunking.md)
