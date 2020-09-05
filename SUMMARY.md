@@ -5,3 +5,4 @@
     * [Introduction](NANER/Introduction.md)
     * [LSTM-CRF Model](NANER/LSTMCRF.md)
     * [Transition-Based Chunking Model](NANER/Chunking.md)
+    * [Input Word Embeddings](NANER/Embedding.md)

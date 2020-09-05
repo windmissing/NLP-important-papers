@@ -1,0 +1,122 @@
+# Input Word Embeddings
+
+The input layers to both of our models are vector representations of individual words. Learning independent representations for word types from the limited NER training data is a difficult problem: there are simply too many parameters to reliably estimate. Since many languages have orthographic or morphological evidence that something is a name (or not a name), we want representations that are sensitive to the spelling of words. We therefore use a model that constructs representations of words from representations of the characters they are composed of (4.1).   
+> **[success]**  
+
+Our second intuition is that names, which may individually be quite varied, appear in regular contexts in large corpora. Therefore we use embeddings learned from a large corpus that are sensitive to word order (4.2). Finally, to prevent the models from depending on one representation or the other too strongly, we use dropout training and find this is crucial for good generalization performance (4.3).
+
+# 输入向量x是怎么来的？  
+
+每个单词的向量化表示  
+难点：为NER生成独立的表示很难  
+
+设计原理：  
+1. 基于orthographic(拼写的)、morphological（形态学的）的分析，所以：  
+使用与单词拼写有关的表达，即字符级表示。  
+2. 虽然name本身会变化，但appear in regular context，所以：  
+使用与单词order有关的表示
+3. dropout
+
+## 字符级的embedding
+
+优势：  
+形态学rich的语言  
+处理out of vocabulary问题  
+dependency parsing  
+
+字符级embedding也是用的双向LSTM，然后两边的结果拼到一起。区别是每个LSTM都是在一个单词结束时才输出。  
+再加上单词级的embedding，来自查表和UNK embedding  
+
+为什么用双向LSTM？  
+因为RNN/LSTM受最近的点影响特别大。双向分别用于识别单词的前缀和后缀。此处不适合用CNN，因为前缀和后缀的位置固定，不具有平移不变性。  
+
+单词级的look-up table使用pretrained代替随机初始化，性能有明显提升。  
+skip-n-gram + fine-tuned    
+
+字符级表示 + 单词级表示 + pretrained = 效果一般  
+字符级表示 + 单词级表示 + pretrained + dropout = 效果一般  
+
+
+
+4.1 Character-based models of words
+An important distinction of our work from most
+previous approaches is that we learn character-level
+features while training instead of hand-engineering
+prefix and suffix information about words. Learn-
+ing character-level embeddings has the advantage of
+learning representations specific to the task and do-
+main at hand. They have been found useful for mor-
+phologically rich languages and to handle the out-
+of-vocabulary problem for tasks like part-of-speech
+tagging and language modeling (Ling et al., 2015b)
+or dependency parsing (Ballesteros et al., 2015).
+Figure 4 describes our architecture to generate a
+word embedding for a word from its characters. A
+character lookup table initialized at random contains
+an embedding for every character. The character
+embeddings corresponding to every character in a
+word are given in direct and reverse order to a for-
+ward and a backward LSTM. The embedding for a
+word derived from its characters is the concatenation
+of its forward and backward representations from
+the bidirectional LSTM. This character-level repre-
+sentation is then concatenated with a word-level rep-
+resentation from a word lookup-table. During test-
+ing, words that do not have an embedding in the
+lookup table are mapped to a UNK embedding. To
+train the UNK embedding, we replace singletons
+with the UNK embedding with a probability 0.5. In
+all our experiments, the hidden dimension of the for-
+ward and backward character LSTMs are 25 each,
+which results in our character-based representation
+of words being of dimension 50.
+Recurrent models like RNNs and LSTMs are ca-
+pable of encoding very long sequences, however,
+they have a representation biased towards their most
+recent inputs. As a result, we expect the final rep-
+resentation of the forward LSTM to be an accurate
+representation of the suffix of the word, and the fi-
+nal state of the backward LSTM to be a better rep-
+resentation of its prefix. Alternative approaches—
+most notably like convolutional networks—have
+been proposed to learn representations of words
+from their characters (Zhang et al., 2015; Kim et al.,
+2015). However, convnets are designed to discover
+position-invariant features of their inputs. While this
+is appropriate for many problems, e.g., image recog-
+nition (a cat can appear anywhere in a picture), we
+argue that important information is position depen-
+dent (e.g., prefixes and suffixes encode different in-
+formation than stems), making LSTMs an a priori
+better function class for modeling the relationship
+between words and their characters.
+4.2 Pretrained embeddings
+As in Collobert et al. (2011), we use pretrained
+word embeddings to initialize our lookup table. We
+observe significant improvements using pretrained
+word embeddings over randomly initialized ones.
+Embeddings are pretrained using skip-n-gram (Ling
+et al., 2015a), a variation of word2vec (Mikolov et
+al., 2013a) that accounts for word order. These em-
+beddings are fine-tuned during training.
+Word embeddings for Spanish, Dutch, German
+and English are trained using the Spanish Gigaword
+version 3, the Leipzig corpora collection, the Ger-
+man monolingual training data from the 2010 Ma-
+chine Translation Workshop and the English Giga-
+word version 4 (with the LA Times and NY Times
+portions removed) respectively. 2 We use an embed-
+ding dimension of 100 for English, 64 for other lan-
+guages, a minimum word frequency cutoff of 4, and
+a window size of 8.
+4.3 Dropout training
+Initial experiments showed that character-level em-
+beddings did not improve our overall performance
+when used in conjunction with pretrained word rep-
+resentations. To encourage the model to depend on
+both representations, we use dropout training (Hin-
+ton et al., 2012), applying a dropout mask to the final
+embedding layer just before the input to the bidirec-
+tional LSTM in Figure 1. We observe a significant
+improvement in our model’s performance after us-
+ing dropout (see table 5).
