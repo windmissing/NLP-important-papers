@@ -29,51 +29,70 @@ predicate：述语，谓语
 argument：论点  
 框架语言分析的目标：提取出“who did what to whom”  
 
-Naturally this kind of annotation lends itself to being exploited for question answering. We develop a benchmark that makes use of frame-semantic annotations which we obtained by parsing our model with a state-of-the-art frame-semantic parser [13, 14]. As the parser makes extensive use of linguistic information we run these benchmarks on the unanonymised version of our corpora. There is no significant advantage in this as the frame-semantic approach used here does not possess the capability to generalise through a language model beyond exploiting one during the parsing phase. Thus, the key objective of evaluating machine comprehension abilities is maintained. Extracting entity-predicate triples—denoted as (e 1 ,V,e 2 )—from both the query q and context document d, we attempt to resolve queries using a number of rules with an increasing recall/precision trade-off as follows (Table 4).
+Naturally this kind of annotation lends itself to being exploited for question answering. We develop a benchmark that makes use of frame-semantic annotations which we obtained by parsing our model with a state-of-the-art frame-semantic parser [13, 14].   
+
+> **[success]** 使用state-of-the-art frame-semantic parser作为benchmark  
+
+As the parser makes extensive use of linguistic information we run these benchmarks **on the unanonymised version** of our corpora. There is no significant advantage in this as the frame-semantic approach used here does not possess the capability to generalise through a language model beyond exploiting one during the parsing phase. Thus, the key objective of evaluating machine comprehension abilities is maintained.   
+
+> **[success]**  
+这个benchmark要求使用原始数据，而不是2.1中提供的anonymised数据。  
+但是由于benchmark不能“generalise through a language model”，让benchmark使用原始数据不影响比较的公平性。  
+
+Extracting entity-predicate triples—denoted as (e 1 ,V,e 2 )—from both the query q and context document d, we attempt to resolve queries using a number of rules with an increasing recall/precision trade-off as follows (Table 4).  
+
+> **[success]**  
+benchmark具体做的事情：  
+（1）从问题中提取三元组(p, V, y)  
+（2）从文本中提取三元组(x, V, y)  
+（3）x是p的候选答案，基于策略选择合适的x  
+（4）recall/precision trade-off
+
 For reasons of clarity, we pretend that all PropBank triples are of the form (e 1 ,V,e 2 ). In practice, we take the argument numberings of the parser into account and only compare like with like, except in cases such as the permuted frame rule, where ordering is relaxed. In the case of multiple possible answers from a single rule, we randomly choose one.
+
+> **[warning]** 这一段没看懂  
 
 **Word Distance Benchmark** We consider another baseline that relies on word distance measurements. Here, we align the placeholder of the Cloze form question with each possible entity in the context document and calculate a distance measure between the question and the context around the aligned entity. This score is calculated by summing the distances of every word in q to their nearest aligned word in d, where alignment is defined by matching words either directly or as aligned by the coreference system. We tune the maximum penalty per word (m = 8) on the validation data.
 
+> **[success]**  
+for each entity：  
+（1）把entity代入cloze中  
+（2）计算文本中entity的附近单词和问题中entity的附近单词的距离  
+[?]distance怎么算没看懂  
+
 ## Neural Network Models
 
-Neural networks have successfully been applied to a range of tasks in NLP. This includes classification tasks such as sentiment analysis [15] or POS tagging [16], as well as generative problems such as language modelling or machine translation [17]. We propose three neural models for estimating the probability of word type a from document d answering query q:
-p(a|d,q) / exp(W(a)g(d,q)), s.t. a 2 V,
-where V is the vocabulary 4 , and W(a) indexes row a of weight matrix W and through a slight
-abuse of notation word types double as indexes. Note that we do not privilege entities or variables,
-the model must learn to differentiate these in the input sequence. The function g(d,q) returns a
-vector embedding of a document and query pair.
-The Deep LSTM Reader Long short-term memory (LSTM, [18]) networks have recently seen
-considerable success in tasks such as machine translation and language modelling [17]. When used
-for translation, Deep LSTMs [19] have shown a remarkable ability to embed long sequences into
-a vector representation which contains enough information to generate a full translation in another
-language. OurfirstneuralmodelforreadingcomprehensionteststheabilityofDeepLSTMencoders
-to handle significantly longer sequences. We feed our documents one word at a time into a Deep
-LSTM encoder, after a delimiter we then also feed the query into the encoder. Alternatively we also
-experiment with processing the query then the document. The result is that this model processes
-each document query pair as a single long sequence. Given the embedded document and query the
-network predicts which token in the document answers the query.
-4 The vocabulary includes all the word types in the documents, questions, the entity maskers, and the ques-
-tion unknown entity marker.
-4
-r
-s(1)y(1)
-s(3)y(3) s(2)y(2)
-u
-g
-s(4)y(4)
-Mary went to X visited England England
-(a) Attentive Reader.
-r
-u
-r
-Mary went to X visited England England
-r
-g
-(b) Impatient Reader.
-Mary went to X visited England England |||
-g
-(c) A two layer Deep LSTM Reader with the question encoded before the document.
-Figure 1: Document and query embedding models.
+Neural networks have successfully been applied to a range of tasks in NLP. This includes classification tasks such as sentiment analysis [15] or POS tagging [16], as well as generative problems such as language modelling or machine translation [17].   
+
+> **[info]** sentiment：情感  
+
+We propose three neural models for estimating the probability of word type a from document d answering query q:  
+
+$$
+p(a|d,q) \propto \exp(W(a)g(d,q)), s.t. a \in V,
+$$
+
+where V is the vocabulary 4 , and W(a) indexes row a of weight matrix W and through a slight abuse of notation word types double as indexes. Note that we do not privilege entities or variables, the model must learn to differentiate these in the input sequence. The function g(d,q) returns a vector embedding of a document and query pair.  
+
+> **[success]**  
+这个公式不是太懂，可能意思是：  
+g是vector embedding，代表文本和问题之间的联系点  
+W是权重矩阵，代表某个单词在这些联系点上的权重。  
+
+**The Deep LSTM Reader** Long short-term memory (LSTM, [18]) networks have recently seen considerable success in tasks such as machine translation and language modelling [17]. When used for translation, Deep LSTMs [19] have shown a remarkable ability to embed long sequences into a vector representation which contains enough information to generate a full translation in another language.   
+
+> **[success] Deep LSTM的特点：**  
+（1）embed long sequences into a vector  
+（2）包含原序列的信息  
+（3）用另一种形式表达信息  
+
+Our first neural model for reading comprehension tests the ability of Deep LSTM encoders to handle significantly longer sequences. We feed our documents one word at a time into a Deep LSTM encoder, after a delimiter we then also feed the query into the encoder. Alternatively we also experiment with processing the query then the document.  
+
+> **[success]**  
+把Deep LSTM当作一个encoder来用。  
+输入可以是“文本+问题”或“问题+文本”。  
+
+The result is that this model processes each document query pair as a single long sequence. Given the embedded document and query the network predicts which token in the document answers the query. 
 We employ a Deep LSTM cell with skip connections from each input x(t) to every hidden layer,
 and from every hidden layer to the output y(t):
 x 0 (t,k) = x(t)||y 0 (t,k ? 1), y(t) = y 0 (t,1)||...||y 0 (t,K)
