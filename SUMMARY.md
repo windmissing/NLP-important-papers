@@ -10,3 +10,8 @@
     * [6 Related Work](NANER/Relatedwork.md)
     * [7 Conclusion](NANER/Conclusion.md)
     * [Reference](NANER/Reference.md)
+* [Teaching Machines to Read and Comprehend](TMRC/1.md)
+    * [Abstract](TMRC/Abstract.md)
+    * [1 Introduction](TMRC/Introduction.md)
+    * [2 Supervised training data for reading comprehension](TMRC/Supervised.md)
+    * [3 Models](TMRC/Models.md)

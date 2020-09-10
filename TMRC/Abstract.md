@@ -1,0 +1,13 @@
+# Abstract
+Teaching machines to read natural language documents remains an elusive chal-
+lenge. Machine reading systems can be tested on their ability to answer questions
+posed on the contents of documents that they have seen, but until now large scale
+training and test datasets have been missing for this type of evaluation. In this
+work we define a new methodology that resolves this bottleneck and **provides
+large scale supervised reading comprehension data**. This allows us to develop a
+class of attention based deep neural networks that learn to read real documents and
+answer complex questions with minimal prior knowledge of language structure.
+
+> **[success]**  
+本文的重点不是怎样训练阅读理解的模型，而是生成用于训练阅读理解模型的label data
+
