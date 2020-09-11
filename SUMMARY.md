@@ -15,3 +15,6 @@
     * [1 Introduction](TMRC/Introduction.md)
     * [2 Supervised training data for reading comprehension](TMRC/Supervised.md)
     * [3 Models](TMRC/Models.md)
+    * [4 Empirical Evaluation](TMRC/Empirical.md)
+    * [5 Conclusion](TMRC/Conclusion.md)
+    * [Reference](TMRC/Reference.md)
