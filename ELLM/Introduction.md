@@ -29,82 +29,64 @@ Lastly, recently proposed sequence-to-sequence models employ **conditional langu
 > **[success]**   
 LM的作用3：seq2seq问题中的条件语言模型   
 
-Deep Learning and Recurrent Neural Networks (RNNs)
-have fueled language modeling research in the past years
-as it allowed researchers to explore many tasks for which
-the strong conditional independence assumptions are unre-
-alistic.   
+Deep Learning and Recurrent Neural Networks (RNNs) have fueled language modeling research in the past years as it allowed researchers to explore many tasks for which the strong conditional independence assumptions are unrealistic.   
 
 > **[success]**  
 fuel：加剧  
 conditional independence assumptions：[条件独立假设](https://windmissing.github.io/mathematics_basic_for_ML/Probability/probability_distribution.html)  
 LM在不满足“条件独立假设”的场景中的应用。  
 
-Despite the fact that simpler models, such as N-
-grams, only use a short history of previous words to predict
-the next word, they are still a key component to high qual-
-ity, low perplexity LMs.   
+Despite the fact that simpler models, such as N-grams, only use a short history of previous words to predict the next word, they are still a key component to high quality, low perplexity LMs.   
 
 > **[warning]**  
 [?] N-grams是什么？  
 N-grams模型简单、效果好。  
 
-Indeed, most recent work on large
-scale LM has shown that RNNs are great in combination
-with N-grams, as they may have different strengths that
-complement N-gram models, but worse when considered
-in isolation (Mikolov et al., 2011; Mikolov, 2012; Chelba
-et al., 2013; Williams et al., 2015; Ji et al., 2015a; Shazeer
-et al., 2015).  
+Indeed, most recent work on large scale LM has shown that RNNs are great in combination with N-grams, as they may have different strengths that complement N-gram models, but worse when considered in isolation (Mikolov et al., 2011; Mikolov, 2012; Chelba et al., 2013; Williams et al., 2015; Ji et al., 2015a; Shazeer et al., 2015).  
 
 > **[success]**  
 complement：补充  
 RNN与N-gram结合的LM效果好  
 
-We believe that, despite much work being devoted to small
-data sets like the Penn Tree Bank (PTB) (Marcus et al.,
-1993), research on larger tasks is very relevant as overfit-
-ting is not the main limitation in current language model-
-ing, but is the main characteristic of the PTB task. Results
-on larger corpora usually show better what matters as many
-ideas work well on small data sets but fail to improve on
-larger data sets. Further, given current hardware trends and
-vast amounts of text available on the Web, it is much more
-straightforward to tackle large scale modeling than it used
-to be. Thus, we hope that our work will help and motivate
-researchers to work on traditional LM beyond PTB – for
-this purpose, we will open-source our models and training
-recipes.
-We focused on a well known, large scale LM benchmark:
-the One Billion Word Benchmark data set (Chelba et al.,
-2013). This data set is much larger than PTB (one thou-
-sand fold, 800k word vocabulary and 1B words training
-data) and far more challenging. Similar to Imagenet (Deng
-et al., 2009), which helped advance computer vision, we
-believe that releasing and working on large data sets and
-models with clear benchmarks will help advance Language
-Modeling.
+We believe that, despite much work being devoted to small data sets like the Penn Tree Bank (PTB) (Marcus et al., 1993), research on larger tasks is very relevant as overfitting is not the main limitation in current language modeling, but is the main characteristic of the PTB task. Results on larger corpora usually show better what matters as many ideas work well on small data sets but fail to improve on larger data sets. Further, given current hardware trends and vast amounts of text available on the Web, it is much more straightforward to tackle large scale modeling than it used to be. Thus, we hope that our work will help and motivate researchers to work on traditional LM beyond PTB – for this purpose, we will open-source our models and training recipes.  
+
+> **[success]**  
+这一段解释为什么要探索大规模的LM。  
+（1）小规模数据容易过拟合  
+（2）在小规模数据上有效的模型用到大规模数据上却没有提升  
+（3）硬件发展使用在使用大规模数据更容易。  
+[?]本文说的大规模LM是指模型的规模大还是数据的规模大？  
+
+We focused on a well known, large scale LM benchmark: **the One Billion Word Benchmark data set** (Chelba et al., 2013). This data set is much larger than PTB (one thousand fold, 800k word vocabulary and 1B words training data) and far more challenging. Similar to Imagenet (Deng et al., 2009), which helped advance computer vision, we believe that releasing and working on large data sets and models with clear benchmarks will help advance Language Modeling.  
+
+> **[success]**  
+使用的大规模数据集：the One Billion Word Benchmark data set  
+特点：（1）数据量更大（2）更有挑战  
+
 The contributions of our work are as follows:
-• We explored, extended and tried to unify some of the
-current research on large scale LM.
-• Specifically, we designed a Softmax loss which is
-based on character level CNNs, is efficient to train,
-and is as precise as a full Softmax which has orders of
-magnitude more parameters.
-• Our study yielded significant improvements to the
-state-of-the-art on a well known, large scale LM task:
-from 51.3 down to 30.0 perplexity for single models
-whilst reducing the number of parameters by a factor
-of 20.
- We show that an ensemble of a number of different
-models can bring down perplexity on this task to 23.7,
-a large improvement compared to current state-of-art.
-• We share the model and recipes in order to help and
-motivate further research in this area.
-In Section 2 we review important concepts and previous
-work on language modeling. Section 3 presents our contri-
-butions to the field of neural language modeling, emphasiz-
-ing large scale recurrent neural network training. Sections
-4 and 5 aim at exhaustively describing our experience and
-understanding throughout the project, as well as emplacing
-our work relative to other known approaches.
+
+• We explored, extended and tried to unify some of the current research on large scale LM.  
+
+> **[info]** unify：使...统一  
+
+• Specifically, we designed a Softmax loss which is based on character level CNNs, is efficient to train, and is as precise as a full Softmax which has orders of magnitude more parameters.  
+
+> **[success]**  
+训练时字符级的CNN时，使用一种新的Softmax损失函数代替原来的full Softmax损失函数，新Softmax损失函数的优点是：  
+（1）训练效率高  
+（2）结果跟full Softmax一样精确  
+（3）参数更少  
+
+• Our study yielded significant improvements to the state-of-the-art on a well known, large scale LM task: from 51.3 down to 30.0 perplexity for single models whilst reducing the number of parameters by a factor of 20.
+
+• We show that an ensemble of a number of different models can bring down perplexity on this task to 23.7, a large improvement compared to current state-of-art.
+
+• We share the model and recipes in order to help and motivate further research in this area.
+
+In Section 2 we review important concepts and previous work on language modeling. Section 3 presents our contributions to the field of neural language modeling, emphasizing large scale recurrent neural network training. Sections 4 and 5 aim at exhaustively describing our experience and understanding throughout the project, as well as emplacing our work relative to other known approaches.
+
+> **[info]** emplacing：镶嵌
+
+
+
+
