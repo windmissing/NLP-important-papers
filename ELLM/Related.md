@@ -44,59 +44,63 @@ matrices：矩阵
 
 ## Convolutional Embedding Models
 
-There is an increased interest in incorporating character-
-level inputs to build word embeddings for various NLP
-problems, including part-of-speech tagging, parsing and
-language modeling (Ling et al., 2015; Kim et al., 2015;
-Ballesteros et al., 2015). The additional character informa-
-tion has been shown useful on relatively small benchmark
-data sets.
-The approach proposed in (Ling et al., 2015) builds word
-embeddings using bidirectional LSTMs (Schuster & Pali-
-wal, 1997; Graves & Schmidhuber, 2005) over the charac-
-ters. The recurrent networks process sequences of charac-
-tersfrombothsidesandtheirfinalstatevectorsareconcate-
-nated. The resulting representation is then fed to a Neural
-Network. This model achieved very good results on a part-
-of-speech tagging task.
-In (Kim et al., 2015), the words characters are processed by
-a 1-d CNN (Le Cun et al., 1990) with max-pooling across
-the sequence for each convolutional feature. The result-
-ing features are fed to a 2-layer highway network (Srivas-
-tava et al., 2015b), which allows the embedding to learn se-
-mantic representations. The model was evaluated on small-
-scalelanguagemodelingexperimentsforvariouslanguages
-and matched the best results on the PTB data set despite
-having 60% fewer parameters.
+There is an increased interest in incorporating character-level inputs to build word embeddings for various NLP problems, including part-of-speech tagging, parsing and language modeling (Ling et al., 2015; Kim et al., 2015;  
+
+> **[info]** incorporating：合并  
+
+Ballesteros et al., 2015). The additional character information has been shown useful on relatively small benchmark data sets.   
+
+> **[success]**  
+在word embedding中加入字符级表示，在小数据集场景中非常有用。  
+
+The approach proposed in (Ling et al., 2015) builds word embeddings using bidirectional LSTMs (Schuster & Paliwal, 1997; Graves & Schmidhuber, 2005) over the characters. The recurrent networks process sequences of characters from both sides and their final state vectors are concatenated. The resulting representation is then fed to a Neural Network. This model achieved very good results on a part-of-speech tagging task.  
+
+> **[success]**  
+用双向LSTM生成字符级表示  
+过程：两个RNN分别从字符序列的两端开始读入字符，最后的向量是两个RNN向量的拼接。   
+性能：在“part-of-speech tagging”任务中有好的性能。  
+
+In (Kim et al., 2015), the words characters are processed by a 1-d CNN (Le Cun et al., 1990) with max-pooling across the sequence for each convolutional feature. The resulting features are fed to a 2-layer highway network (Srivastava et al., 2015b), which allows the embedding to learn semantic representations.   
+
+> **[success]**  
+用卷积生成字符级表示   
+过程：字符序列 -- [1维CNN](https://windmissing.github.io/Bible-DeepLearning/Chapter9/7Data.html) -- [最大池](https://windmissing.github.io/Bible-DeepLearning/Chapter9/3Pooling.html) --- 2层[highway](https://windmissing.github.io/Bible-DeepLearning/Chapter9/Highway.html) -- embedding   
+
+The model was evaluated on small scale language modeling experiments for various languages and matched the best results on the PTB data set despite having 60% fewer parameters.  
+
+> **[warning]**  
+性能：  
+（1）在PTB上有好的效果  
+（2）参数减少60%，[?]跟谁比少60%？
+
 ## Softmax Over Large Vocabularies
-Assigning probability distributions over large vocabularies
-is computationally challenging. For modeling language,
-maximizing log-likelihood of a given word sequence leads
-to optimizing cross-entropy between the target probability
-distribution (e.g., the target word we should be predicting),
-and our model predictions p. Generally, predictions come
-from a linear layer followed by a Softmax non-linearity:
-p(w) =
-exp(z w )
-P
-w 0 ∈V
-exp(z w 0 )
-where z w is the logit correspond-
-ing to a word w. The logit is generally computed as an
-inner product z w = h T e w where h is a context vector and
-e w is a “word embedding” for w.
-The main challenge when |V | is very large (in the order
-of one million in this paper) is the fact that computing
-all inner products between h and all embeddings becomes
-prohibitively slow during training (even when exploiting
-matrix-matrix multiplications and modern GPUs). Several
-approaches have been proposed to cope with the scaling is-
-sue: importance sampling (Bengio et al., 2003; Bengio &
-Senécal, 2008), Noise Contrastive Estimation (NCE) (Gut-
-mann & Hyvärinen, 2010; Mnih & Kavukcuoglu, 2013),
-self normalizing partition functions (Vincent et al., 2015)
-or Hierarchical Softmax (Morin & Bengio, 2005; Mnih &
-Hinton, 2009) – they all offer good solutions to this prob-
-lem. We found importance sampling to be quite effective
-on this task, and explain the connection between it and
-NCE in the following section, as they are closely related.
+
+Assigning probability distributions over large vocabularies is computationally challenging. For modeling language, maximizing log-likelihood of a given word sequence leads to optimizing cross-entropy between the target probability distribution (e.g., the target word we should be predicting), and our model predictions p. Generally, predictions come from a linear layer followed by a Softmax non-linearity:$p(w) = \frac{\exp(z_w)}{\sum_{w'\in V}\exp(z_{w'})}$where $z_w$ is the logit corresponding to a word w. The logit is generally computed as an inner product $z_w = h^\top e_w$ where h is a context vector and $e_w$ is a “word embedding” for w.  
+
+> **[success]**  
+目标是最大化[对数似然估计](https://windmissing.github.io/mathematics_basic_for_ML/Probability/likelihood.html)，即“目标概率分布”和“预测概率分布”的[交叉熵](https://windmissing.github.io/mathematics_basic_for_ML/Information/Divergence.html)  
+在NN中通常使用[softmax](https://windmissing.github.io/Bible-DeepLearning/Chapter6/2Gradient/2OutputUnit/3Softmax.html)来计算多分类问题的“预测概率分布”。  
+
+The main challenge when |V| is very large (in the order of one million in this paper) is the fact that computing all inner products between h and all embeddings becomes prohibitively slow during training (even when exploiting matrix-matrix multiplications and modern GPUs).   
+
+> **[success]**  
+prohibitively slow：太慢了   
+大规模LM的瓶颈在于用softmax计算“预测概率分布”太慢了。  
+
+Several approaches have been proposed to cope with the scaling issue: **importance sampling** (Bengio et al., 2003; Bengio & Senécal, 2008), **Noise Contrastive Estimation (NCE)** (Gutmann & Hyvärinen, 2010; Mnih & Kavukcuoglu, 2013), **self normalizing partition functions** (Vincent et al., 2015) or **Hierarchical Softmax** (Morin & Bengio, 2005; Mnih & Hinton, 2009) – they all offer good solutions to this problem.   
+
+> **[success]**  
+解决以上问题的已有方法包括：  
+（1）importance sampling  
+（2）Noise Contrastive Estimation (NCE)  
+（3）self normalizing partition functions  
+（4）Hierarchical Softmax  
+
+We found importance sampling to be quite effective on this task, and explain the connection between it and NCE in the following section, as they are closely related.
+
+> **[success]**  
+本文结论：  
+（1）importance sampling在本文中有效  
+（2）importance sampling和NCE有联系  
+
+
