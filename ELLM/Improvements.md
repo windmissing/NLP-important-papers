@@ -3,7 +3,7 @@
 Recurrent Neural Networks based LMs employ the chain rule to model joint probabilities over word sequences:  
 
 $$
-p(w_1,...,w_N ) = \prod_{i=1}^N p(w_i |w_1 ,...,w_{i−1} )
+p(w_1,...,w_N ) = \prod_{i=1}^N p(w_i |w_1 ,..., w_{i-1} )
 $$
 
 > **[success]**  
@@ -54,14 +54,14 @@ $P_n$：noise分布
 k：负样本数/正样本数  
 [?] 为什么这里需要k？  
 
-It is easy to show that if we train a logistic classifier $p_θ (Y = true|w) = σ(s_θ (w,h) − \log kp_n (w))$ where σ is the logistic function, then, $p'(w) = softmax(s_θ (w,h))$ is a good approximation of $p_d (w)$ ($s_θ$ is a logit which e.g. an LSTM LM computes).  
+It is easy to show that if we train a logistic classifier $p_\theta (Y = true|w) = \sigma(s_\theta (w,h) - \log kp_n (w))$ where σ is the logistic function, then, $p'(w) = softmax(s_\theta (w,h))$ is a good approximation of $p_d (w)$ ($s_\theta$ is a logit which e.g. an LSTM LM computes).  
 
 > **[success]**  
 [logistic function](https://windmissing.github.io/mathematics_basic_for_ML/Probability/functions.html)    
 logit：[逻辑回归](https://windmising.gitbook.io/liu-yu-bo-play-with-machine-learning/9-1)  
 把logistic function代入以上公式得：  
 $$
-p_θ (Y = true|w) = \frac{\exp(S_\theta(w, h))}{\exp(S_\theta(w, h)) + kP_n(w)}
+p_\theta (Y = true|w) = \frac{\exp(S_\theta(w, h))}{\exp(S_\theta(w, h)) + kP_n(w)}
 $$
 
 > [?]为什么说$p'(w)$是$p_d (w)$的近似呢？  
@@ -86,7 +86,7 @@ data.
 By Bayes rule, and ignoring terms that are constant with respect to Y , we can write:  
 
 $$
-p(Y = k|W) ∝ Y \frac{p_d (w_k )}{p_n (w_k )}
+p(Y = k|W) \propto Y \frac{p_d (w_k )}{p_n (w_k )}
 $$
 
 and, following a similar argument than for NCE, if we define p(Y = k|W) = softmax(s θ (w k )−logp n (w k )) then p 0 (w) = softmax(s θ (w,h)) is a good approximation of p d (word). Note that **the only difference between NCE and IS is that, in NCE, we define a binary classification task between true or noise words with a logistic loss, whereas in IS we define a multiclass classification problem with a Softmax and cross entropy loss**. We hope that our derivation helps clarify the similarities and differences between the two. In particular, we observe that IS, as it optimizes a multiclass classification task (in contrast to solving a binary task), may be a better choice. Indeed, the updates to the logits with IS are tied whereas in NCE they are independent.  
