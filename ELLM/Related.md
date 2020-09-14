@@ -90,6 +90,7 @@ prohibitively slow：太慢了
 Several approaches have been proposed to cope with the scaling issue: **importance sampling** (Bengio et al., 2003; Bengio & Senécal, 2008), **Noise Contrastive Estimation (NCE)** (Gutmann & Hyvärinen, 2010; Mnih & Kavukcuoglu, 2013), **self normalizing partition functions** (Vincent et al., 2015) or **Hierarchical Softmax** (Morin & Bengio, 2005; Mnih & Hinton, 2009) – they all offer good solutions to this problem.   
 
 > **[success]**  
+Contrastive：对比的   
 解决以上问题的已有方法包括：  
 （1）importance sampling  
 （2）Noise Contrastive Estimation (NCE)  
