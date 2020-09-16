@@ -7,7 +7,16 @@ p(w_1,...,w_N ) = \prod_{i=1}^N p(w_i |w_1 ,..., w_{i-1} )
 $$
 
 > **[success]**  
-上面公式中的w是由LSTM生成的向量  
+根据前i-1个w来预测wi是某个单词的条件概率。   
+假设每个wi的条件概率是独立的，因此可以使用链式法则。  
+$$
+\begin{aligned}
+p(w) = \frac{\exp z(w)}{\sum_w \exp z(w)}  \\
+z_w = h^\top e_w
+\end{aligned}
+$$
+
+> $z_w$是由LSTM生成的。  
 
 where the context of all previous words is encoded with an LSTM, and the probability over words uses a Softmax (see Figure 1(a)).  
 
@@ -35,7 +44,12 @@ Sampling approaches只能用于训练阶段，不能用于预测阶段。
 
 Noise Contrastive Estimation (NCE) proposes to consider a surrogate binary classification task in which a classifier is trained to discriminate between true data, or samples coming from some arbitrary distribution.  
 
-> **[info]** surrogate：代理的  
+> **[success]** surrogate：代理的   
+二分类问题：前i-1个w已知的情况下，wi是来自正样本分布的概率。  
+正样本：在训练数据中，前i-1个w特定的情况下，第i个单词为正样本。  
+负样本：随机选择的单词为负样本。  
+正样本是在训练数据中找到的，所以数量有限。  
+负样本是随机生成的，所以数量无限。  
 
 If both the noise and data distributions were known, the
 optimal classifier would be:  
@@ -50,9 +64,16 @@ where Y is the binary random variable indicating whether w comes from the true d
 Y = true：w来自true data的分布  
 Y = false：w来自某个任意分布（noise分布）    
 $P_d$：true data分布   
-$P_n$：noise分布  
-k：负样本数/正样本数  
-[?] 为什么这里需要k？  
+$P_n$：noise分布   
+$$
+\begin{aligned}
+P(Y=true|w) &=& \frac{P(Y=true, w)}{P(w)}  \\
+&=& \frac{P(w|Y=true)P(Y=true)}{P(w)}  \\
+&=& \frac{P(w|Y=true)P(Y=true)}{P(w|Y=true)P(Y=true)+P(w|Y=false)P(Y=false)}   \\
+&=& \frac{P(w|Y=true)}{P(w|Y=true) + P(w|Y=false)\frac{P(Y=false)}{P(Y=true)}}  \\
+&=& \frac{P_d(w)}{P_d(w) + kP_n(w)}
+\end{aligned}
+$$
 
 It is easy to show that if we train a logistic classifier $p_\theta (Y = true|w) = \sigma(s_\theta (w,h) - \log kp_n (w))$ where σ is the logistic function, then, $p'(w) = softmax(s_\theta (w,h))$ is a good approximation of $p_d (w)$ ($s_\theta$ is a logit which e.g. an LSTM LM computes).  
 
@@ -64,15 +85,23 @@ $$
 p_\theta (Y = true|w) = \frac{\exp(S_\theta(w, h))}{\exp(S_\theta(w, h)) + kP_n(w)}
 $$
 
-> [?]为什么说$p'(w)$是$p_d (w)$的近似呢？  
+> 结合前面的公式：  
+$$
+\begin{aligned}
+S_\theta(w, h) = h^\top e_w    \\
+p(w) = \frac{S_\theta(w, h)}{\sum_w S_\theta(w, h)}    \\
+p_\theta (Y = true|w) = \frac{P_d(w)}{P_d(w) + kP_n(w)}
+\end{aligned}
+$$
+
+> [?]看上去p'(w)就是p(w)，为什么说$p'(w)$是$p_d (w)$的近似呢？  
 
 The other technique, which is based on **importance sampling (IS)**, proposes to directly approximate the partition function (which comprises a sum over all words) with an estimate of it through importance sampling.   
 
 > **[warning]**  
-partition function：配分函数，这里是指公式的分母[?]  
+partition function：[?] 配分函数
 
-Though the methods look superficially similar, we will derive a similar surrogate classification task akin to NCE which arrives at
-IS, showing a strong connection between the two.  
+Though the methods look superficially similar, we will derive a similar surrogate classification task akin to NCE which arrives at IS, showing a strong connection between the two.  
 
 > **[info]**  
 superficially：从表面上看  
@@ -81,7 +110,7 @@ akin to：类似于
 Suppose that, instead of having a binary task to decide if a word comes from the data or from the noise distribution, we want to identify the words coming from the true data distribution in a set W = {w 1 ,...,w k+1 }, comprised of k noise samples and one data distribution sample. Thus, we can train a multiclass loss over a multinomial random variable Y which maximizes logp(Y = 1|W), assuming w.l.o.g. that w 1 ∈ W is always the word coming from true
 data.   
 
-> **[info]** w.l.o.g：Without loss of generality，不失一般性地  
+> **[info]** w.l.o.g：without loss of generality，不失一般性地  
 
 By Bayes rule, and ignoring terms that are constant with respect to Y , we can write:  
 
@@ -104,19 +133,20 @@ The character-level features allow for a smoother and compact parametrization of
 Recent efforts on small scale language modeling have used CNN character embeddings for the input embeddings (Kim et al., 2015). Although not as straightforward, we propose an extension to this idea to also reduce the number of parameters of the Softmax layer.   
 
 > **[success]**  
-本文使用的方法：基于CNN字符embedding的改进   
-目的：减少softmax层的参数数量。  
+由于CNN有使参数简洁的作用，本文把CNN结合到softmax层，目的是减少softmax层的参数数量。  
 
 Recall from Section 2.3 that the Softmax computes a logit as $z_w = h^\top e_w$ where h is a context vector and $e_w$ the word embedding. **Instead of building a matrix of |V | × |h| (whose rows correspond to $e_w$ ), we produce e w with a CNN over the characters of w as $e_w = CNN(chars_w )$** – we call this a CNN Softmax.   
 
 > **[success]** CNN Softmax的原理：  
 用CNN代替矩阵来生成word embedding $e_w$。  
+原来$e_w$是LSTM层生成的，现在用CNN层产生，那LSTM层去哪了？  
+[?] $chars_w$是什么？  
 
 We used the same network architecture to dynamically generate the Softmax word embeddings without sharing the parameters with the input word-embedding sub-network. For inference, the vectors $e_w$ can be precomputed, so there is no computational complexity increase w.r.t. the regular Softmax.  
 
 > **[success]**  
 CNN Softmax的好处：没有额外的计算。  
-[?] 原因没看懂，word embeddng是输入层的事，softmax是输出层的事，它们是怎么结合到一起的？  
+CNN层训练好之后，可以把所有$chars_w$对应的$e_w$都提前算出来。因此在预测阶段不需要再实时计算了。  
 
 We note that, when using an importance sampling loss such as the one described in Section 3.1, only a few logits have non-zero gradient (those corresponding to the true and sampled words).  
 
@@ -147,7 +177,9 @@ $$
 
 where M is a matrix projecting a low-dimensional embedding vector corr w back up to the dimensionality of the projected LSTM hidden state of h. This amounts to **adding a bottleneck linear layer**, and brings the CNN Softmax much closer to our best result, as can be seen in Table 1, where adding a 128-dim correction halves the gap between regular and the CNN Softmax.  
 
-> **info** halve：减半  
+> **[warning]**  
+halve：减半  
+上面好几段其实没看懂  
 
 Aside from a big reduction in the number of parameters and incorporating morphological knowledge from words, the other benefit of this approach is that out-of-vocabulary (OOV) words can easily be scored. This may be useful for other problems such as Machine Translation where handling out-of-vocabulary words is very important (Luong et al., 2014). This approach also allows parallel training over various data sets since the model is no longer explicitly parametrized by the vocabulary size – or the language.  
 
@@ -164,7 +196,7 @@ This has shown to help when using byte-level input embeddings for named entity r
 The CNN Softmax layer can handle arbitrary words and is much more efficient in terms of number of parameters than the full Softmax matrix. It is, though, still considerably slow, as to evaluate perplexities we need to compute the partition function.  
 
 > **[success]**  
-perplexities：混乱，这一种度量指标？  
+perplexities：混乱，一种度量指标，在下一节有讲  
 要解决的问题：评价“perplexities”很费时  
 
 A class of models that solve this problem more efficiently are **character-level LSTMs** (Sutskever et al., 2011; Graves, 2013). They make predictions one character at a time, thus allowing to compute probabili ties over a much smaller vocabulary.   
@@ -185,4 +217,9 @@ In order to make the whole process reasonably efficient, we train the standard L
 
 > **[info]** aforementioned：前面提到的  
 
-The resulting model scales independently of vocabulary size – both for training and inference. However, it does seem to be worse than regular and CNN Softmax – we are hopeful that further research will enable these models to replace fixed vocabulary models whilst being computationally attractive.
+The resulting model scales independently of vocabulary size – both for training and inference. However, it does seem to be worse than regular and CNN Softmax – we are hopeful that further research will enable these models to replace fixed vocabulary models whilst being computationally attractive.  
+
+> **[success]**  
+优点：模型大小与|V|无关  
+缺点：性能变差  
+
