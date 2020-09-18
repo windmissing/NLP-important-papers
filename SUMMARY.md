@@ -27,3 +27,7 @@
     * [5 Results and Analysis](ELLM/Results.md)
     * [6 Discussion and Conclusions](ELLM/Discussion.md)
     * [References](ELLM/References.md)
+* [Effective Approaches to Attention-based Neural Machine Translation](EAANMT/1.md)
+    * [Abstract](EAANMT/Abstract.md)
+    * [1 Introduction](EAANMT/Introduction.md)
+    * [2 Neural Machine Translation](EAANMT/Neural.md)
