@@ -32,3 +32,7 @@
     * [1 Introduction](EAANMT/Introduction.md)
     * [2 Neural Machine Translation](EAANMT/Neural.md)
     * [3 Attention-based Models](EAANMT/Attention.md)
+    * [4 Experiments](EAANMT/Experiments.md)
+    * [5 Analysis](EAANMT/Analysis.md)
+    * [6 Conclusion](EAANMT/Conclusion.md)
+    * [References](EAANMT/References.md)

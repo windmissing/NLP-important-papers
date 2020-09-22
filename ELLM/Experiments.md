@@ -12,7 +12,7 @@ All the sentences are shuffled and the duplicates are removed. The words that ar
 
 ## Model Setup
 
-The typical measure used for reporting progress in language modeling is **perplexity**, which is the average per-word log-probability on the holdout data set:$e^{−\frac{1}{N}\sum_i\ln p_{w_i}}$. We follow the standard procedure and sum over all the words (including the end of sentence symbol).  
+The typical measure used for reporting progress in language modeling is **perplexity**, which is the average per-word log-probability on the holdout data set:$\exp(-\frac{1}{N}\sum_i\ln p_{w_i})$. We follow the standard procedure and sum over all the words (including the end of sentence symbol).  
 
 > **[success]**  
 衡量指标：perplexity  

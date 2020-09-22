@@ -42,7 +42,7 @@ $$
 with g being the **transformation function** that outputs a vocabulary-sized  vector.5 Here,hj is the RNN hidden unit, abstractly computed as:  
 $$
 \begin{aligned}
-h_j=f(h_{j−1},s) && (3)
+h_j=f(h_{j-1},s) && (3)
 \end{aligned}
 $$
 
@@ -62,7 +62,7 @@ In this work, following (Sutskever et al., 2014;Luong et al., 2015),  we  use  t
 We  use  the  LSTM  unit  defined  in(Zaremba et al., 2015).   Our  training  objective  isformulated as follows:  
 $$
 \begin{aligned}
-J_t=\sum_{(x,y)\in D} −\log p(y|x) && (4)
+J_t=\sum_{(x,y)\in D} -\log p(y|x) && (4)
 \end{aligned}
 $$
 
