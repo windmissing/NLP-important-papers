@@ -1,5 +1,8 @@
 # Table of contents
 
+* 论文
+    * [2020.acl-main.34](ACL_2020/34.md)
+
 * [Neural Architectures for Named Entity Recognition](NANER/1.md)
     * [Abstract](NANER/Abstract.md)
     * [1 Introduction](NANER/Introduction.md)
@@ -42,3 +45,4 @@
     * [2. Related Work](CRFRNN/Related.md)
     * [3. Conditional Random Fields](CRFRNN/CRF.md)
     * [4. A Mean-field Iteration as a Stack of CNN](CRFRNN/Iteration.md)
+    * [5. The End-to-end Trainable Network](CRFCRNN/Network.md)
