@@ -1,10 +1,26 @@
 # Table of contents
 
 * 论文
+    * [2020.acl-main.7](ACL_2020/7.md)
+    * [2020.acl-main.8](ACL_2020/8.md)
+    * [2020.acl-main.9](ACL_2020/9.md)
     * [2020.acl-main.34](ACL_2020/34.md)
+    * [2020.acl-main.36](ACL_2020/36.md)
     * [2020.acl-main.40](ACL_2020/40.md)
     * [2020.acl-main.41](ACL_2020/41.md)
+    * [2020.acl-main.42](ACL_2020/42.md)
+    * [2020.acl-main.60](ACL_2020/60.md)
+    * [2020.acl-main.60](ACL_2020/61.md)
+    * [2020.acl-main.131](ACL_2020/131.md)
+    * [2020.acl-main.143](ACL_2020/143.md)
+    * [2020.acl-main.144](ACL_2020/144.md)
     * [2020.acl-main.145](ACL_2020/145.md)
+    * [2020.acl-main.147](ACL_2020/147.md)
+    * [2020.acl-main.148](ACL_2020/148.md)
+    * [2020.acl-main.150](ACL_2020/150.md)
+    * [2020.acl-main.184](ACL_2020/184.md)
+    * [2020.acl-main.185](ACL_2020/185.md)
+    * [2020.acl-main.186](ACL_2020/186.md)
 
 * [Neural Architectures for Named Entity Recognition](NANER/1.md)
     * [Abstract](NANER/Abstract.md)
