@@ -2,6 +2,9 @@
 
 * 论文
     * [2020.acl-main.34](ACL_2020/34.md)
+    * [2020.acl-main.40](ACL_2020/40.md)
+    * [2020.acl-main.41](ACL_2020/41.md)
+    * [2020.acl-main.145](ACL_2020/145.md)
 
 * [Neural Architectures for Named Entity Recognition](NANER/1.md)
     * [Abstract](NANER/Abstract.md)
