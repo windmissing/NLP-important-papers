@@ -6,6 +6,7 @@ https://github.com/terryum/awesome-deep-learning-papers/blob/master/README.md
 https://paperswithcode.com/  
 https://github.com/yizhen20133868/NLP-Conferences-Code  
 https://www.jianshu.com/p/d80b065bdcf0
+https://www.aclweb.org/anthology/events/acl-2020/
 
 # 表格说明
 
