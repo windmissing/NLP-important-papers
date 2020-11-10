@@ -12,13 +12,13 @@ https://www.aclweb.org/anthology/events/acl-2020/
 
 - 20%
 
-阅读：title, abstract  
+阅读：title, abstract, introduction  
 回答问题：要解决什么问题，用了什么方法，作者主要贡献，得到了什么结果  
 
 - 40%
 
-阅读：figure, introduction, conclusion  
-回答问题：同上
+阅读：related work, figure, conclusion  
+回答问题：已有的有哪些方法，baseline是什么，本文的创新点在哪里，得到了什么结果
 
 - 60%
 
