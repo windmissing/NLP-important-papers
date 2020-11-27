@@ -1,7 +1,7 @@
 The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU [16], ByteNet [18] and ConvS2S [9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions.   
 > **[warning]** [?] sequential computation是指什么？  
 
-  
+    
 > **[success]**  
 除了样本间的并行性。还要考虑同一个样本内不同时间步的计算的并行性。每个时间步都要根据输入向量计算出hidden向量。且hidden向量不止与当前时间步有并，还是前面的时间步有关。  
 RNN采样recurrent的方法来让前面的时间步影响当前时间步，ht依赖的是$h_{t-1}$。但这种方法导致不同时间步无法并行计算。  
@@ -27,8 +27,16 @@ conteract：低消
 [?] 为什么Multi-Head Attention会解决reduced effective resolution的问题？  
 
 **Self-attention**, sometimes called intra-attention is an attention mechanism relating different positions of a single sequence in order to compute a representation of the sequence. Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations [4, 27, 28, 22].   
+> **[info]**  
+[reading comprehension](https://arxiv.org/pdf/1601.06733.pdf?source=post_page---------------------------)  
+[abstractive summarization]()  
+[textual entailment]()  
+[learning task-independent sentence representations]()  
+
 End-to-end memory networks are based on a recurrent attention mechanism instead of sequencealigned recurrence and have been shown to perform well on simple-language question answering and language modeling tasks [34].   
-> **[warning]** [?] 这一段是要说明啥？  
+> **[success]**   
+[End-to-end memory networks](https://papers.nips.cc/paper/5846-end-to-end-memory-networks.pdf)  
+这里提到了两种注意力机制：Self-attention和recurrent attention mechanism。Transformer里这两种注意力机制都用到了，应注意力区分。  
 
 To the best of our knowledge, however, the Transformer is the first transduction model relying entirely on self-attention to compute representations of its input and output without using sequencealigned RNNs or convolution. In the following sections, we will describe the Transformer, motivate self-attention and discuss its advantages over models such as [17, 18] and [9].
 

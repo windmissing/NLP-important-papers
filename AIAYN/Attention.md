@@ -7,6 +7,8 @@ Q的大小为n_q * d_k，n_q为问题个数，d_k为问题向量的维度。
 K的大小为n_k * d_k，n_k为键值对的个数，d_k为键向量的维度。  
 V的大小为n_k * d_v，n_k为键值对的个数，d_v为值向量的维度。   
 
+    
+> **[warning]**  [?] 在本文中，Q、K、V分别是指什么呢？  
 # Scaled Dot-Product Attention
 
 ![](/AIAYN/assets/5.png)  
@@ -69,6 +71,24 @@ In this work we employ h = 8 parallel attention layers, or heads. For each of th
 # Applications of Attention in our Model
 
 The Transformer uses multi-head attention in three different ways:   
-• In "encoder-decoder attention" layers, the queries come from the previous decoder layer, and the memory keys and values come from the output of the encoder. This allows every position in the decoder to attend over all positions in the input sequence. This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as [38, 2, 9].  
+• In "encoder-decoder attention" layers, the queries come from the previous decoder layer, and the **memory** keys and values come from the output of the encoder. This allows every position in the decoder to attend over all positions in the input sequence. This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as [38, 2, 9].   
+> **[success]**  
+这里用的是recurrent attention mechanism。历史的encoder输入都会被记录和用于这里的注意力机制中。  
+query: decoder  
+key: encoder  
+value: encoder
+
 • The encoder contains self-attention layers. In a self-attention layer all of the keys, values and queries come from the same place, in this case, the output of the previous layer in the encoder. Each position in the encoder can attend to all positions in the previous layer of the encoder.   
+
+> **[success]**   
+这里用的是self-attention。  
+query、key、value都是所有position的上一层encoder的输出。   
+
 • Similarly, self-attention layers in the decoder allow each position in the decoder to attend to all positions in the decoder up to and including that position. We need to prevent leftward information flow in the decoder to preserve the auto-regressive property. We implement this inside of scaled dot-product attention by masking out (setting to −∞) all values in the input of the softmax which correspond to illegal connections. See Figure 2.
+
+> **[success]**  
+这里用的是self-attention。  
+query、key、value都是过去时间步的上一层decoder的输出。   
+
+　　　　
+> **[warning]** [?] Q/K/V为什么要这样设置？  

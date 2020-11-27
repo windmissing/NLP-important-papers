@@ -38,8 +38,3 @@ Transformer用Attention代替了传统序列转换问题模型中的**recurrent*
 Transformer摒弃了recurrent结构，这不代表在Transformer中每个时间步之间没有关系。实际上在Transformer中，还是存在从当前时间步到下一个时间步的数据流动。下一个时间步使用了当时步的输出。  
 ![](/AIAYN/assets/1.png)  
 存在图上红线的路径才叫recurrent结构。Transformer中不存在红线路径，但仍存在绿线路径。  
-
-　　
-> **[warning]**  
-[?] 我还是不知道怎么用Attention代替recurrent的。我看到的attention是用在同一个时间步的，没有看不同时间步之间有attention。  
-
