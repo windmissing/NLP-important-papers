@@ -36,7 +36,7 @@ Once the individual steps of the algorithm are broken down as CNN layers, the fu
 
 > **[success]** 第二步：把CNN reformulate 成RNN  
 
-We explain this in Section 5 after discussing the steps of Algorithm 1 in detail below. In Algorithm 1 and the remainder of this paper, we use $U_i(l)$ to denote the negative of the unary energy introduced in the previous section, i.e., $U_i(l) = −\psi_u(X_i = l)$. In the conventional CRF setting, this input $U_i(l)$ to the mean-field algorithm is obtained from an independent classifier.  
+We explain this in Section 5 after discussing the steps of Algorithm 1 in detail below. In Algorithm 1 and the remainder of this paper, we use $U_i(l)$ to denote the negative of the unary energy introduced in the previous section, i.e., $U_i(l) = -\psi_u(X_i = l)$. In the conventional CRF setting, this input $U_i(l)$ to the mean-field algorithm is obtained from an independent classifier.  
 
 ## Initialization
 
@@ -85,7 +85,7 @@ In the compatibility transform step, outputs from the previous step (denoted by 
 
 > **[warning]** [?] 这一句没看懂  
 
-Compatibility between the two labels l and l ′ is parameterized by the label compatibility function µ(l,l ′ ). The Potts model, given by $\mu(l,l′)=[l\neq l′]$, where [.] is the Iverson bracket, assigns a fixed penalty if different labels are assigned to pixels with similar properties. A limitation of this model is that it **assigns the same penalty for all different pairs** of labels. Intuitively, better results can be obtained **by taking the compatibility between different label pairs into account and penalizing the assignments accordingly**. For example, assigning labels “person” and “bicycle” to nearby pixels should have a lesser penalty than assigning “sky” and “bicycle”. Therefore, learning the function µ from data is preferred to fixing it in advance with Potts model. We also relax our compatibility transform model by assuming $\mu(l,l′) \neq \mu(l′ ,l)$ in general.
+Compatibility between the two labels l and l ' is parameterized by the label compatibility function µ(l,l ' ). The Potts model, given by $\mu(l,l')=[l\neq l']$, where [.] is the Iverson bracket, assigns a fixed penalty if different labels are assigned to pixels with similar properties. A limitation of this model is that it **assigns the same penalty for all different pairs** of labels. Intuitively, better results can be obtained **by taking the compatibility between different label pairs into account and penalizing the assignments accordingly**. For example, assigning labels “person” and “bicycle” to nearby pixels should have a lesser penalty than assigning “sky” and “bicycle”. Therefore, learning the function µ from data is preferred to fixing it in advance with Potts model. We also relax our compatibility transform model by assuming $\mu(l,l') \neq \mu(l' ,l)$ in general.
 
 Compatibility transform step can be viewed as another convolution layer where the spatial receptive field of the filter is 1 × 1, and the number of input and output channels are both L. Learning the weights of this filter is equivalent to learning the label compatibility function µ. Transferring
 error differentials from the output of this step to the input can be done since this step is a usual convolution operation.  
