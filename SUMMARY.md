@@ -7,6 +7,10 @@
     * [3 Model Architecture](AIAYN/ModelArchitecture.md)
         * [3.1 Encoder and Decoder Stacks](AIAYN/EncoderAndDecoderStacks.md)
         * [3.2 Attention](AIAYN/Attention.md)
+        * [3.3 Position-wise Feed-Forward Networks](AIAYN/PositionwiseFeedForwardNetworks.md)
+        * [3.4 Embeddings and Softmax](AIAYN/EmbeddingsAndSoftmax.md)
+        * [3.5 Positional Encoding](AIAYN/PositionalEncoding.md)
+    * [4 Why Self-Attention](AIAYN/WhySelfAttention.md)
 
 * 论文
     * [2020.acl-main.6](ACL_2020/6.md)
