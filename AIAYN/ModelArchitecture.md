@@ -39,7 +39,20 @@ class Encoder(nn.Module):
         if return_attns:
             return enc_output, enc_slf_attn_list
         return enc_output,
+```
 
+> **[success]**  
+Encoder构造函数中的参数说明：  
+`n_src_vocab`：3.4 Embedding  
+`n_position`：3.5 PositionEncoding  
+`d_word_vec`：3.4 Embedding, 3.5 PE  
+`d_model`：3.1 EncoderLayer, LayerNorm  
+`d_inner`: 3.1 EncoderLayer  
+`n_layers`: 3.1 EncoderLayer  
+`n_head`: 3.1 EncoderLayer  
+`d_k`: 3.1 EncoderLayer
+
+```python
 
 class Decoder(nn.Module):
     ''' A decoder model with self attention mechanism. '''
@@ -120,7 +133,6 @@ class Transformer(nn.Module):
 
         if emb_src_trg_weight_sharing:
             self.encoder.src_word_emb.weight = self.decoder.trg_word_emb.weight
-
 
     def forward(self, src_seq, trg_seq):
 
