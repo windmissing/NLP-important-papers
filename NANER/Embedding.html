@@ -1,0 +1,1923 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4 Input Word Embeddings · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="windmissing">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-plus/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-click-reveal/click_reveal.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Experiments.html" />
+    
+    
+    <link rel="prev" href="Chunking.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"windmissing/NLP-important-papers","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../AIAYN/1.html">
+            
+                <a href="../AIAYN/1.html">
+            
+                    
+                    Attention Is All You Need
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../AIAYN/Abstract.html">
+            
+                <a href="../AIAYN/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../AIAYN/Introduction.html">
+            
+                <a href="../AIAYN/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../AIAYN/Background.html">
+            
+                <a href="../AIAYN/Background.html">
+            
+                    
+                    2 Background
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../AIAYN/ModelArchitecture.html">
+            
+                <a href="../AIAYN/ModelArchitecture.html">
+            
+                    
+                    3 Model Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../AIAYN/EncoderAndDecoderStacks.html">
+            
+                <a href="../AIAYN/EncoderAndDecoderStacks.html">
+            
+                    
+                    3.1 Encoder and Decoder Stacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../AIAYN/Attention.html">
+            
+                <a href="../AIAYN/Attention.html">
+            
+                    
+                    3.2 Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../AIAYN/PositionwiseFeedForwardNetworks.html">
+            
+                <a href="../AIAYN/PositionwiseFeedForwardNetworks.html">
+            
+                    
+                    3.3 Position-wise Feed-Forward Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="../AIAYN/EmbeddingsAndSoftmax.html">
+            
+                <a href="../AIAYN/EmbeddingsAndSoftmax.html">
+            
+                    
+                    3.4 Embeddings and Softmax
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="../AIAYN/PositionalEncoding.html">
+            
+                <a href="../AIAYN/PositionalEncoding.html">
+            
+                    
+                    3.5 Positional Encoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../AIAYN/WhySelfAttention.html">
+            
+                <a href="../AIAYN/WhySelfAttention.html">
+            
+                    
+                    4 Why Self-Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    论文
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ACL_2020/6.html">
+            
+                <a href="../ACL_2020/6.html">
+            
+                    
+                    2020.acl-main.6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ACL_2020/7.html">
+            
+                <a href="../ACL_2020/7.html">
+            
+                    
+                    2020.acl-main.7
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ACL_2020/8.html">
+            
+                <a href="../ACL_2020/8.html">
+            
+                    
+                    2020.acl-main.8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ACL_2020/9.html">
+            
+                <a href="../ACL_2020/9.html">
+            
+                    
+                    2020.acl-main.9
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../ACL_2020/10.html">
+            
+                <a href="../ACL_2020/10.html">
+            
+                    
+                    2020.acl-main.10
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../ACL_2020/11.html">
+            
+                <a href="../ACL_2020/11.html">
+            
+                    
+                    2020.acl-main.11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../ACL_2020/15.html">
+            
+                <a href="../ACL_2020/15.html">
+            
+                    
+                    2020.acl-main.11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../ACL_2020/20.html">
+            
+                <a href="../ACL_2020/20.html">
+            
+                    
+                    2020.acl-main.20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../ACL_2020/23.html">
+            
+                <a href="../ACL_2020/23.html">
+            
+                    
+                    2020.acl-main.23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../ACL_2020/25.html">
+            
+                <a href="../ACL_2020/25.html">
+            
+                    
+                    2020.acl-main.25
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../ACL_2020/34.html">
+            
+                <a href="../ACL_2020/34.html">
+            
+                    
+                    2020.acl-main.34
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../ACL_2020/36.html">
+            
+                <a href="../ACL_2020/36.html">
+            
+                    
+                    2020.acl-main.36
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../ACL_2020/40.html">
+            
+                <a href="../ACL_2020/40.html">
+            
+                    
+                    2020.acl-main.40
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="../ACL_2020/41.html">
+            
+                <a href="../ACL_2020/41.html">
+            
+                    
+                    2020.acl-main.41
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="../ACL_2020/42.html">
+            
+                <a href="../ACL_2020/42.html">
+            
+                    
+                    2020.acl-main.42
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="../ACL_2020/54.html">
+            
+                <a href="../ACL_2020/54.html">
+            
+                    
+                    2020.acl-main.54
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.17" data-path="../ACL_2020/57.html">
+            
+                <a href="../ACL_2020/57.html">
+            
+                    
+                    2020.acl-main.57
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.18" data-path="../ACL_2020/55.html">
+            
+                <a href="../ACL_2020/55.html">
+            
+                    
+                    2020.acl-main.55
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.19" data-path="../ACL_2020/60.html">
+            
+                <a href="../ACL_2020/60.html">
+            
+                    
+                    2020.acl-main.60
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.20" data-path="../ACL_2020/61.html">
+            
+                <a href="../ACL_2020/61.html">
+            
+                    
+                    2020.acl-main.61
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.21" data-path="../ACL_2020/64.html">
+            
+                <a href="../ACL_2020/64.html">
+            
+                    
+                    2020.acl-main.64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.22" data-path="../ACL_2020/67.html">
+            
+                <a href="../ACL_2020/67.html">
+            
+                    
+                    2020.acl-main.67
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.23" data-path="../ACL_2020/68.html">
+            
+                <a href="../ACL_2020/68.html">
+            
+                    
+                    2020.acl-main.68
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.24" data-path="../ACL_2020/76.html">
+            
+                <a href="../ACL_2020/76.html">
+            
+                    
+                    2020.acl-main.76
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.25" data-path="../ACL_2020/80.html">
+            
+                <a href="../ACL_2020/80.html">
+            
+                    
+                    2020.acl-main.80
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.26" data-path="../ACL_2020/94.html">
+            
+                <a href="../ACL_2020/94.html">
+            
+                    
+                    2020.acl-main.94
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.27" data-path="../ACL_2020/98.html">
+            
+                <a href="../ACL_2020/98.html">
+            
+                    
+                    2020.acl-main.98
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.28" data-path="../ACL_2020/101.html">
+            
+                <a href="../ACL_2020/101.html">
+            
+                    
+                    2020.acl-main.101
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.29" data-path="../ACL_2020/127.md">
+            
+                <span>
+            
+                    
+                    2020.acl-main.127
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.30" data-path="../ACL_2020/130.html">
+            
+                <a href="../ACL_2020/130.html">
+            
+                    
+                    2020.acl-main.130
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.31" data-path="../ACL_2020/131.html">
+            
+                <a href="../ACL_2020/131.html">
+            
+                    
+                    2020.acl-main.131
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.32" data-path="../ACL_2020/143.html">
+            
+                <a href="../ACL_2020/143.html">
+            
+                    
+                    2020.acl-main.143
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.33" data-path="../ACL_2020/144.html">
+            
+                <a href="../ACL_2020/144.html">
+            
+                    
+                    2020.acl-main.144
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.34" data-path="../ACL_2020/145.html">
+            
+                <a href="../ACL_2020/145.html">
+            
+                    
+                    2020.acl-main.145
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.35" data-path="../ACL_2020/147.html">
+            
+                <a href="../ACL_2020/147.html">
+            
+                    
+                    2020.acl-main.147
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.36" data-path="../ACL_2020/148.html">
+            
+                <a href="../ACL_2020/148.html">
+            
+                    
+                    2020.acl-main.148
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.37" data-path="../ACL_2020/150.html">
+            
+                <a href="../ACL_2020/150.html">
+            
+                    
+                    2020.acl-main.150
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.38" data-path="../ACL_2020/152.html">
+            
+                <a href="../ACL_2020/152.html">
+            
+                    
+                    2020.acl-main.152
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.39" data-path="../ACL_2020/154.html">
+            
+                <a href="../ACL_2020/154.html">
+            
+                    
+                    2020.acl-main.154
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.40" data-path="../ACL_2020/155.html">
+            
+                <a href="../ACL_2020/155.html">
+            
+                    
+                    2020.acl-main.155
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.41" data-path="../ACL_2020/164.html">
+            
+                <a href="../ACL_2020/164.html">
+            
+                    
+                    2020.acl-main.164
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.42" data-path="../ACL_2020/165.html">
+            
+                <a href="../ACL_2020/165.html">
+            
+                    
+                    2020.acl-main.165
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.43" data-path="../ACL_2020/167.html">
+            
+                <a href="../ACL_2020/167.html">
+            
+                    
+                    2020.acl-main.167
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.44" data-path="../ACL_2020/171.html">
+            
+                <a href="../ACL_2020/171.html">
+            
+                    
+                    2020.acl-main.171
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.45" data-path="../ACL_2020/184.html">
+            
+                <a href="../ACL_2020/184.html">
+            
+                    
+                    2020.acl-main.184
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.46" data-path="../ACL_2020/185.html">
+            
+                <a href="../ACL_2020/185.html">
+            
+                    
+                    2020.acl-main.185
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.47" data-path="../ACL_2020/186.html">
+            
+                <a href="../ACL_2020/186.html">
+            
+                    
+                    2020.acl-main.186
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.48" data-path="../ACL_2020/201.html">
+            
+                <a href="../ACL_2020/201.html">
+            
+                    
+                    2020.acl-main.201
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.49" data-path="../ACL_2020/218.html">
+            
+                <a href="../ACL_2020/218.html">
+            
+                    
+                    2020.acl-main.218
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.50" data-path="../ACL_2020/219.html">
+            
+                <a href="../ACL_2020/219.html">
+            
+                    
+                    2020.acl-main.219
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.51" data-path="../ACL_2020/221.html">
+            
+                <a href="../ACL_2020/221.html">
+            
+                    
+                    2020.acl-main.221
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.52" data-path="../ACL_2020/222.html">
+            
+                <a href="../ACL_2020/222.html">
+            
+                    
+                    2020.acl-main.222
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.53" data-path="../ACL_2020/223.html">
+            
+                <a href="../ACL_2020/223.html">
+            
+                    
+                    2020.acl-main.223
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.54" data-path="../ACL_2020/224.html">
+            
+                <a href="../ACL_2020/224.html">
+            
+                    
+                    2020.acl-main.224
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.55" data-path="../ACL_2020/227.html">
+            
+                <a href="../ACL_2020/227.html">
+            
+                    
+                    2020.acl-main.227
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.56" data-path="../ACL_2020/228.html">
+            
+                <a href="../ACL_2020/228.html">
+            
+                    
+                    2020.acl-main.228
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.57" data-path="../ACL_2020/251.html">
+            
+                <a href="../ACL_2020/251.html">
+            
+                    
+                    2020.acl-main.251
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.58" data-path="../ACL_2020/252.html">
+            
+                <a href="../ACL_2020/252.html">
+            
+                    
+                    2020.acl-main.252
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.59" data-path="../ACL_2020/254.html">
+            
+                <a href="../ACL_2020/254.html">
+            
+                    
+                    2020.acl-main.254
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    Neural Architectures for Named Entity Recognition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="Abstract.html">
+            
+                <a href="Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="Introduction.html">
+            
+                <a href="Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="LSTMCRF.html">
+            
+                <a href="LSTMCRF.html">
+            
+                    
+                    2 LSTM-CRF Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="Chunking.html">
+            
+                <a href="Chunking.html">
+            
+                    
+                    3 Transition-Based Chunking Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.5" data-path="Embedding.html">
+            
+                <a href="Embedding.html">
+            
+                    
+                    4 Input Word Embeddings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="Experiments.html">
+            
+                <a href="Experiments.html">
+            
+                    
+                    5 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="Relatedwork.html">
+            
+                <a href="Relatedwork.html">
+            
+                    
+                    6 Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="Conclusion.html">
+            
+                <a href="Conclusion.html">
+            
+                    
+                    7 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="Reference.html">
+            
+                <a href="Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../TMRC/1.html">
+            
+                <a href="../TMRC/1.html">
+            
+                    
+                    Teaching Machines to Read and Comprehend
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../TMRC/Abstract.html">
+            
+                <a href="../TMRC/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../TMRC/Introduction.html">
+            
+                <a href="../TMRC/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../TMRC/Supervised.html">
+            
+                <a href="../TMRC/Supervised.html">
+            
+                    
+                    2 Supervised training data for reading comprehension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../TMRC/Models.html">
+            
+                <a href="../TMRC/Models.html">
+            
+                    
+                    3 Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../TMRC/Empirical.html">
+            
+                <a href="../TMRC/Empirical.html">
+            
+                    
+                    4 Empirical Evaluation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../TMRC/Conclusion.html">
+            
+                <a href="../TMRC/Conclusion.html">
+            
+                    
+                    5 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="../TMRC/Reference.html">
+            
+                <a href="../TMRC/Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../ELLM/1.html">
+            
+                <a href="../ELLM/1.html">
+            
+                    
+                    Exploring the Limits of Language Modeling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../ELLM/Abstract.html">
+            
+                <a href="../ELLM/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../ELLM/Introduction.html">
+            
+                <a href="../ELLM/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../ELLM/Related.html">
+            
+                <a href="../ELLM/Related.html">
+            
+                    
+                    2 Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../ELLM/Improvements.html">
+            
+                <a href="../ELLM/Improvements.html">
+            
+                    
+                    3 Language Modeling Improvements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="../ELLM/Experiments.html">
+            
+                <a href="../ELLM/Experiments.html">
+            
+                    
+                    4 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="../ELLM/Results.html">
+            
+                <a href="../ELLM/Results.html">
+            
+                    
+                    5 Results and Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.7" data-path="../ELLM/Discussion.html">
+            
+                <a href="../ELLM/Discussion.html">
+            
+                    
+                    6 Discussion and Conclusions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.8" data-path="../ELLM/References.html">
+            
+                <a href="../ELLM/References.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../EAANMT/1.html">
+            
+                <a href="../EAANMT/1.html">
+            
+                    
+                    Effective Approaches to Attention-based Neural Machine Translation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../EAANMT/Abstract.html">
+            
+                <a href="../EAANMT/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../EAANMT/Introduction.html">
+            
+                <a href="../EAANMT/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../EAANMT/Neural.html">
+            
+                <a href="../EAANMT/Neural.html">
+            
+                    
+                    2 Neural Machine Translation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="../EAANMT/Attention.html">
+            
+                <a href="../EAANMT/Attention.html">
+            
+                    
+                    3 Attention-based Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="../EAANMT/Experiments.html">
+            
+                <a href="../EAANMT/Experiments.html">
+            
+                    
+                    4 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.6" data-path="../EAANMT/Analysis.html">
+            
+                <a href="../EAANMT/Analysis.html">
+            
+                    
+                    5 Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.7" data-path="../EAANMT/Conclusion.html">
+            
+                <a href="../EAANMT/Conclusion.html">
+            
+                    
+                    6 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.8" data-path="../EAANMT/References.html">
+            
+                <a href="../EAANMT/References.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../CRFRNN/1.html">
+            
+                <a href="../CRFRNN/1.html">
+            
+                    
+                    Conditional random fields as recurrent neural networks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="../CRFRNN/Abstract.html">
+            
+                <a href="../CRFRNN/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="../CRFRNN/Introduction.html">
+            
+                <a href="../CRFRNN/Introduction.html">
+            
+                    
+                    1. Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3" data-path="../CRFRNN/Related.html">
+            
+                <a href="../CRFRNN/Related.html">
+            
+                    
+                    2. Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.4" data-path="../CRFRNN/CRF.html">
+            
+                <a href="../CRFRNN/CRF.html">
+            
+                    
+                    3. Conditional Random Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.5" data-path="../CRFRNN/Iteration.html">
+            
+                <a href="../CRFRNN/Iteration.html">
+            
+                    
+                    4. A Mean-field Iteration as a Stack of CNN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.6" data-path="../CRFCRNN/Network.md">
+            
+                <span>
+            
+                    
+                    5. The End-to-end Trainable Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >4 Input Word Embeddings</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#input-word-embeddings"><b>1. </b>Input Word Embeddings</a></li><ul><li><span class="title-icon "></span><a href="#character-based-models-of-words"><b>1.1. </b>Character-based models of words</a></li><li><span class="title-icon "></span><a href="#pretrained-embeddings"><b>1.2. </b>Pretrained embeddings</a></li><li><span class="title-icon "></span><a href="#43-dropout-training"><b>1.3. </b>4.3 Dropout training</a></li></ul></ul></div><a href="#input-word-embeddings" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="input-word-embeddings"><a name="input-word-embeddings" class="anchor-navigation-ex-anchor" href="#input-word-embeddings"><i class="fa fa-link" aria-hidden="true"></i></a>1. Input Word Embeddings</h1>
+<p>The input layers to both of our models are vector representations of individual words. Learning independent representations for word types from the limited NER training data is a difficult problem: there are simply too many parameters to reliably estimate. Since many languages have orthographic or morphological evidence that something is a name (or not a name), we want representations that are sensitive to the spelling of words. We therefore use a model that constructs representations of words from representations of the characters they are composed of (4.1).   </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x5148;&#x9A8C;&#x77E5;&#x8BC6;1&#xFF1A;&#x53EF;&#x4EE5;&#x4ECE;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x7EC4;&#x6210;&#x63A8;&#x65AD;&#x5B83;&#x662F;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;name entity&#x3002;<br>&#x56E0;&#x6B64;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x7EA7;&#x53CC;&#x5411;LSTM&#x6765;&#x4F53;&#x73B0;&#x5355;&#x8BCD;&#x7EC4;&#x6210;&#x7684;&#x7279;&#x70B9;&#x3002;  </p>
+</blockquote>
+<p>Our second intuition is that names, which may individually be quite varied, appear in regular contexts in large corpora. Therefore we use embeddings learned from a large corpus that are sensitive to word order (4.2).   </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x5148;&#x9A8C;&#x77E5;&#x8BC6;2&#xFF1A;&#x53EF;&#x4EE5;&#x4ECE;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x5728;&#x53E5;&#x5B50;&#x4E0A;&#x7684;&#x4F4D;&#x7F6E;&#x63A8;&#x65AD;&#x5B83;&#x662F;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;name entity&#x3002;<br>&#x56E0;&#x6B64;&#x4F7F;&#x7528;&#x5BF9;&#x5355;&#x8BCD;&#x987A;&#x5E8F;&#x654F;&#x611F;&#x7684;&#x8BED;&#x6599;&#x5E93;&#x8BAD;&#x7EC3;embedding.  </p>
+</blockquote>
+<p>Finally, to prevent the models from depending on one representation or the other too strongly, we use dropout training and find this is crucial for good generalization performance (4.3).</p>
+<blockquote>
+<p><strong>[success]</strong><br>dropout&#x7528;&#x4E8E;&#x5E73;&#x8861;&#x5B57;&#x7B26;&#x7EA7;&#x8868;&#x793A;&#x4E0E;&#x5355;&#x8BCD;&#x7EA7;&#x8868;&#x793A;&#x7684;&#x91CD;&#x8981;&#x6027;&#xFF0C;&#x5BF9;&#x6027;&#x80FD;&#x6709;&#x5F88;&#x5927;&#x63D0;&#x5347;&#x3002;  </p>
+</blockquote>
+<h2 id="character-based-models-of-words"><a name="character-based-models-of-words" class="anchor-navigation-ex-anchor" href="#character-based-models-of-words"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. Character-based models of words</h2>
+<p><strong>An important distinction</strong> of our work from most previous approaches is that we learn character-level features while training instead of hand-engineering prefix and suffix information about words. Learning character-level embeddings has the advantage of learning representations specific to the task and do main at hand. They have been found useful for morphologically rich languages and to handle the out-of-vocabulary problem for tasks like part-of-speech tagging and language modeling (Ling et al., 2015b) or dependency parsing (Ballesteros et al., 2015).  </p>
+<blockquote>
+<p><strong>[success] &#x5B57;&#x7B26;&#x7EA7;&#x7684;embedding&#x7684;&#x4F18;&#x52BF;</strong><br>&#x5F62;&#x6001;&#x5B66;rich&#x7684;&#x8BED;&#x8A00;<br>&#x5904;&#x7406;out of vocabulary&#x95EE;&#x9898;<br>dependency parsing  </p>
+</blockquote>
+<p>Figure 4 describes our architecture to generate a word embedding for a word from its characters. A character lookup table initialized at random contains an embedding for every character. The character embeddings corresponding to every character in a word are given in direct and reverse order to a forward and a backward LSTM. The embedding for a word derived from its characters is the concatenation of its forward and backward representations from the bidirectional LSTM. This character-level representation is then concatenated with a word-level representation from a word lookup-table. During testing, words that do not have an embedding in the lookup table are mapped to a UNK embedding.   </p>
+<p><img src="assets/4.png" alt="">  </p>
+<blockquote>
+<p><strong>[success]</strong> 
+&#x5B57;&#x7B26;&#x7EA7;embedding&#x4E5F;&#x662F;&#x7528;&#x7684;&#x53CC;&#x5411;LSTM&#xFF0C;&#x7136;&#x540E;&#x4E24;&#x8FB9;&#x7684;&#x7ED3;&#x679C;&#x62FC;&#x5230;&#x4E00;&#x8D77;&#x3002;&#x533A;&#x522B;&#x662F;&#x6BCF;&#x4E2A;LSTM&#x90FD;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x7ED3;&#x675F;&#x65F6;&#x624D;&#x8F93;&#x51FA;&#x3002;<br>&#x518D;&#x52A0;&#x4E0A;&#x5355;&#x8BCD;&#x7EA7;&#x7684;embedding&#xFF0C;&#x6765;&#x81EA;&#x67E5;&#x8868;&#x548C;UNK embedding</p>
+</blockquote>
+<p>To train the UNK embedding, we replace singletons with the UNK embedding with a probability 0.5.   </p>
+<blockquote>
+<p><strong>[warning]</strong> &#x8FD9;&#x4E00;&#x53E5;&#x6CA1;&#x770B;&#x61C2;  </p>
+</blockquote>
+<p>In all our experiments, the hidden dimension of the forward and backward character LSTMs are 25 each, which results in our character-based representation of words being of dimension 50.  </p>
+<p>Recurrent models like RNNs and LSTMs are capable of encoding very long sequences, however, they have a representation <strong>biased towards their most recent inputs</strong>. As a result, we expect the final representation of the forward LSTM to be an accurate representation of the suffix of the word, and the final state of the backward LSTM to be a better representation of its prefix.  </p>
+<blockquote>
+<p><strong>[success]</strong>
+&#x4E3A;&#x4EC0;&#x4E48;&#x7528;&#x53CC;&#x5411;LSTM&#xFF1F;<br>&#x56E0;&#x4E3A;RNN/LSTM&#x53D7;&#x6700;&#x8FD1;&#x7684;&#x70B9;&#x5F71;&#x54CD;&#x7279;&#x522B;&#x5927;&#x3002;&#x53CC;&#x5411;&#x5206;&#x522B;&#x7528;&#x4E8E;&#x8BC6;&#x522B;&#x5355;&#x8BCD;&#x7684;&#x524D;&#x7F00;&#x548C;&#x540E;&#x7F00;&#x3002;</p>
+</blockquote>
+<p>Alternative approaches most notably like convolutional networks&#x2014;have been proposed to learn representations of words from their characters (Zhang et al., 2015; Kim et al., 2015). However, convnets are designed to discover position-invariant features of their inputs. While this is appropriate for many problems, e.g., image recognition (a cat can appear anywhere in a picture), we argue that important information is position dependent (e.g., prefixes and suffixes encode different information than stems), making LSTMs an a priori better function class for modeling the relationship between words and their characters.  </p>
+<blockquote>
+<p><strong>[success]</strong>
+&#x6B64;&#x5904;&#x4E0D;&#x9002;&#x5408;&#x7528;CNN&#xFF0C;&#x56E0;&#x4E3A;&#x524D;&#x7F00;&#x548C;&#x540E;&#x7F00;&#x7684;&#x4F4D;&#x7F6E;&#x56FA;&#x5B9A;&#xFF0C;&#x4E0D;&#x5177;&#x6709;&#x5E73;&#x79FB;&#x4E0D;&#x53D8;&#x6027;&#x3002;</p>
+</blockquote>
+<h2 id="pretrained-embeddings"><a name="pretrained-embeddings" class="anchor-navigation-ex-anchor" href="#pretrained-embeddings"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. Pretrained embeddings</h2>
+<p>As in Collobert et al. (2011), we use pretrained word embeddings to initialize our lookup table. We observe significant improvements using pretrained word embeddings over randomly initialized ones.  </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x56FE;4&#x7684;&#x5355;&#x8BCD;&#x7EA7;look-up table&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4F7F;&#x7528;pretrained&#x4EE3;&#x66FF;&#x968F;&#x673A;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x6027;&#x80FD;&#x6709;&#x660E;&#x663E;&#x63D0;&#x5347;&#x3002;  </p>
+</blockquote>
+<p>Embeddings are pretrained using skip-n-gram (Ling et al., 2015a), a variation of word2vec (Mikolov et al., 2013a) that accounts for word order. These embeddings are fine-tuned during training.  </p>
+<blockquote>
+<p><strong>[success]</strong><br>look-up-table = skip-n-gram + fine-tuned   </p>
+</blockquote>
+<p>Word embeddings for Spanish, Dutch, German and English are trained using the Spanish Gigaword version 3, the Leipzig corpora collection, the German monolingual training data from the 2010 Machine Translation Workshop and the English Giga word version 4 (with the LA Times and NY Times portions removed) respectively. 2 We use an embedding dimension of 100 for English, 64 for other languages, a minimum word frequency cutoff of 4, and a window size of 8.</p>
+<blockquote>
+<p><strong>[success]</strong> &#x8BAD;&#x7EC3;word embedding&#x7528;&#x7684;&#x8BED;&#x6599;&#x5E93;</p>
+</blockquote>
+<h2 id="43-dropout-training"><a name="43-dropout-training" class="anchor-navigation-ex-anchor" href="#43-dropout-training"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. 4.3 Dropout training</h2>
+<p>Initial experiments showed that character-level embeddings did not improve our overall performance when used in conjunction with pretrained word representations. To encourage the model to <strong>depend on both representations</strong>, we use dropout training (Hinton et al., 2012), applying a dropout mask to the final embedding layer just before the input to the bidirectional LSTM in Figure 1. We observe a significant improvement in our model&#x2019;s performance after using dropout (see table 5).</p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x5B57;&#x7B26;&#x7EA7;&#x8868;&#x793A; + &#x5355;&#x8BCD;&#x7EA7;&#x8868;&#x793A; + pretrained = &#x6548;&#x679C;&#x4E00;&#x822C;<br>&#x5B57;&#x7B26;&#x7EA7;&#x8868;&#x793A; + &#x5355;&#x8BCD;&#x7EA7;&#x8868;&#x793A; + pretrained + dropout = &#x6548;&#x679C;&#x597D;  </p>
+</blockquote>
+<div id="gitalk-container"></div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Chunking.html" class="navigation navigation-prev " aria-label="Previous page: 3 Transition-Based Chunking Model">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Experiments.html" class="navigation navigation-next " aria-label="Next page: 5 Experiments">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4 Input Word Embeddings","level":"2.1.5","depth":2,"next":{"title":"5 Experiments","level":"2.1.6","depth":2,"path":"NANER/Experiments.md","ref":"NANER/Experiments.md","articles":[]},"previous":{"title":"3 Transition-Based Chunking Model","level":"2.1.4","depth":2,"path":"NANER/Chunking.md","ref":"NANER/Chunking.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","katex-plus","alerts","mygitalk","github","github-buttons","splitter","-sharing","sharing-plus","donate","copy-code-button","anchor-navigation-ex","sectionx","click-reveal"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/windmissing/NLP-important-papers"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"http://windmissing.github.io/images/2020/alipay.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://windmissing.github.io/images/2020/weixin.jpg","wechatText":"微信打赏"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"click-reveal":{},"sectionx":{},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"isShowTocTitleIcon":true,"printLog":false,"multipleH1":true,"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"katex-plus":{},"alerts":{},"github-buttons":{"repo":"windmissing/NLP-important-papers","types":["star","watch","fork"],"size":"small"},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"b622481cb88eba2f32db","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["windmissing"],"createIssueManually":false,"distractionFreeMode":false,"repo":"NLP-important-papers","owner":"windmissing","enableHotKey":true,"clientSecret":"1d8550b28cfbf3afb71fff648b67cf6fe708b90c","pagerDirection":"last","labels":["Gitalk"]},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"windmissing","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.2.3"},"file":{"path":"NANER/Embedding.md","mtime":"2021-02-07T09:12:16.533Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-07T09:13:42.963Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+        
+    
+        
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mygitalk/mygitalk.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-click-reveal/click_reveal.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

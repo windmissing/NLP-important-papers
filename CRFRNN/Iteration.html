@@ -1,0 +1,1947 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4. A Mean-field Iteration as a Stack of CNN · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="windmissing">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-plus/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-click-reveal/click_reveal.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../CRFCRNN/Network.md" />
+    
+    
+    <link rel="prev" href="CRF.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"windmissing/NLP-important-papers","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../AIAYN/1.html">
+            
+                <a href="../AIAYN/1.html">
+            
+                    
+                    Attention Is All You Need
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../AIAYN/Abstract.html">
+            
+                <a href="../AIAYN/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../AIAYN/Introduction.html">
+            
+                <a href="../AIAYN/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../AIAYN/Background.html">
+            
+                <a href="../AIAYN/Background.html">
+            
+                    
+                    2 Background
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../AIAYN/ModelArchitecture.html">
+            
+                <a href="../AIAYN/ModelArchitecture.html">
+            
+                    
+                    3 Model Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../AIAYN/EncoderAndDecoderStacks.html">
+            
+                <a href="../AIAYN/EncoderAndDecoderStacks.html">
+            
+                    
+                    3.1 Encoder and Decoder Stacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../AIAYN/Attention.html">
+            
+                <a href="../AIAYN/Attention.html">
+            
+                    
+                    3.2 Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../AIAYN/PositionwiseFeedForwardNetworks.html">
+            
+                <a href="../AIAYN/PositionwiseFeedForwardNetworks.html">
+            
+                    
+                    3.3 Position-wise Feed-Forward Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="../AIAYN/EmbeddingsAndSoftmax.html">
+            
+                <a href="../AIAYN/EmbeddingsAndSoftmax.html">
+            
+                    
+                    3.4 Embeddings and Softmax
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="../AIAYN/PositionalEncoding.html">
+            
+                <a href="../AIAYN/PositionalEncoding.html">
+            
+                    
+                    3.5 Positional Encoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../AIAYN/WhySelfAttention.html">
+            
+                <a href="../AIAYN/WhySelfAttention.html">
+            
+                    
+                    4 Why Self-Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    论文
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ACL_2020/6.html">
+            
+                <a href="../ACL_2020/6.html">
+            
+                    
+                    2020.acl-main.6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ACL_2020/7.html">
+            
+                <a href="../ACL_2020/7.html">
+            
+                    
+                    2020.acl-main.7
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ACL_2020/8.html">
+            
+                <a href="../ACL_2020/8.html">
+            
+                    
+                    2020.acl-main.8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ACL_2020/9.html">
+            
+                <a href="../ACL_2020/9.html">
+            
+                    
+                    2020.acl-main.9
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../ACL_2020/10.html">
+            
+                <a href="../ACL_2020/10.html">
+            
+                    
+                    2020.acl-main.10
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../ACL_2020/11.html">
+            
+                <a href="../ACL_2020/11.html">
+            
+                    
+                    2020.acl-main.11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../ACL_2020/15.html">
+            
+                <a href="../ACL_2020/15.html">
+            
+                    
+                    2020.acl-main.11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../ACL_2020/20.html">
+            
+                <a href="../ACL_2020/20.html">
+            
+                    
+                    2020.acl-main.20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../ACL_2020/23.html">
+            
+                <a href="../ACL_2020/23.html">
+            
+                    
+                    2020.acl-main.23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../ACL_2020/25.html">
+            
+                <a href="../ACL_2020/25.html">
+            
+                    
+                    2020.acl-main.25
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../ACL_2020/34.html">
+            
+                <a href="../ACL_2020/34.html">
+            
+                    
+                    2020.acl-main.34
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../ACL_2020/36.html">
+            
+                <a href="../ACL_2020/36.html">
+            
+                    
+                    2020.acl-main.36
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../ACL_2020/40.html">
+            
+                <a href="../ACL_2020/40.html">
+            
+                    
+                    2020.acl-main.40
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="../ACL_2020/41.html">
+            
+                <a href="../ACL_2020/41.html">
+            
+                    
+                    2020.acl-main.41
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="../ACL_2020/42.html">
+            
+                <a href="../ACL_2020/42.html">
+            
+                    
+                    2020.acl-main.42
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="../ACL_2020/54.html">
+            
+                <a href="../ACL_2020/54.html">
+            
+                    
+                    2020.acl-main.54
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.17" data-path="../ACL_2020/57.html">
+            
+                <a href="../ACL_2020/57.html">
+            
+                    
+                    2020.acl-main.57
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.18" data-path="../ACL_2020/55.html">
+            
+                <a href="../ACL_2020/55.html">
+            
+                    
+                    2020.acl-main.55
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.19" data-path="../ACL_2020/60.html">
+            
+                <a href="../ACL_2020/60.html">
+            
+                    
+                    2020.acl-main.60
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.20" data-path="../ACL_2020/61.html">
+            
+                <a href="../ACL_2020/61.html">
+            
+                    
+                    2020.acl-main.61
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.21" data-path="../ACL_2020/64.html">
+            
+                <a href="../ACL_2020/64.html">
+            
+                    
+                    2020.acl-main.64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.22" data-path="../ACL_2020/67.html">
+            
+                <a href="../ACL_2020/67.html">
+            
+                    
+                    2020.acl-main.67
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.23" data-path="../ACL_2020/68.html">
+            
+                <a href="../ACL_2020/68.html">
+            
+                    
+                    2020.acl-main.68
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.24" data-path="../ACL_2020/76.html">
+            
+                <a href="../ACL_2020/76.html">
+            
+                    
+                    2020.acl-main.76
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.25" data-path="../ACL_2020/80.html">
+            
+                <a href="../ACL_2020/80.html">
+            
+                    
+                    2020.acl-main.80
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.26" data-path="../ACL_2020/94.html">
+            
+                <a href="../ACL_2020/94.html">
+            
+                    
+                    2020.acl-main.94
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.27" data-path="../ACL_2020/98.html">
+            
+                <a href="../ACL_2020/98.html">
+            
+                    
+                    2020.acl-main.98
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.28" data-path="../ACL_2020/101.html">
+            
+                <a href="../ACL_2020/101.html">
+            
+                    
+                    2020.acl-main.101
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.29" data-path="../ACL_2020/127.md">
+            
+                <span>
+            
+                    
+                    2020.acl-main.127
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.30" data-path="../ACL_2020/130.html">
+            
+                <a href="../ACL_2020/130.html">
+            
+                    
+                    2020.acl-main.130
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.31" data-path="../ACL_2020/131.html">
+            
+                <a href="../ACL_2020/131.html">
+            
+                    
+                    2020.acl-main.131
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.32" data-path="../ACL_2020/143.html">
+            
+                <a href="../ACL_2020/143.html">
+            
+                    
+                    2020.acl-main.143
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.33" data-path="../ACL_2020/144.html">
+            
+                <a href="../ACL_2020/144.html">
+            
+                    
+                    2020.acl-main.144
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.34" data-path="../ACL_2020/145.html">
+            
+                <a href="../ACL_2020/145.html">
+            
+                    
+                    2020.acl-main.145
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.35" data-path="../ACL_2020/147.html">
+            
+                <a href="../ACL_2020/147.html">
+            
+                    
+                    2020.acl-main.147
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.36" data-path="../ACL_2020/148.html">
+            
+                <a href="../ACL_2020/148.html">
+            
+                    
+                    2020.acl-main.148
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.37" data-path="../ACL_2020/150.html">
+            
+                <a href="../ACL_2020/150.html">
+            
+                    
+                    2020.acl-main.150
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.38" data-path="../ACL_2020/152.html">
+            
+                <a href="../ACL_2020/152.html">
+            
+                    
+                    2020.acl-main.152
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.39" data-path="../ACL_2020/154.html">
+            
+                <a href="../ACL_2020/154.html">
+            
+                    
+                    2020.acl-main.154
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.40" data-path="../ACL_2020/155.html">
+            
+                <a href="../ACL_2020/155.html">
+            
+                    
+                    2020.acl-main.155
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.41" data-path="../ACL_2020/164.html">
+            
+                <a href="../ACL_2020/164.html">
+            
+                    
+                    2020.acl-main.164
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.42" data-path="../ACL_2020/165.html">
+            
+                <a href="../ACL_2020/165.html">
+            
+                    
+                    2020.acl-main.165
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.43" data-path="../ACL_2020/167.html">
+            
+                <a href="../ACL_2020/167.html">
+            
+                    
+                    2020.acl-main.167
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.44" data-path="../ACL_2020/171.html">
+            
+                <a href="../ACL_2020/171.html">
+            
+                    
+                    2020.acl-main.171
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.45" data-path="../ACL_2020/184.html">
+            
+                <a href="../ACL_2020/184.html">
+            
+                    
+                    2020.acl-main.184
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.46" data-path="../ACL_2020/185.html">
+            
+                <a href="../ACL_2020/185.html">
+            
+                    
+                    2020.acl-main.185
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.47" data-path="../ACL_2020/186.html">
+            
+                <a href="../ACL_2020/186.html">
+            
+                    
+                    2020.acl-main.186
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.48" data-path="../ACL_2020/201.html">
+            
+                <a href="../ACL_2020/201.html">
+            
+                    
+                    2020.acl-main.201
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.49" data-path="../ACL_2020/218.html">
+            
+                <a href="../ACL_2020/218.html">
+            
+                    
+                    2020.acl-main.218
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.50" data-path="../ACL_2020/219.html">
+            
+                <a href="../ACL_2020/219.html">
+            
+                    
+                    2020.acl-main.219
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.51" data-path="../ACL_2020/221.html">
+            
+                <a href="../ACL_2020/221.html">
+            
+                    
+                    2020.acl-main.221
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.52" data-path="../ACL_2020/222.html">
+            
+                <a href="../ACL_2020/222.html">
+            
+                    
+                    2020.acl-main.222
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.53" data-path="../ACL_2020/223.html">
+            
+                <a href="../ACL_2020/223.html">
+            
+                    
+                    2020.acl-main.223
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.54" data-path="../ACL_2020/224.html">
+            
+                <a href="../ACL_2020/224.html">
+            
+                    
+                    2020.acl-main.224
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.55" data-path="../ACL_2020/227.html">
+            
+                <a href="../ACL_2020/227.html">
+            
+                    
+                    2020.acl-main.227
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.56" data-path="../ACL_2020/228.html">
+            
+                <a href="../ACL_2020/228.html">
+            
+                    
+                    2020.acl-main.228
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.57" data-path="../ACL_2020/251.html">
+            
+                <a href="../ACL_2020/251.html">
+            
+                    
+                    2020.acl-main.251
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.58" data-path="../ACL_2020/252.html">
+            
+                <a href="../ACL_2020/252.html">
+            
+                    
+                    2020.acl-main.252
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.59" data-path="../ACL_2020/254.html">
+            
+                <a href="../ACL_2020/254.html">
+            
+                    
+                    2020.acl-main.254
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../NANER/1.html">
+            
+                <a href="../NANER/1.html">
+            
+                    
+                    Neural Architectures for Named Entity Recognition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../NANER/Abstract.html">
+            
+                <a href="../NANER/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../NANER/Introduction.html">
+            
+                <a href="../NANER/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../NANER/LSTMCRF.html">
+            
+                <a href="../NANER/LSTMCRF.html">
+            
+                    
+                    2 LSTM-CRF Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../NANER/Chunking.html">
+            
+                <a href="../NANER/Chunking.html">
+            
+                    
+                    3 Transition-Based Chunking Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../NANER/Embedding.html">
+            
+                <a href="../NANER/Embedding.html">
+            
+                    
+                    4 Input Word Embeddings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../NANER/Experiments.html">
+            
+                <a href="../NANER/Experiments.html">
+            
+                    
+                    5 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../NANER/Relatedwork.html">
+            
+                <a href="../NANER/Relatedwork.html">
+            
+                    
+                    6 Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../NANER/Conclusion.html">
+            
+                <a href="../NANER/Conclusion.html">
+            
+                    
+                    7 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../NANER/Reference.html">
+            
+                <a href="../NANER/Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../TMRC/1.html">
+            
+                <a href="../TMRC/1.html">
+            
+                    
+                    Teaching Machines to Read and Comprehend
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../TMRC/Abstract.html">
+            
+                <a href="../TMRC/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../TMRC/Introduction.html">
+            
+                <a href="../TMRC/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../TMRC/Supervised.html">
+            
+                <a href="../TMRC/Supervised.html">
+            
+                    
+                    2 Supervised training data for reading comprehension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../TMRC/Models.html">
+            
+                <a href="../TMRC/Models.html">
+            
+                    
+                    3 Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../TMRC/Empirical.html">
+            
+                <a href="../TMRC/Empirical.html">
+            
+                    
+                    4 Empirical Evaluation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../TMRC/Conclusion.html">
+            
+                <a href="../TMRC/Conclusion.html">
+            
+                    
+                    5 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="../TMRC/Reference.html">
+            
+                <a href="../TMRC/Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../ELLM/1.html">
+            
+                <a href="../ELLM/1.html">
+            
+                    
+                    Exploring the Limits of Language Modeling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../ELLM/Abstract.html">
+            
+                <a href="../ELLM/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../ELLM/Introduction.html">
+            
+                <a href="../ELLM/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../ELLM/Related.html">
+            
+                <a href="../ELLM/Related.html">
+            
+                    
+                    2 Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../ELLM/Improvements.html">
+            
+                <a href="../ELLM/Improvements.html">
+            
+                    
+                    3 Language Modeling Improvements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="../ELLM/Experiments.html">
+            
+                <a href="../ELLM/Experiments.html">
+            
+                    
+                    4 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="../ELLM/Results.html">
+            
+                <a href="../ELLM/Results.html">
+            
+                    
+                    5 Results and Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.7" data-path="../ELLM/Discussion.html">
+            
+                <a href="../ELLM/Discussion.html">
+            
+                    
+                    6 Discussion and Conclusions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.8" data-path="../ELLM/References.html">
+            
+                <a href="../ELLM/References.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../EAANMT/1.html">
+            
+                <a href="../EAANMT/1.html">
+            
+                    
+                    Effective Approaches to Attention-based Neural Machine Translation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../EAANMT/Abstract.html">
+            
+                <a href="../EAANMT/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../EAANMT/Introduction.html">
+            
+                <a href="../EAANMT/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../EAANMT/Neural.html">
+            
+                <a href="../EAANMT/Neural.html">
+            
+                    
+                    2 Neural Machine Translation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="../EAANMT/Attention.html">
+            
+                <a href="../EAANMT/Attention.html">
+            
+                    
+                    3 Attention-based Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="../EAANMT/Experiments.html">
+            
+                <a href="../EAANMT/Experiments.html">
+            
+                    
+                    4 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.6" data-path="../EAANMT/Analysis.html">
+            
+                <a href="../EAANMT/Analysis.html">
+            
+                    
+                    5 Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.7" data-path="../EAANMT/Conclusion.html">
+            
+                <a href="../EAANMT/Conclusion.html">
+            
+                    
+                    6 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.8" data-path="../EAANMT/References.html">
+            
+                <a href="../EAANMT/References.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    Conditional random fields as recurrent neural networks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="Abstract.html">
+            
+                <a href="Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="Introduction.html">
+            
+                <a href="Introduction.html">
+            
+                    
+                    1. Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3" data-path="Related.html">
+            
+                <a href="Related.html">
+            
+                    
+                    2. Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.4" data-path="CRF.html">
+            
+                <a href="CRF.html">
+            
+                    
+                    3. Conditional Random Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.5.5" data-path="Iteration.html">
+            
+                <a href="Iteration.html">
+            
+                    
+                    4. A Mean-field Iteration as a Stack of CNN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.6" data-path="../CRFCRNN/Network.md">
+            
+                <span>
+            
+                    
+                    5. The End-to-end Trainable Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >4. A Mean-field Iteration as a Stack of CNN</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#a-mean-field-iteration-as-a-stack-of-cnn-layers"><b>1. </b>A Mean-field Iteration as a Stack of CNN Layers</a></li><ul><li><span class="title-icon "></span><a href="#initialization"><b>1.1. </b>Initialization</a></li><li><span class="title-icon "></span><a href="#message-passing"><b>1.2. </b>Message Passing</a></li><li><span class="title-icon "></span><a href="#weighting-filter-outputs"><b>1.3. </b>Weighting Filter Outputs</a></li><li><span class="title-icon "></span><a href="#compatibility-transform"><b>1.4. </b>Compatibility Transform</a></li><li><span class="title-icon "></span><a href="#adding-unary-potentials"><b>1.5. </b>Adding Unary Potentials</a></li><li><span class="title-icon "></span><a href="#normalization"><b>1.6. </b>Normalization</a></li></ul></ul></div><a href="#a-mean-field-iteration-as-a-stack-of-cnn-layers" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="a-mean-field-iteration-as-a-stack-of-cnn-layers"><a name="a-mean-field-iteration-as-a-stack-of-cnn-layers" class="anchor-navigation-ex-anchor" href="#a-mean-field-iteration-as-a-stack-of-cnn-layers"><i class="fa fa-link" aria-hidden="true"></i></a>1. A Mean-field Iteration as a Stack of CNN Layers</h1>
+<p>A key contribution of this paper is to show that <strong>the mean-field CRF inference can be reformulated as a Recurrent Neural Network (RNN)</strong>.   </p>
+<blockquote>
+<p><strong>[success]</strong> &#x8FD9;&#x4E00;&#x8282;&#x7684;&#x76EE;&#x6807;&#xFF1A;&#x7528;RNN&#x5B9E;&#x73B0;mean-field CRF inference  </p>
+</blockquote>
+<p>To this end, we first consider individual steps of the mean-field algorithm summarized in Algorithm 1 [27], and describe them as CNN layers.   </p>
+<blockquote>
+<p><strong>[success]</strong> &#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x7528;CNN&#x5C42;&#x63CF;&#x8FF0;mean-field CRF&#x7B97;&#x6CD5;    </p>
+</blockquote>
+<p>Our contribution is based on the observation that <strong>filter-based approximate mean-field inference approach for dense CRFs relies on applying Gaussian spatial and bilateral filters on the mean-field approximates in each iteration</strong>.   </p>
+<blockquote>
+<p><strong>[info]</strong> bilateral&#xFF1A;&#x53CC;&#x8FB9;&#x7684;  </p>
+</blockquote>
+<p>Unlike the standard convolutional layer in a CNN, in which filters are fixed after the training stage, we use edge-preserving Gaussian filters [54, 40], coefficients of which depend on the original spatial and appearance information of the image.   </p>
+<blockquote>
+<p><strong>[info]</strong> edge-preserving&#xFF1A;&#x4FDD;&#x8FB9;&#x53BB;&#x566A;  </p>
+</blockquote>
+<p>These filters have the additional advantages of requiring a smaller set of parameters, despite the filter size being potentially as big as the image.  </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x8FD9;&#x91CC;&#x7684;CNN&#x4E0E;&#x6807;&#x51C6;CNN&#x7684;&#x533A;&#x522B;&#xFF1A;<br>CNN&#xFF1A;coefficients&#x4F9D;&#x8D56;&#x4E8E;&#x56FE;&#x50CF;&#x7684;original spatial and appearance information<br>&#x6807;&#x51C6;CNN&#xFF1A;&#x8BAD;&#x7EC3;&#x5B8C;&#x6210;&#x540E;filters are fixed<br>CNN&#x7684;&#x4F18;&#x70B9;&#xFF1A;&#x9700;&#x8981;&#x8F83;&#x5C11;&#x7684;&#x53C2;&#x6570;&#x96C6;  </p>
+</blockquote>
+<p>While reformulating the steps of the inference algorithm as CNN layers, it is essential to be able to calculate error differentials in each layer w.r.t. its inputs in order to be able to back-propagate the error differentials to previous layers during training.   </p>
+<blockquote>
+<p><strong>[success]</strong><br>w.r.t&#xFF1A;&#x5173;&#x4E8E;&#xFF0C;with respect/regard/reference to<br>&#x7528;CNN&#x5C42;&#x63CF;&#x8FF0;mean-field CRF&#x7B97;&#x6CD5;&#x7684;&#x5173;&#x952E;&#x662F;&#x8BA1;&#x7B97;&#x6BCF;&#x4E00;&#x4E2A;&#x7684;&#x9519;&#x8BEF;&#x504F;&#x5BFC;  </p>
+</blockquote>
+<p>We also discuss how to calculate error differentials w.r.t. the parameters in each layer, enabling their optimization through the back-propagation algorithm. Therefore, in our formulation, CRF parameters such as the weights of the Gaussian kernels and the label compatibility function can also be optimized automatically during the training of the full network.  </p>
+<p>Once the individual steps of the algorithm are broken down as CNN layers, the full algorithm can then be formulated as an RNN.   </p>
+<blockquote>
+<p><strong>[success]</strong> &#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x628A;CNN reformulate &#x6210;RNN  </p>
+</blockquote>
+<p>We explain this in Section 5 after discussing the steps of Algorithm 1 in detail below. In Algorithm 1 and the remainder of this paper, we use <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>U</mi><mi>i</mi></msub><mo>(</mo><mi>l</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">U_i(l)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mclose">)</span></span></span></span> to denote the negative of the unary energy introduced in the previous section, i.e., <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>U</mi><mi>i</mi></msub><mo>(</mo><mi>l</mi><mo>)</mo><mo>=</mo><mo>&#x2212;</mo><msub><mi>&#x3C8;</mi><mi>u</mi></msub><mo>(</mo><msub><mi>X</mi><mi>i</mi></msub><mo>=</mo><mi>l</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">U_i(l) = -\psi_u(X_i = l)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">&#x2212;</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">&#x3C8;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">u</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mclose">)</span></span></span></span>. In the conventional CRF setting, this input <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>U</mi><mi>i</mi></msub><mo>(</mo><mi>l</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">U_i(l)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mclose">)</span></span></span></span> to the mean-field algorithm is obtained from an independent classifier.  </p>
+<h2 id="initialization"><a name="initialization" class="anchor-navigation-ex-anchor" href="#initialization"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. Initialization</h2>
+<p>In the initialization step of the algorithm, the operation <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>Q</mi><mi>i</mi></msub><mo>(</mo><mi>l</mi><mo>)</mo><mo>&#x2190;</mo><mfrac><mrow><mn>1</mn></mrow><mrow><msub><mi>Z</mi><mi>i</mi></msub></mrow></mfrac><mi>exp</mi><mo>&#x2061;</mo><mo>(</mo><msub><mi>U</mi><mi>i</mi></msub><mo>(</mo><mi>l</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">Q_i(l) \leftarrow \frac{1}{Z_i}\exp(U_i(l))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.845108em;"></span><span class="strut bottom" style="height:1.2902079999999998em;vertical-align:-0.44509999999999994em;"></span><span class="base"><span class="mord"><span class="mord mathit">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2190;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:-0.07153em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"></span></span></span></span></span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewbox="0 0 400000 200" preserveaspectratio="xMinYMin slice"><path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"/></svg></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.44509999999999994em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mop">exp</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>, where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>Z</mi><mi>i</mi></msub><mo>=</mo><msub><mo>&#x2211;</mo><mi>l</mi></msub><mi>exp</mi><mo>&#x2061;</mo><mo>(</mo><msub><mi>U</mi><mi>i</mi></msub><mo>(</mo><mi>l</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">Z_i = \sum_l \exp(U_i(l))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.0497100000000001em;vertical-align:-0.29971000000000003em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1863979999999999em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mop">exp</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>, is performed. Note that this is equivalent to applying a softmax function over the unary potentials U across all the labels at each pixel. The softmax function has been extensively used in CNN architectures before and is therefore well known in the deep learning community. This operation does not include any parameters and the error differentials received at the output of the step during back-propagation could be passed down to the unary potential inputs after performing usual backward pass calculations of the softmax
+transformation.  </p>
+<blockquote>
+<p><strong>[success]</strong><br><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>Q</mi><mi>i</mi></msub><mo>(</mo><mi>l</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">Q_i(l)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mclose">)</span></span></span></span>&#x662F;&#x5BF9;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>U</mi><mi>i</mi></msub><mo>(</mo><mi>l</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">U_i(l)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mclose">)</span></span></span></span>&#x505A;softmax&#x7684;&#x7ED3;&#x679C;<br>&#x8FD9;&#x4E00;&#x6B65;&#x5728;BP&#x7B97;&#x6CD5;&#x4E2D;&#x4E0D;&#x9700;&#x8981;&#x7279;&#x6B8A;&#x5904;&#x7406;&#x3002;  </p>
+</blockquote>
+<h2 id="message-passing"><a name="message-passing" class="anchor-navigation-ex-anchor" href="#message-passing"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. Message Passing</h2>
+<p>In the dense CRF formulation of [27], message passing is implemented by <strong>applying M Gaussian filters on Q values</strong>. Gaussian filter coefficients are derived based on image features such as the pixel locations and RGB values, which reflect how strongly a pixel is related to other pixels. Since the CRF is potentially fully connected, each filter&#x2019;s receptive field spans the whole image, making it infeasible to use a brute-force implementation of the filters. Fortunately, several approximation techniques exist to make computation of high dimensional Gaussian filtering significantly faster. Following[27], we use the <strong>permutohedral lattice implementation</strong> [1], which can compute the filter response in O(N) time, where N is the number of pixels of the image [1].</p>
+<blockquote>
+<p><strong>[success] &#x524D;&#x5411;&#x4F20;&#x64AD;&#x8FC7;&#x7A0B;&#xFF1A;</strong><br>&#x65B9;&#x6CD5;&#xFF1A;applying M Gaussian filters on Q values<br>&#x8FC7;&#x7A0B;&#xFF1A;permutohedral lattice implementation<br>&#x590D;&#x6742;&#x5EA6;&#xFF1A;O(N)  </p>
+</blockquote>
+<p>During back-propagation, error derivatives w.r.t. the filter inputs are calculated by <strong>sending the error derivatives</strong> w.r.t. the filter outputs through the same M Gaussian filters <strong>in reverse direction</strong>. In terms of permutohedral lattice operations, this can be accomplished by only <strong>reversing the order of the separable filters in the blur stage</strong>, while building the permutohedral lattice, splatting, and slicing in the same way as in the forward pass. Therefore, back-propagation through this filtering stage can also be performed in O(N) time. Following [27], we use two Gaussian kernels, a spatial kernel and a bilateral kernel. In this work, for simplicity, we keep the bandwidth values of the filters fixed.</p>
+<blockquote>
+<p><strong>[success] &#x53CD;&#x5411;&#x4F20;&#x64AD;&#x8FC7;&#x7A0B;&#xFF1A;</strong><br>&#x65B9;&#x6CD5;&#xFF1A;sending the error derivatives in reverse direction<br>&#x8FC7;&#x7A0B;&#xFF1A;reversing the order of the separable filters in the blur stage<br>&#x590D;&#x6742;&#x5EA6;&#xFF1A;O(N)  </p>
+</blockquote>
+<h2 id="weighting-filter-outputs"><a name="weighting-filter-outputs" class="anchor-navigation-ex-anchor" href="#weighting-filter-outputs"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. Weighting Filter Outputs</h2>
+<p>The next step of the mean-field iteration is <strong>taking a weighted sum of the M filter outputs from the previous step</strong>, for each class label l. When each class label is considered individually, this can be viewed as usual convolution with a 1 &#xD7; 1 filter with M input channels, and one output channel.   </p>
+<blockquote>
+<p><strong>[success]</strong> &#x8FD9;&#x4E00;&#x6B65;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;M&#x8F93;&#x5165;1&#x8F93;&#x51FA;&#x7684;1x1&#x7684;&#x5377;&#x79EF;&#x5C42;  </p>
+</blockquote>
+<p>Since both inputs and the outputs to this step are known during back-propagation, the error derivative w.r.t. the <strong>filter weights</strong> can be computed, making it possible to <strong>automatically learn the filter weights</strong> (relative contributions from each Gaussian filter output from the previous stage). <strong>Error derivative</strong> w.r.t. the inputs can also be computed <strong>in the usual manner</strong> to pass the error derivatives down to the previous stage.   </p>
+<blockquote>
+<p><strong>[success]</strong><br>filter weights&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#xFF1A;automatically learn the filter weights<br>Error derivative&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#xFF1A;in the usual manner  </p>
+</blockquote>
+<p>To obtain a higher number of tunable parameters, in contrast to [27], we use independent kernel weights for each class label. The intuition is that the relative importance of the spatial kernel vs the bilateral kernel depends on the visual class. For example, bilateral kernels may have on the one hand a high importance in bicycle detection, because similarity of colours is determinant; on the other hand they may have low importance for TV detection, given that whatever is inside the TV screen may have different colours.</p>
+<blockquote>
+<p><strong>[warning]</strong> &#x4E0A;&#x9762;&#x8FD9;&#x4E00;&#x6BB5;&#x6CA1;&#x770B;&#x61C2;  </p>
+</blockquote>
+<h2 id="compatibility-transform"><a name="compatibility-transform" class="anchor-navigation-ex-anchor" href="#compatibility-transform"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. Compatibility Transform</h2>
+<p>In the compatibility transform step, outputs from the previous step (denoted by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>Q</mi><mo>&#x2C7;</mo></mover></mrow><annotation encoding="application/x-tex">\check Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8808em;"></span><span class="strut bottom" style="height:1.07524em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8808em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathit">Q</span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;">&#x2C7;</span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"></span></span></span></span></span></span></span> in Algorithm 1) are shared between the labels to a varied extent, depending on the compatibility between these labels.   </p>
+<blockquote>
+<p><strong>[warning]</strong> [?] &#x8FD9;&#x4E00;&#x53E5;&#x6CA1;&#x770B;&#x61C2;  </p>
+</blockquote>
+<p>Compatibility between the two labels l and l &apos; is parameterized by the label compatibility function &#xB5;(l,l &apos; ). The Potts model, given by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi><mo>(</mo><mi>l</mi><mo separator="true">,</mo><msup><mi>l</mi><mo mathvariant="normal">&#x2032;</mo></msup><mo>)</mo><mo>=</mo><mo>[</mo><mi>l</mi><mo>&#x2260;</mo><msup><mi>l</mi><mo mathvariant="normal">&#x2032;</mo></msup><mo>]</mo></mrow><annotation encoding="application/x-tex">\mu(l,l&apos;)=[l\neq l&apos;]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">&#x3BC;</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2260;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>, where [.] is the Iverson bracket, assigns a fixed penalty if different labels are assigned to pixels with similar properties. A limitation of this model is that it <strong>assigns the same penalty for all different pairs</strong> of labels. Intuitively, better results can be obtained <strong>by taking the compatibility between different label pairs into account and penalizing the assignments accordingly</strong>. For example, assigning labels &#x201C;person&#x201D; and &#x201C;bicycle&#x201D; to nearby pixels should have a lesser penalty than assigning &#x201C;sky&#x201D; and &#x201C;bicycle&#x201D;. Therefore, learning the function &#xB5; from data is preferred to fixing it in advance with Potts model. We also relax our compatibility transform model by assuming <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi><mo>(</mo><mi>l</mi><mo separator="true">,</mo><msup><mi>l</mi><mo mathvariant="normal">&#x2032;</mo></msup><mo>)</mo><mo>&#x2260;</mo><mi>&#x3BC;</mi><mo>(</mo><msup><mi>l</mi><mo mathvariant="normal">&#x2032;</mo></msup><mo separator="true">,</mo><mi>l</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\mu(l,l&apos;) \neq \mu(l&apos; ,l)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">&#x3BC;</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2260;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit">&#x3BC;</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mclose">)</span></span></span></span> in general.</p>
+<p>Compatibility transform step can be viewed as another convolution layer where the spatial receptive field of the filter is 1 &#xD7; 1, and the number of input and output channels are both L. Learning the weights of this filter is equivalent to learning the label compatibility function &#xB5;. Transferring
+error differentials from the output of this step to the input can be done since this step is a usual convolution operation.  </p>
+<blockquote>
+<p><strong>[success]</strong> &#x8FD9;&#x4E00;&#x6B65;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;L&#x8F93;&#x5165;L&#x8F93;&#x51FA;1 &#xD7; 1&#x7684;&#x5377;&#x79EF;&#x5C42;&#xFF0C;&#x524D;&#x5411;&#x548C;&#x540E;&#x9762;&#x4F20;&#x64AD;&#x90FD;&#x4E0D;&#x9700;&#x8981;&#x7279;&#x6B8A;&#x5904;&#x7406;  </p>
+</blockquote>
+<h2 id="adding-unary-potentials"><a name="adding-unary-potentials" class="anchor-navigation-ex-anchor" href="#adding-unary-potentials"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. Adding Unary Potentials</h2>
+<p>In this step, the output from the compatibility transform stage is subtracted element-wise from the unary inputs U. While no parameters are involved in this step, transferring error differentials can be done trivially by copying the differentials at the output of this step to both inputs with the
+appropriate sign.  </p>
+<blockquote>
+<p><strong>[success]</strong> &#x8FD9;&#x4E00;&#x5C42;&#x6CA1;&#x6709;&#x8981;&#x8BA1;&#x7B97;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4E0A;&#x4E00;&#x5C42;&#x7684;&#x504F;&#x5BFC;  </p>
+</blockquote>
+<h2 id="normalization"><a name="normalization" class="anchor-navigation-ex-anchor" href="#normalization"><i class="fa fa-link" aria-hidden="true"></i></a>1.6. Normalization</h2>
+<p>Finally, the normalization step of the iteration can be considered as another softmax operation with no parameters. Differentials at the output of this step can be passed on to the input using the softmax operation&#x2019;s backward pass.</p>
+<blockquote>
+<p><strong>[success]</strong> &#x8FD9;&#x4E00;&#x5C42;&#x662F;softmax&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x8981;&#x8BA1;&#x7B97;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4E0A;&#x4E00;&#x5C42;&#x7684;&#x504F;&#x5BFC;  </p>
+</blockquote>
+<div id="gitalk-container"></div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="CRF.html" class="navigation navigation-prev " aria-label="Previous page: 3. Conditional Random Fields">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../CRFCRNN/Network.md" class="navigation navigation-next " aria-label="Next page: 5. The End-to-end Trainable Network">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4. A Mean-field Iteration as a Stack of CNN","level":"2.5.5","depth":2,"next":{"title":"5. The End-to-end Trainable Network","level":"2.5.6","depth":2,"path":"CRFCRNN/Network.md","ref":"CRFCRNN/Network.md","articles":[]},"previous":{"title":"3. Conditional Random Fields","level":"2.5.4","depth":2,"path":"CRFRNN/CRF.md","ref":"CRFRNN/CRF.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","katex-plus","alerts","mygitalk","github","github-buttons","splitter","-sharing","sharing-plus","donate","copy-code-button","anchor-navigation-ex","sectionx","click-reveal"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/windmissing/NLP-important-papers"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"http://windmissing.github.io/images/2020/alipay.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://windmissing.github.io/images/2020/weixin.jpg","wechatText":"微信打赏"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"click-reveal":{},"sectionx":{},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"isShowTocTitleIcon":true,"printLog":false,"multipleH1":true,"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"katex-plus":{},"alerts":{},"github-buttons":{"repo":"windmissing/NLP-important-papers","types":["star","watch","fork"],"size":"small"},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"b622481cb88eba2f32db","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["windmissing"],"createIssueManually":false,"distractionFreeMode":false,"repo":"NLP-important-papers","owner":"windmissing","enableHotKey":true,"clientSecret":"1d8550b28cfbf3afb71fff648b67cf6fe708b90c","pagerDirection":"last","labels":["Gitalk"]},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"windmissing","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.2.3"},"file":{"path":"CRFRNN/Iteration.md","mtime":"2021-02-07T09:12:16.529Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-07T09:13:42.963Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+        
+    
+        
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mygitalk/mygitalk.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-click-reveal/click_reveal.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

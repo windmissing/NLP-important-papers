@@ -1,0 +1,2024 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3 Language Modeling Improvements · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="windmissing">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-plus/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-click-reveal/click_reveal.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Experiments.html" />
+    
+    
+    <link rel="prev" href="Related.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"windmissing/NLP-important-papers","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../AIAYN/1.html">
+            
+                <a href="../AIAYN/1.html">
+            
+                    
+                    Attention Is All You Need
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../AIAYN/Abstract.html">
+            
+                <a href="../AIAYN/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../AIAYN/Introduction.html">
+            
+                <a href="../AIAYN/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../AIAYN/Background.html">
+            
+                <a href="../AIAYN/Background.html">
+            
+                    
+                    2 Background
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../AIAYN/ModelArchitecture.html">
+            
+                <a href="../AIAYN/ModelArchitecture.html">
+            
+                    
+                    3 Model Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../AIAYN/EncoderAndDecoderStacks.html">
+            
+                <a href="../AIAYN/EncoderAndDecoderStacks.html">
+            
+                    
+                    3.1 Encoder and Decoder Stacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../AIAYN/Attention.html">
+            
+                <a href="../AIAYN/Attention.html">
+            
+                    
+                    3.2 Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../AIAYN/PositionwiseFeedForwardNetworks.html">
+            
+                <a href="../AIAYN/PositionwiseFeedForwardNetworks.html">
+            
+                    
+                    3.3 Position-wise Feed-Forward Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="../AIAYN/EmbeddingsAndSoftmax.html">
+            
+                <a href="../AIAYN/EmbeddingsAndSoftmax.html">
+            
+                    
+                    3.4 Embeddings and Softmax
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="../AIAYN/PositionalEncoding.html">
+            
+                <a href="../AIAYN/PositionalEncoding.html">
+            
+                    
+                    3.5 Positional Encoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../AIAYN/WhySelfAttention.html">
+            
+                <a href="../AIAYN/WhySelfAttention.html">
+            
+                    
+                    4 Why Self-Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    论文
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ACL_2020/6.html">
+            
+                <a href="../ACL_2020/6.html">
+            
+                    
+                    2020.acl-main.6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ACL_2020/7.html">
+            
+                <a href="../ACL_2020/7.html">
+            
+                    
+                    2020.acl-main.7
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ACL_2020/8.html">
+            
+                <a href="../ACL_2020/8.html">
+            
+                    
+                    2020.acl-main.8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ACL_2020/9.html">
+            
+                <a href="../ACL_2020/9.html">
+            
+                    
+                    2020.acl-main.9
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../ACL_2020/10.html">
+            
+                <a href="../ACL_2020/10.html">
+            
+                    
+                    2020.acl-main.10
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../ACL_2020/11.html">
+            
+                <a href="../ACL_2020/11.html">
+            
+                    
+                    2020.acl-main.11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../ACL_2020/15.html">
+            
+                <a href="../ACL_2020/15.html">
+            
+                    
+                    2020.acl-main.11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../ACL_2020/20.html">
+            
+                <a href="../ACL_2020/20.html">
+            
+                    
+                    2020.acl-main.20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../ACL_2020/23.html">
+            
+                <a href="../ACL_2020/23.html">
+            
+                    
+                    2020.acl-main.23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../ACL_2020/25.html">
+            
+                <a href="../ACL_2020/25.html">
+            
+                    
+                    2020.acl-main.25
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../ACL_2020/34.html">
+            
+                <a href="../ACL_2020/34.html">
+            
+                    
+                    2020.acl-main.34
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../ACL_2020/36.html">
+            
+                <a href="../ACL_2020/36.html">
+            
+                    
+                    2020.acl-main.36
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../ACL_2020/40.html">
+            
+                <a href="../ACL_2020/40.html">
+            
+                    
+                    2020.acl-main.40
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="../ACL_2020/41.html">
+            
+                <a href="../ACL_2020/41.html">
+            
+                    
+                    2020.acl-main.41
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="../ACL_2020/42.html">
+            
+                <a href="../ACL_2020/42.html">
+            
+                    
+                    2020.acl-main.42
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="../ACL_2020/54.html">
+            
+                <a href="../ACL_2020/54.html">
+            
+                    
+                    2020.acl-main.54
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.17" data-path="../ACL_2020/57.html">
+            
+                <a href="../ACL_2020/57.html">
+            
+                    
+                    2020.acl-main.57
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.18" data-path="../ACL_2020/55.html">
+            
+                <a href="../ACL_2020/55.html">
+            
+                    
+                    2020.acl-main.55
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.19" data-path="../ACL_2020/60.html">
+            
+                <a href="../ACL_2020/60.html">
+            
+                    
+                    2020.acl-main.60
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.20" data-path="../ACL_2020/61.html">
+            
+                <a href="../ACL_2020/61.html">
+            
+                    
+                    2020.acl-main.61
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.21" data-path="../ACL_2020/64.html">
+            
+                <a href="../ACL_2020/64.html">
+            
+                    
+                    2020.acl-main.64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.22" data-path="../ACL_2020/67.html">
+            
+                <a href="../ACL_2020/67.html">
+            
+                    
+                    2020.acl-main.67
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.23" data-path="../ACL_2020/68.html">
+            
+                <a href="../ACL_2020/68.html">
+            
+                    
+                    2020.acl-main.68
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.24" data-path="../ACL_2020/76.html">
+            
+                <a href="../ACL_2020/76.html">
+            
+                    
+                    2020.acl-main.76
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.25" data-path="../ACL_2020/80.html">
+            
+                <a href="../ACL_2020/80.html">
+            
+                    
+                    2020.acl-main.80
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.26" data-path="../ACL_2020/94.html">
+            
+                <a href="../ACL_2020/94.html">
+            
+                    
+                    2020.acl-main.94
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.27" data-path="../ACL_2020/98.html">
+            
+                <a href="../ACL_2020/98.html">
+            
+                    
+                    2020.acl-main.98
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.28" data-path="../ACL_2020/101.html">
+            
+                <a href="../ACL_2020/101.html">
+            
+                    
+                    2020.acl-main.101
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.29" data-path="../ACL_2020/127.md">
+            
+                <span>
+            
+                    
+                    2020.acl-main.127
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.30" data-path="../ACL_2020/130.html">
+            
+                <a href="../ACL_2020/130.html">
+            
+                    
+                    2020.acl-main.130
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.31" data-path="../ACL_2020/131.html">
+            
+                <a href="../ACL_2020/131.html">
+            
+                    
+                    2020.acl-main.131
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.32" data-path="../ACL_2020/143.html">
+            
+                <a href="../ACL_2020/143.html">
+            
+                    
+                    2020.acl-main.143
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.33" data-path="../ACL_2020/144.html">
+            
+                <a href="../ACL_2020/144.html">
+            
+                    
+                    2020.acl-main.144
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.34" data-path="../ACL_2020/145.html">
+            
+                <a href="../ACL_2020/145.html">
+            
+                    
+                    2020.acl-main.145
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.35" data-path="../ACL_2020/147.html">
+            
+                <a href="../ACL_2020/147.html">
+            
+                    
+                    2020.acl-main.147
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.36" data-path="../ACL_2020/148.html">
+            
+                <a href="../ACL_2020/148.html">
+            
+                    
+                    2020.acl-main.148
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.37" data-path="../ACL_2020/150.html">
+            
+                <a href="../ACL_2020/150.html">
+            
+                    
+                    2020.acl-main.150
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.38" data-path="../ACL_2020/152.html">
+            
+                <a href="../ACL_2020/152.html">
+            
+                    
+                    2020.acl-main.152
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.39" data-path="../ACL_2020/154.html">
+            
+                <a href="../ACL_2020/154.html">
+            
+                    
+                    2020.acl-main.154
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.40" data-path="../ACL_2020/155.html">
+            
+                <a href="../ACL_2020/155.html">
+            
+                    
+                    2020.acl-main.155
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.41" data-path="../ACL_2020/164.html">
+            
+                <a href="../ACL_2020/164.html">
+            
+                    
+                    2020.acl-main.164
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.42" data-path="../ACL_2020/165.html">
+            
+                <a href="../ACL_2020/165.html">
+            
+                    
+                    2020.acl-main.165
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.43" data-path="../ACL_2020/167.html">
+            
+                <a href="../ACL_2020/167.html">
+            
+                    
+                    2020.acl-main.167
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.44" data-path="../ACL_2020/171.html">
+            
+                <a href="../ACL_2020/171.html">
+            
+                    
+                    2020.acl-main.171
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.45" data-path="../ACL_2020/184.html">
+            
+                <a href="../ACL_2020/184.html">
+            
+                    
+                    2020.acl-main.184
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.46" data-path="../ACL_2020/185.html">
+            
+                <a href="../ACL_2020/185.html">
+            
+                    
+                    2020.acl-main.185
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.47" data-path="../ACL_2020/186.html">
+            
+                <a href="../ACL_2020/186.html">
+            
+                    
+                    2020.acl-main.186
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.48" data-path="../ACL_2020/201.html">
+            
+                <a href="../ACL_2020/201.html">
+            
+                    
+                    2020.acl-main.201
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.49" data-path="../ACL_2020/218.html">
+            
+                <a href="../ACL_2020/218.html">
+            
+                    
+                    2020.acl-main.218
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.50" data-path="../ACL_2020/219.html">
+            
+                <a href="../ACL_2020/219.html">
+            
+                    
+                    2020.acl-main.219
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.51" data-path="../ACL_2020/221.html">
+            
+                <a href="../ACL_2020/221.html">
+            
+                    
+                    2020.acl-main.221
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.52" data-path="../ACL_2020/222.html">
+            
+                <a href="../ACL_2020/222.html">
+            
+                    
+                    2020.acl-main.222
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.53" data-path="../ACL_2020/223.html">
+            
+                <a href="../ACL_2020/223.html">
+            
+                    
+                    2020.acl-main.223
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.54" data-path="../ACL_2020/224.html">
+            
+                <a href="../ACL_2020/224.html">
+            
+                    
+                    2020.acl-main.224
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.55" data-path="../ACL_2020/227.html">
+            
+                <a href="../ACL_2020/227.html">
+            
+                    
+                    2020.acl-main.227
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.56" data-path="../ACL_2020/228.html">
+            
+                <a href="../ACL_2020/228.html">
+            
+                    
+                    2020.acl-main.228
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.57" data-path="../ACL_2020/251.html">
+            
+                <a href="../ACL_2020/251.html">
+            
+                    
+                    2020.acl-main.251
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.58" data-path="../ACL_2020/252.html">
+            
+                <a href="../ACL_2020/252.html">
+            
+                    
+                    2020.acl-main.252
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.59" data-path="../ACL_2020/254.html">
+            
+                <a href="../ACL_2020/254.html">
+            
+                    
+                    2020.acl-main.254
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../NANER/1.html">
+            
+                <a href="../NANER/1.html">
+            
+                    
+                    Neural Architectures for Named Entity Recognition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../NANER/Abstract.html">
+            
+                <a href="../NANER/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../NANER/Introduction.html">
+            
+                <a href="../NANER/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../NANER/LSTMCRF.html">
+            
+                <a href="../NANER/LSTMCRF.html">
+            
+                    
+                    2 LSTM-CRF Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../NANER/Chunking.html">
+            
+                <a href="../NANER/Chunking.html">
+            
+                    
+                    3 Transition-Based Chunking Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../NANER/Embedding.html">
+            
+                <a href="../NANER/Embedding.html">
+            
+                    
+                    4 Input Word Embeddings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../NANER/Experiments.html">
+            
+                <a href="../NANER/Experiments.html">
+            
+                    
+                    5 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../NANER/Relatedwork.html">
+            
+                <a href="../NANER/Relatedwork.html">
+            
+                    
+                    6 Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../NANER/Conclusion.html">
+            
+                <a href="../NANER/Conclusion.html">
+            
+                    
+                    7 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../NANER/Reference.html">
+            
+                <a href="../NANER/Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../TMRC/1.html">
+            
+                <a href="../TMRC/1.html">
+            
+                    
+                    Teaching Machines to Read and Comprehend
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../TMRC/Abstract.html">
+            
+                <a href="../TMRC/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../TMRC/Introduction.html">
+            
+                <a href="../TMRC/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../TMRC/Supervised.html">
+            
+                <a href="../TMRC/Supervised.html">
+            
+                    
+                    2 Supervised training data for reading comprehension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../TMRC/Models.html">
+            
+                <a href="../TMRC/Models.html">
+            
+                    
+                    3 Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../TMRC/Empirical.html">
+            
+                <a href="../TMRC/Empirical.html">
+            
+                    
+                    4 Empirical Evaluation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../TMRC/Conclusion.html">
+            
+                <a href="../TMRC/Conclusion.html">
+            
+                    
+                    5 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="../TMRC/Reference.html">
+            
+                <a href="../TMRC/Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    Exploring the Limits of Language Modeling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="Abstract.html">
+            
+                <a href="Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="Introduction.html">
+            
+                <a href="Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="Related.html">
+            
+                <a href="Related.html">
+            
+                    
+                    2 Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3.4" data-path="Improvements.html">
+            
+                <a href="Improvements.html">
+            
+                    
+                    3 Language Modeling Improvements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="Experiments.html">
+            
+                <a href="Experiments.html">
+            
+                    
+                    4 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="Results.html">
+            
+                <a href="Results.html">
+            
+                    
+                    5 Results and Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.7" data-path="Discussion.html">
+            
+                <a href="Discussion.html">
+            
+                    
+                    6 Discussion and Conclusions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.8" data-path="References.html">
+            
+                <a href="References.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../EAANMT/1.html">
+            
+                <a href="../EAANMT/1.html">
+            
+                    
+                    Effective Approaches to Attention-based Neural Machine Translation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../EAANMT/Abstract.html">
+            
+                <a href="../EAANMT/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../EAANMT/Introduction.html">
+            
+                <a href="../EAANMT/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../EAANMT/Neural.html">
+            
+                <a href="../EAANMT/Neural.html">
+            
+                    
+                    2 Neural Machine Translation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="../EAANMT/Attention.html">
+            
+                <a href="../EAANMT/Attention.html">
+            
+                    
+                    3 Attention-based Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="../EAANMT/Experiments.html">
+            
+                <a href="../EAANMT/Experiments.html">
+            
+                    
+                    4 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.6" data-path="../EAANMT/Analysis.html">
+            
+                <a href="../EAANMT/Analysis.html">
+            
+                    
+                    5 Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.7" data-path="../EAANMT/Conclusion.html">
+            
+                <a href="../EAANMT/Conclusion.html">
+            
+                    
+                    6 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.8" data-path="../EAANMT/References.html">
+            
+                <a href="../EAANMT/References.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../CRFRNN/1.html">
+            
+                <a href="../CRFRNN/1.html">
+            
+                    
+                    Conditional random fields as recurrent neural networks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="../CRFRNN/Abstract.html">
+            
+                <a href="../CRFRNN/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="../CRFRNN/Introduction.html">
+            
+                <a href="../CRFRNN/Introduction.html">
+            
+                    
+                    1. Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3" data-path="../CRFRNN/Related.html">
+            
+                <a href="../CRFRNN/Related.html">
+            
+                    
+                    2. Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.4" data-path="../CRFRNN/CRF.html">
+            
+                <a href="../CRFRNN/CRF.html">
+            
+                    
+                    3. Conditional Random Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.5" data-path="../CRFRNN/Iteration.html">
+            
+                <a href="../CRFRNN/Iteration.html">
+            
+                    
+                    4. A Mean-field Iteration as a Stack of CNN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.6" data-path="../CRFCRNN/Network.md">
+            
+                <span>
+            
+                    
+                    5. The End-to-end Trainable Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3 Language Modeling Improvements</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#language-modeling-improvements"><b>1. </b>Language Modeling Improvements</a></li><ul><li><span class="title-icon "></span><a href="#relationship-between-noise-contrastive-estimation-and-importance-sampling"><b>1.1. </b>Relationship between Noise Contrastive Estimation and Importance Sampling</a></li><li><span class="title-icon "></span><a href="#cnn-softmax"><b>1.2. </b>CNN Softmax</a></li><li><span class="title-icon "></span><a href="#char-lstm-predictions"><b>1.3. </b>Char LSTM Predictions</a></li></ul></ul></div><a href="#language-modeling-improvements" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="language-modeling-improvements"><a name="language-modeling-improvements" class="anchor-navigation-ex-anchor" href="#language-modeling-improvements"><i class="fa fa-link" aria-hidden="true"></i></a>1. Language Modeling Improvements</h1>
+<p>Recurrent Neural Networks based LMs employ the chain rule to model joint probabilities over word sequences:  </p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>(</mo><msub><mi>w</mi><mn>1</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>w</mi><mi>N</mi></msub><mo>)</mo><mo>=</mo><msubsup><mo>&#x220F;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></msubsup><mi>p</mi><mo>(</mo><msub><mi>w</mi><mi>i</mi></msub><mi mathvariant="normal">&#x2223;</mi><msub><mi>w</mi><mn>1</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>w</mi><mrow><mi>i</mi><mo>&#x2212;</mo><mn>1</mn></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">
+p(w_1,...,w_N ) = \prod_{i=1}^N p(w_i |w_1 ,..., w_{i-1} )
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.8283360000000002em;"></span><span class="strut bottom" style="height:3.106005em;vertical-align:-1.277669em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct">,</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.10903em;">N</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mrel">=</span><span class="mop op-limits"><span class="vlist"><span style="top:1.1776689999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.000005000000000143778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span><span class="mop op-symbol large-op">&#x220F;</span></span></span><span style="top:-1.2500050000000003em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.10903em;">N</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathrm">&#x2223;</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct">,</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mbin mtight">&#x2212;</span><span class="mord mathrm mtight">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x6839;&#x636E;&#x524D;i-1&#x4E2A;w&#x6765;&#x9884;&#x6D4B;wi&#x662F;&#x67D0;&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x6761;&#x4EF6;&#x6982;&#x7387;&#x3002;<br>&#x5047;&#x8BBE;&#x6BCF;&#x4E2A;wi&#x7684;&#x6761;&#x4EF6;&#x6982;&#x7387;&#x662F;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x94FE;&#x5F0F;&#x6CD5;&#x5219;&#x3002;<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtable><mtr><mtd><mrow><mi>p</mi><mo>(</mo><mi>w</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mi>exp</mi><mi>z</mi><mo>(</mo><mi>w</mi><mo>)</mo></mrow><mrow><msub><mo>&#x2211;</mo><mi>w</mi></msub><mi>exp</mi><mi>z</mi><mo>(</mo><mi>w</mi><mo>)</mo></mrow></mfrac></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>z</mi><mi>w</mi></msub><mo>=</mo><msup><mi>h</mi><mi mathvariant="normal">&#x22A4;</mi></msup><msub><mi>e</mi><mi>w</mi></msub></mrow></mtd></mtr></mtable></mrow><annotation encoding="application/x-tex">
+\begin{aligned}
+p(w) = \frac{\exp z(w)}{\sum_w \exp z(w)}  \\
+z_w = h^\top e_w
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:2.0860589999999997em;"></span><span class="strut bottom" style="height:3.6721179999999998em;vertical-align:-1.586059em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist"><span style="top:-0.6590589999999996em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mop">exp</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mop">exp</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span><span style="top:1.226059em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.04398em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit">h</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">&#x22A4;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>z</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">z_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>&#x662F;&#x7531;LSTM&#x751F;&#x6210;&#x7684;&#x3002;  </p>
+</blockquote>
+<p>where the context of all previous words is encoded with an LSTM, and the probability over words uses a Softmax (see Figure 1(a)).  </p>
+<p><img src="assets/1.png" alt="">  </p>
+<h2 id="relationship-between-noise-contrastive-estimation-and-importance-sampling"><a name="relationship-between-noise-contrastive-estimation-and-importance-sampling" class="anchor-navigation-ex-anchor" href="#relationship-between-noise-contrastive-estimation-and-importance-sampling"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. Relationship between Noise Contrastive Estimation and Importance Sampling</h2>
+<p>As discussed in Section 2.3, a large scale Softmax is necessary for training good LMs because of the vocabulary size. A <strong>Hierarchical Softmax</strong> (Mnih &amp; Hinton, 2009) employs a tree in which the probability distribution over words is decomposed into a product of two probabilities for each word, greatly reducing training and inference time as only the path specified by the hierarchy needs to be computed and updated.  </p>
+<blockquote>
+<p><strong>[success]</strong><br>inference&#xFF1A;&#x63A8;&#x65AD;<br>&#x8FD9;&#x4E00;&#x6BB5;&#x8BB2;&#x7684;&#x662F;Hierarchical Softmax&#x7684;&#x539F;&#x7406;&#x3002;<br>Hierarchical Softmax&#x5BF9;&#x8BAD;&#x7EC3;&#x9636;&#x6BB5;&#x548C;&#x9884;&#x6D4B;&#x9636;&#x6BB5;&#x90FD;&#x9002;&#x7528;&#x3002;  </p>
+</blockquote>
+<p>Choosing a good hierarchy is important for obtaining good results and we did not explore this approach further for this paper as sampling methods worked well for our setup.  </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x672C;&#x6587;&#x6CA1;&#x6709;&#x5C1D;&#x8BD5;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x3002;  </p>
+</blockquote>
+<p>Sampling approaches are only useful during training, as they propose an approximation to the loss which is cheap to compute (also in a distributed setting) &#x2013; however, at inference time one still has to compute the normalization term over all words.  </p>
+<blockquote>
+<p><strong>[success]</strong><br>Sampling approaches&#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x8BAD;&#x7EC3;&#x9636;&#x6BB5;&#xFF0C;&#x4E0D;&#x80FD;&#x7528;&#x4E8E;&#x9884;&#x6D4B;&#x9636;&#x6BB5;&#x3002;<br>&#x8FD9;&#x4E00;&#x6BB5;&#x6240;&#x63CF;&#x8FF0;&#x7684;NCE&#x4E2D;Sampling approaches&#x7684;&#x4E00;&#x79CD;&#x3002;  </p>
+</blockquote>
+<p>Noise Contrastive Estimation (NCE) proposes to consider a surrogate binary classification task in which a classifier is trained to discriminate between true data, or samples coming from some arbitrary distribution.  </p>
+<blockquote>
+<p><strong>[success]</strong> surrogate&#xFF1A;&#x4EE3;&#x7406;&#x7684;<br>&#x4E8C;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#xFF1A;&#x524D;i-1&#x4E2A;w&#x5DF2;&#x77E5;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;wi&#x662F;&#x6765;&#x81EA;&#x6B63;&#x6837;&#x672C;&#x5206;&#x5E03;&#x7684;&#x6982;&#x7387;&#x3002;<br>&#x6B63;&#x6837;&#x672C;&#xFF1A;&#x5728;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x4E2D;&#xFF0C;&#x524D;i-1&#x4E2A;w&#x7279;&#x5B9A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7B2C;i&#x4E2A;&#x5355;&#x8BCD;&#x4E3A;&#x6B63;&#x6837;&#x672C;&#x3002;<br>&#x8D1F;&#x6837;&#x672C;&#xFF1A;&#x968F;&#x673A;&#x9009;&#x62E9;&#x7684;&#x5355;&#x8BCD;&#x4E3A;&#x8D1F;&#x6837;&#x672C;&#x3002;<br>&#x6B63;&#x6837;&#x672C;&#x662F;&#x5728;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x4E2D;&#x627E;&#x5230;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6570;&#x91CF;&#x6709;&#x9650;&#x3002;<br>&#x8D1F;&#x6837;&#x672C;&#x662F;&#x968F;&#x673A;&#x751F;&#x6210;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6570;&#x91CF;&#x65E0;&#x9650;&#x3002;  </p>
+</blockquote>
+<p>If both the noise and data distributions were known, the
+optimal classifier would be:  </p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mi mathvariant="normal">&#x2223;</mi><mi>w</mi><mo>)</mo><mo>=</mo><mfrac><mrow><msub><mi>p</mi><mi>d</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo></mrow><mrow><msub><mi>p</mi><mi>d</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo><mo>+</mo><mi>k</mi><msub><mi>p</mi><mi>n</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+p(Y = true|w) = \frac{p_d (w)}{p_d (w) + kp_n (w)}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.363em;vertical-align:-0.936em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">d</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">d</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
+<p>where Y is the binary random variable indicating whether w comes from the true data distribution, k is the number of negative samples per positive word, and p_d and p_n are the data and noise distribution respectively (we dropped any dependency on previous words for notational simplicity).  </p>
+<blockquote>
+<p><strong>[success]</strong><br>Y = true&#xFF1A;w&#x6765;&#x81EA;true data&#x7684;&#x5206;&#x5E03;<br>Y = false&#xFF1A;w&#x6765;&#x81EA;&#x67D0;&#x4E2A;&#x4EFB;&#x610F;&#x5206;&#x5E03;&#xFF08;noise&#x5206;&#x5E03;&#xFF09;<br><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">P_d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">d</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>&#xFF1A;true data&#x5206;&#x5E03;<br><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">P_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>&#xFF1A;noise&#x5206;&#x5E03;<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtable><mtr><mtd><mrow><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mi mathvariant="normal">&#x2223;</mi><mi>w</mi><mo>)</mo></mrow></mtd><mtd><mrow><mrow></mrow><mo>=</mo></mrow></mtd><mtd><mrow><mfrac><mrow><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mo separator="true">,</mo><mi>w</mi><mo>)</mo></mrow><mrow><mi>P</mi><mo>(</mo><mi>w</mi><mo>)</mo></mrow></mfrac></mrow></mtd></mtr><mtr><mtd><mrow></mrow></mtd><mtd><mrow><mrow></mrow><mo>=</mo></mrow></mtd><mtd><mrow><mfrac><mrow><mi>P</mi><mo>(</mo><mi>w</mi><mi mathvariant="normal">&#x2223;</mi><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mo>)</mo><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mo>)</mo></mrow><mrow><mi>P</mi><mo>(</mo><mi>w</mi><mo>)</mo></mrow></mfrac></mrow></mtd></mtr><mtr><mtd><mrow></mrow></mtd><mtd><mrow><mrow></mrow><mo>=</mo></mrow></mtd><mtd><mrow><mfrac><mrow><mi>P</mi><mo>(</mo><mi>w</mi><mi mathvariant="normal">&#x2223;</mi><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mo>)</mo><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mo>)</mo></mrow><mrow><mi>P</mi><mo>(</mo><mi>w</mi><mi mathvariant="normal">&#x2223;</mi><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mo>)</mo><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mo>)</mo><mo>+</mo><mi>P</mi><mo>(</mo><mi>w</mi><mi mathvariant="normal">&#x2223;</mi><mi>Y</mi><mo>=</mo><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi><mo>)</mo><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi><mo>)</mo></mrow></mfrac></mrow></mtd></mtr><mtr><mtd><mrow></mrow></mtd><mtd><mrow><mrow></mrow><mo>=</mo></mrow></mtd><mtd><mrow><mfrac><mrow><mi>P</mi><mo>(</mo><mi>w</mi><mi mathvariant="normal">&#x2223;</mi><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mo>)</mo></mrow><mrow><mi>P</mi><mo>(</mo><mi>w</mi><mi mathvariant="normal">&#x2223;</mi><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mo>)</mo><mo>+</mo><mi>P</mi><mo>(</mo><mi>w</mi><mi mathvariant="normal">&#x2223;</mi><mi>Y</mi><mo>=</mo><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi><mo>)</mo><mfrac><mrow><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi><mo>)</mo></mrow><mrow><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mo>)</mo></mrow></mfrac></mrow></mfrac></mrow></mtd></mtr><mtr><mtd><mrow></mrow></mtd><mtd><mrow><mrow></mrow><mo>=</mo></mrow></mtd><mtd><mrow><mfrac><mrow><msub><mi>P</mi><mi>d</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo></mrow><mrow><msub><mi>P</mi><mi>d</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo><mo>+</mo><mi>k</mi><msub><mi>P</mi><mi>n</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo></mrow></mfrac></mrow></mtd></mtr></mtable></mrow><annotation encoding="application/x-tex">
+\begin{aligned}
+P(Y=true|w) &amp;=&amp; \frac{P(Y=true, w)}{P(w)}  \\
+&amp;=&amp; \frac{P(w|Y=true)P(Y=true)}{P(w)}  \\
+&amp;=&amp; \frac{P(w|Y=true)P(Y=true)}{P(w|Y=true)P(Y=true)+P(w|Y=false)P(Y=false)}   \\
+&amp;=&amp; \frac{P(w|Y=true)}{P(w|Y=true) + P(w|Y=false)\frac{P(Y=false)}{P(Y=true)}}  \\
+&amp;=&amp; \frac{P_d(w)}{P_d(w) + kP_n(w)}
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:6.3995em;"></span><span class="strut bottom" style="height:12.299em;vertical-align:-5.899500000000001em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist"><span style="top:-4.9725em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span><span style="top:-2.609499999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"></span></span><span style="top:-0.2464999999999976em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"></span></span><span style="top:2.1165000000000016em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"></span></span><span style="top:4.963500000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="col-align-l"><span class="vlist"><span style="top:-4.9725em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"></span><span class="mrel">=</span></span></span><span style="top:-2.609499999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"></span><span class="mrel">=</span></span></span><span style="top:-0.2464999999999976em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"></span><span class="mrel">=</span></span></span><span style="top:2.1165000000000016em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"></span><span class="mrel">=</span></span></span><span style="top:4.963500000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"></span><span class="mrel">=</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="arraycolsep" style="width:2em;"></span><span class="col-align-r"><span class="vlist"><span style="top:-4.9725em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span><span style="top:-2.609499999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span><span style="top:-0.2464999999999976em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">s</span><span class="mord mathit">e</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">s</span><span class="mord mathit">e</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span><span style="top:2.1165000000000016em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.8999999999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">s</span><span class="mord mathit">e</span><span class="mclose">)</span><span class="mord reset-textstyle textstyle cramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.13889em;">P</span><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.22222em;">Y</span><span class="mrel mtight">=</span><span class="mord mathit mtight">t</span><span class="mord mathit mtight" style="margin-right:0.02778em;">r</span><span class="mord mathit mtight">u</span><span class="mord mathit mtight">e</span><span class="mclose mtight">)</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.13889em;">P</span><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.22222em;">Y</span><span class="mrel mtight">=</span><span class="mord mathit mtight" style="margin-right:0.10764em;">f</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span><span class="mord mathit mtight">s</span><span class="mord mathit mtight">e</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span><span style="top:4.963500000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">d</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">d</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></span></p>
+</blockquote>
+<p>It is easy to show that if we train a logistic classifier <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>&#x3B8;</mi></msub><mo>(</mo><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mi mathvariant="normal">&#x2223;</mi><mi>w</mi><mo>)</mo><mo>=</mo><mi>&#x3C3;</mi><mo>(</mo><msub><mi>s</mi><mi>&#x3B8;</mi></msub><mo>(</mo><mi>w</mi><mo separator="true">,</mo><mi>h</mi><mo>)</mo><mo>&#x2212;</mo><mi>log</mi><mo>&#x2061;</mo><mi>k</mi><msub><mi>p</mi><mi>n</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">p_\theta (Y = true|w) = \sigma(s_\theta (w,h) - \log kp_n (w))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">&#x3B8;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mord">&#x2223;</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.03588em;">&#x3C3;</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">&#x3B8;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit">h</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span> where &#x3C3; is the logistic function, then, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>p</mi><mo mathvariant="normal">&#x2032;</mo></msup><mo>(</mo><mi>w</mi><mo>)</mo><mo>=</mo><mi>s</mi><mi>o</mi><mi>f</mi><mi>t</mi><mi>m</mi><mi>a</mi><mi>x</mi><mo>(</mo><msub><mi>s</mi><mi>&#x3B8;</mi></msub><mo>(</mo><mi>w</mi><mo separator="true">,</mo><mi>h</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">p&apos;(w) = softmax(s_\theta (w,h))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathit">t</span><span class="mord mathit">m</span><span class="mord mathit">a</span><span class="mord mathit">x</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">&#x3B8;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit">h</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span> is a good approximation of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>d</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">p_d (w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">d</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>&#x3B8;</mi></msub></mrow><annotation encoding="application/x-tex">s_\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">&#x3B8;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> is a logit which e.g. an LSTM LM computes).  </p>
+<blockquote>
+<p><strong>[success]</strong><br><a href="https://windmissing.github.io/mathematics_basic_for_ML/Probability/functions.html" target="_blank">logistic function</a><br>logit&#xFF1A;<a href="https://windmising.gitbook.io/liu-yu-bo-play-with-machine-learning/9-1" target="_blank">&#x903B;&#x8F91;&#x56DE;&#x5F52;</a><br>&#x628A;logistic function&#x4EE3;&#x5165;&#x4EE5;&#x4E0A;&#x516C;&#x5F0F;&#x5F97;&#xFF1A;<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>&#x3B8;</mi></msub><mo>(</mo><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mi mathvariant="normal">&#x2223;</mi><mi>w</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mi>exp</mi><mo>(</mo><msub><mi>S</mi><mi>&#x3B8;</mi></msub><mo>(</mo><mi>w</mi><mo separator="true">,</mo><mi>h</mi><mo>)</mo><mo>)</mo></mrow><mrow><mi>exp</mi><mo>(</mo><msub><mi>S</mi><mi>&#x3B8;</mi></msub><mo>(</mo><mi>w</mi><mo separator="true">,</mo><mi>h</mi><mo>)</mo><mo>)</mo><mo>+</mo><mi>k</mi><msub><mi>P</mi><mi>n</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+p_\theta (Y = true|w) = \frac{\exp(S_\theta(w, h))}{\exp(S_\theta(w, h)) + kP_n(w)}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.363em;vertical-align:-0.936em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">&#x3B8;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mop">exp</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">&#x3B8;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mord mathit">h</span><span class="mclose">)</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mop">exp</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">&#x3B8;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mord mathit">h</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
+<p>&#x7ED3;&#x5408;&#x524D;&#x9762;&#x7684;&#x516C;&#x5F0F;&#xFF1A;<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtable><mtr><mtd><mrow><msub><mi>S</mi><mi>&#x3B8;</mi></msub><mo>(</mo><mi>w</mi><mo separator="true">,</mo><mi>h</mi><mo>)</mo><mo>=</mo><msup><mi>h</mi><mi mathvariant="normal">&#x22A4;</mi></msup><msub><mi>e</mi><mi>w</mi></msub></mrow></mtd></mtr><mtr><mtd><mrow><mi>p</mi><mo>(</mo><mi>w</mi><mo>)</mo><mo>=</mo><mfrac><mrow><msub><mi>S</mi><mi>&#x3B8;</mi></msub><mo>(</mo><mi>w</mi><mo separator="true">,</mo><mi>h</mi><mo>)</mo></mrow><mrow><msub><mo>&#x2211;</mo><mi>w</mi></msub><msub><mi>S</mi><mi>&#x3B8;</mi></msub><mo>(</mo><mi>w</mi><mo separator="true">,</mo><mi>h</mi><mo>)</mo></mrow></mfrac></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>p</mi><mi>&#x3B8;</mi></msub><mo>(</mo><mi>Y</mi><mo>=</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi><mi mathvariant="normal">&#x2223;</mi><mi>w</mi><mo>)</mo><mo>=</mo><mfrac><mrow><msub><mi>P</mi><mi>d</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo></mrow><mrow><msub><mi>P</mi><mi>d</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo><mo>+</mo><mi>k</mi><msub><mi>P</mi><mi>n</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo></mrow></mfrac></mrow></mtd></mtr></mtable></mrow><annotation encoding="application/x-tex">
+\begin{aligned}
+S_\theta(w, h) = h^\top e_w    \\
+p(w) = \frac{S_\theta(w, h)}{\sum_w S_\theta(w, h)}    \\
+p_\theta (Y = true|w) = \frac{P_d(w)}{P_d(w) + kP_n(w)}
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:3.2675590000000003em;"></span><span class="strut bottom" style="height:6.035118000000001em;vertical-align:-2.7675590000000008em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist"><span style="top:-2.3684510000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">&#x3B8;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mord mathit">h</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord"><span class="mord mathit">h</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">&#x22A4;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span><span style="top:-0.5814510000000006em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">&#x3B8;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mord mathit">h</span><span class="mclose">)</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">&#x3B8;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mord mathit">h</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span><span style="top:1.8315590000000008em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">&#x3B8;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">d</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">d</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></span></p>
+<p>[?]&#x770B;&#x4E0A;&#x53BB;p&apos;(w)&#x5C31;&#x662F;p(w)&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8BF4;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>p</mi><mo mathvariant="normal">&#x2032;</mo></msup><mo>(</mo><mi>w</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">p&apos;(w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span>&#x662F;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>d</mi></msub><mo>(</mo><mi>w</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">p_d (w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">d</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span>&#x7684;&#x8FD1;&#x4F3C;&#x5462;&#xFF1F;  </p>
+</blockquote>
+<p>The other technique, which is based on <strong>importance sampling (IS)</strong>, proposes to directly approximate the partition function (which comprises a sum over all words) with an estimate of it through importance sampling.   </p>
+<blockquote>
+<p><strong>[warning]</strong><br>partition function&#xFF1A;[?] &#x914D;&#x5206;&#x51FD;&#x6570;</p>
+</blockquote>
+<p>Though the methods look superficially similar, we will derive a similar surrogate classification task akin to NCE which arrives at IS, showing a strong connection between the two.  </p>
+<blockquote>
+<p><strong>[info]</strong><br>superficially&#xFF1A;&#x4ECE;&#x8868;&#x9762;&#x4E0A;&#x770B;<br>akin to&#xFF1A;&#x7C7B;&#x4F3C;&#x4E8E;  </p>
+</blockquote>
+<p>Suppose that, instead of having a binary task to decide if a word comes from the data or from the noise distribution, we want to identify the words coming from the true data distribution in a set W = {w 1 ,...,w k+1 }, comprised of k noise samples and one data distribution sample. Thus, we can train a multiclass loss over a multinomial random variable Y which maximizes logp(Y = 1|W), assuming w.l.o.g. that w 1 &#x2208; W is always the word coming from true
+data.   </p>
+<blockquote>
+<p><strong>[info]</strong> w.l.o.g&#xFF1A;without loss of generality&#xFF0C;&#x4E0D;&#x5931;&#x4E00;&#x822C;&#x6027;&#x5730;  </p>
+</blockquote>
+<p>By Bayes rule, and ignoring terms that are constant with respect to Y , we can write:  </p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>k</mi><mi mathvariant="normal">&#x2223;</mi><mi>W</mi><mo>)</mo><mo>&#x221D;</mo><mi>Y</mi><mfrac><mrow><msub><mi>p</mi><mi>d</mi></msub><mo>(</mo><msub><mi>w</mi><mi>k</mi></msub><mo>)</mo></mrow><mrow><msub><mi>p</mi><mi>n</mi></msub><mo>(</mo><msub><mi>w</mi><mi>k</mi></msub><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+p(Y = k|W) \propto Y \frac{p_d (w_k )}{p_n (w_k )}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.363em;vertical-align:-0.936em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mclose">)</span><span class="mrel">&#x221D;</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">d</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
+<p>and, following a similar argument than for NCE, if we define p(Y = k|W) = softmax(s &#x3B8; (w k )&#x2212;logp n (w k )) then p 0 (w) = softmax(s &#x3B8; (w,h)) is a good approximation of p d (word). Note that <strong>the only difference between NCE and IS is that, in NCE, we define a binary classification task between true or noise words with a logistic loss, whereas in IS we define a multiclass classification problem with a Softmax and cross entropy loss</strong>. We hope that our derivation helps clarify the similarities and differences between the two. In particular, we observe that IS, as it optimizes a multiclass classification task (in contrast to solving a binary task), may be a better choice. Indeed, the updates to the logits with IS are tied whereas in NCE they are independent.  </p>
+<blockquote>
+<p><strong>[warning]</strong><br>&#x6700;&#x540E;&#x4E00;&#x53E5;&#x662F;&#x4EC0;&#x4E48;&#x610F;&#x601D;&#xFF1F;&#x6CA1;&#x770B;&#x61C2;&#xFF1F;  </p>
+</blockquote>
+<h2 id="cnn-softmax"><a name="cnn-softmax" class="anchor-navigation-ex-anchor" href="#cnn-softmax"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. CNN Softmax</h2>
+<p>The character-level features allow for a smoother and compact parametrization of the word embeddings.   </p>
+<blockquote>
+<p><strong>[warning]</strong><br>&#x4E3A;&#x4EC0;&#x4E48;&#x8BF4;&#x201C;&#x5B57;&#x7B26;&#x7EA7;&#x8868;&#x793A;&#x7684;&#x7279;&#x5F81;&#x201D;&#x66F4;&#x5E73;&#x6ED1;&#x548C;&#x7B80;&#x6D01;&#x5462;&#xFF1F;  </p>
+</blockquote>
+<p>Recent efforts on small scale language modeling have used CNN character embeddings for the input embeddings (Kim et al., 2015). Although not as straightforward, we propose an extension to this idea to also reduce the number of parameters of the Softmax layer.   </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x7531;&#x4E8E;CNN&#x6709;&#x4F7F;&#x53C2;&#x6570;&#x7B80;&#x6D01;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x672C;&#x6587;&#x628A;CNN&#x7ED3;&#x5408;&#x5230;softmax&#x5C42;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x51CF;&#x5C11;softmax&#x5C42;&#x7684;&#x53C2;&#x6570;&#x6570;&#x91CF;&#x3002;  </p>
+</blockquote>
+<p>Recall from Section 2.3 that the Softmax computes a logit as <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>z</mi><mi>w</mi></msub><mo>=</mo><msup><mi>h</mi><mi mathvariant="normal">&#x22A4;</mi></msup><msub><mi>e</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">z_w = h^\top e_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.999108em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">h</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">&#x22A4;</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> where h is a context vector and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">e_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> the word embedding. <strong>Instead of building a matrix of |V | &#xD7; |h| (whose rows correspond to <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">e_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> ), we produce e w with a CNN over the characters of w as <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>w</mi></msub><mo>=</mo><mi>C</mi><mi>N</mi><mi>N</mi><mo>(</mo><mi>c</mi><mi>h</mi><mi>a</mi><mi>r</mi><msub><mi>s</mi><mi>w</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">e_w = CNN(chars_w )</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord mathit">c</span><span class="mord mathit">h</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mclose">)</span></span></span></span></strong> &#x2013; we call this a CNN Softmax.   </p>
+<blockquote>
+<p><strong>[success]</strong> CNN Softmax&#x7684;&#x539F;&#x7406;&#xFF1A;<br>&#x7528;CNN&#x4EE3;&#x66FF;&#x77E9;&#x9635;&#x6765;&#x751F;&#x6210;word embedding <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">e_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>&#x3002;<br>&#x539F;&#x6765;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">e_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>&#x662F;LSTM&#x5C42;&#x751F;&#x6210;&#x7684;&#xFF0C;&#x73B0;&#x5728;&#x7528;CNN&#x5C42;&#x4EA7;&#x751F;&#xFF0C;&#x90A3;LSTM&#x5C42;&#x53BB;&#x54EA;&#x4E86;&#xFF1F;<br>[?] <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>h</mi><mi>a</mi><mi>r</mi><msub><mi>s</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">chars_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord mathit">c</span><span class="mord mathit">h</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>&#x662F;&#x4EC0;&#x4E48;&#xFF1F;  </p>
+</blockquote>
+<p>We used the same network architecture to dynamically generate the Softmax word embeddings without sharing the parameters with the input word-embedding sub-network. For inference, the vectors <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">e_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> can be precomputed, so there is no computational complexity increase w.r.t. the regular Softmax.  </p>
+<blockquote>
+<p><strong>[success]</strong><br>CNN Softmax&#x7684;&#x597D;&#x5904;&#xFF1A;&#x6CA1;&#x6709;&#x989D;&#x5916;&#x7684;&#x8BA1;&#x7B97;&#x3002;<br>CNN&#x5C42;&#x8BAD;&#x7EC3;&#x597D;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x6240;&#x6709;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>h</mi><mi>a</mi><mi>r</mi><msub><mi>s</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">chars_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord mathit">c</span><span class="mord mathit">h</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>&#x5BF9;&#x5E94;&#x7684;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">e_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>&#x90FD;&#x63D0;&#x524D;&#x7B97;&#x51FA;&#x6765;&#x3002;&#x56E0;&#x6B64;&#x5728;&#x9884;&#x6D4B;&#x9636;&#x6BB5;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x5B9E;&#x65F6;&#x8BA1;&#x7B97;&#x4E86;&#x3002;  </p>
+</blockquote>
+<p>We note that, when using an importance sampling loss such as the one described in Section 3.1, only a few logits have non-zero gradient (those corresponding to the true and sampled words).  </p>
+<blockquote>
+<p><strong>[success]</strong> IS loss&#x7684;&#x7279;&#x70B9;&#xFF1A;&#x53EA;&#x6709;&#x4E00;&#x5C0F;&#x90E8;&#x5206;&#x5177;&#x6709;&#x975E;0&#x68AF;&#x5EA6;  </p>
+</blockquote>
+<p>With a Softmax where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">e_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> are independently learned word embeddings, this is not a problem.   </p>
+<blockquote>
+<p><strong>[success]</strong> Softmax loss&#x7684;&#x7279;&#x70B9;&#xFF1A;embedding&#x662F;&#x72EC;&#x7ACB;&#x7684;&#x3002;    </p>
+</blockquote>
+<p>But we observed that, when using a CNN, all the logits become tied as the function mapping from w to e w is quite smooth. As a result, a much smaller learning rate had to be used.  </p>
+<blockquote>
+<p><strong>[success]</strong> CNN Softmax&#x7684;&#x4F18;&#x70B9;&#xFF1A;&#x5E73;&#x6ED1;  </p>
+</blockquote>
+<p>Even with this, the model lacks capacity to differentiate between words that have very different meanings but that are spelled similarly.   </p>
+<blockquote>
+<p><strong>[success]</strong> CNN Softmax&#x7684;&#x7F3A;&#x70B9;&#xFF1A;&#x4E0D;&#x540C;&#x542B;&#x4E49;&#x5355;&#x8BCD;&#x7684;&#x5DEE;&#x5F02;&#x4E0D;&#x591F;&#x5927;  </p>
+</blockquote>
+<p>Thus, a reasonable compromise was to add a small correction factor which is learned per word,   </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x6821;&#x6B63;&#x56E0;&#x5B50;  </p>
+</blockquote>
+<p>such that:  </p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>z</mi><mi>w</mi></msub><mo>=</mo><msup><mi>h</mi><mi mathvariant="normal">&#x22A4;</mi></msup><mi>C</mi><mi>N</mi><mi>N</mi><mo>(</mo><mi>c</mi><mi>h</mi><mi>a</mi><mi>r</mi><msub><mi>s</mi><mi>w</mi></msub><mo>)</mo><mo>+</mo><msup><mi>h</mi><mi mathvariant="normal">&#x22A4;</mi></msup><mi>T</mi><mi>M</mi><mi>c</mi><mi>o</mi><mi>r</mi><msub><mi>r</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">
+z_w = h^\top CNN(chars_w ) + h^\top T Mcorr_w
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8991079999999999em;"></span><span class="strut bottom" style="height:1.149108em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.04398em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit">h</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">&#x22A4;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord mathit">c</span><span class="mord mathit">h</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mbin">+</span><span class="mord"><span class="mord mathit">h</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">&#x22A4;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathit">c</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></p>
+<p>where M is a matrix projecting a low-dimensional embedding vector corr w back up to the dimensionality of the projected LSTM hidden state of h. This amounts to <strong>adding a bottleneck linear layer</strong>, and brings the CNN Softmax much closer to our best result, as can be seen in Table 1, where adding a 128-dim correction halves the gap between regular and the CNN Softmax.  </p>
+<blockquote>
+<p><strong>[warning]</strong><br>halve&#xFF1A;&#x51CF;&#x534A;<br>&#x4E0A;&#x9762;&#x597D;&#x51E0;&#x6BB5;&#x5176;&#x5B9E;&#x6CA1;&#x770B;&#x61C2;  </p>
+</blockquote>
+<p>Aside from a big reduction in the number of parameters and incorporating morphological knowledge from words, the other benefit of this approach is that out-of-vocabulary (OOV) words can easily be scored. This may be useful for other problems such as Machine Translation where handling out-of-vocabulary words is very important (Luong et al., 2014). This approach also allows parallel training over various data sets since the model is no longer explicitly parametrized by the vocabulary size &#x2013; or the language.  </p>
+<blockquote>
+<p><strong>[success]</strong> &#x5B57;&#x7B26;&#x7EA7;&#x8868;&#x793A;&#x7684;&#x4F18;&#x70B9;&#xFF1A;<br>&#xFF08;1&#xFF09;&#x53C2;&#x6570;&#x51CF;&#x5C11;<br>&#xFF08;2&#xFF09;&#x7ED3;&#x5408;&#x6784;&#x8BCD;&#x6CD5;&#x77E5;&#x8BC6;<br>&#xFF08;3&#xFF09;&#x5904;&#x7406;&#x5355;&#x8BCD;&#x8868;&#x4EE5;&#x5916;&#x7684;&#x5355;&#x8BCD;<br>&#xFF08;4&#xFF09;&#x5E73;&#x884C;&#x5904;&#x7406;  </p>
+</blockquote>
+<p>This has shown to help when using byte-level input embeddings for named entity recognition (Gillick et al., 2015), and we hope it will enable similar gains when used to map onto words.</p>
+<h2 id="char-lstm-predictions"><a name="char-lstm-predictions" class="anchor-navigation-ex-anchor" href="#char-lstm-predictions"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. Char LSTM Predictions</h2>
+<p>The CNN Softmax layer can handle arbitrary words and is much more efficient in terms of number of parameters than the full Softmax matrix. It is, though, still considerably slow, as to evaluate perplexities we need to compute the partition function.  </p>
+<blockquote>
+<p><strong>[success]</strong><br>perplexities&#xFF1A;&#x6DF7;&#x4E71;&#xFF0C;&#x4E00;&#x79CD;&#x5EA6;&#x91CF;&#x6307;&#x6807;&#xFF0C;&#x5728;&#x4E0B;&#x4E00;&#x8282;&#x6709;&#x8BB2;<br>&#x8981;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#xFF1A;&#x8BC4;&#x4EF7;&#x201C;perplexities&#x201D;&#x5F88;&#x8D39;&#x65F6;  </p>
+</blockquote>
+<p>A class of models that solve this problem more efficiently are <strong>character-level LSTMs</strong> (Sutskever et al., 2011; Graves, 2013). They make predictions one character at a time, thus allowing to compute probabili ties over a much smaller vocabulary.   </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x5DF2;&#x6709;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x5B57;&#x7B26;&#x7EA7;LSTM  </p>
+</blockquote>
+<p>On the other hand, these models are more difficult to train and seem to perform worse even in small tasks like PTB (Graves, 2013). Most likely this is due to the sequences becoming much longer on average as the LSTM reads the input character by character instead of word by word.  </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x5B57;&#x7B26;&#x7EA7;LSTM&#x7684;&#x95EE;&#x9898;&#xFF1A;&#x96BE;&#x4EE5;&#x8BAD;&#x7EC3;  </p>
+</blockquote>
+<p>Thus, we combine the word and character-level models by feeding a word-level LSTM hidden state h into a small LSTM that predicts the target word one character at a time (see Figure 1(c)).   </p>
+<p><img src="assets/2.png" alt=""></p>
+<p>In order to make the whole process reasonably efficient, we train the standard LSTM model until convergence, freeze its weights, and replace the standard word-level Softmax layer with the aforementioned character-level LSTM.  </p>
+<blockquote>
+<p><strong>[info]</strong> aforementioned&#xFF1A;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;  </p>
+</blockquote>
+<p>The resulting model scales independently of vocabulary size &#x2013; both for training and inference. However, it does seem to be worse than regular and CNN Softmax &#x2013; we are hopeful that further research will enable these models to replace fixed vocabulary models whilst being computationally attractive.  </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x4F18;&#x70B9;&#xFF1A;&#x6A21;&#x578B;&#x5927;&#x5C0F;&#x4E0E;|V|&#x65E0;&#x5173;<br>&#x7F3A;&#x70B9;&#xFF1A;&#x6027;&#x80FD;&#x53D8;&#x5DEE;  </p>
+</blockquote>
+<div id="gitalk-container"></div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Related.html" class="navigation navigation-prev " aria-label="Previous page: 2 Related Work">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Experiments.html" class="navigation navigation-next " aria-label="Next page: 4 Experiments">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3 Language Modeling Improvements","level":"2.3.4","depth":2,"next":{"title":"4 Experiments","level":"2.3.5","depth":2,"path":"ELLM/Experiments.md","ref":"ELLM/Experiments.md","articles":[]},"previous":{"title":"2 Related Work","level":"2.3.3","depth":2,"path":"ELLM/Related.md","ref":"ELLM/Related.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","katex-plus","alerts","mygitalk","github","github-buttons","splitter","-sharing","sharing-plus","donate","copy-code-button","anchor-navigation-ex","sectionx","click-reveal"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/windmissing/NLP-important-papers"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"http://windmissing.github.io/images/2020/alipay.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://windmissing.github.io/images/2020/weixin.jpg","wechatText":"微信打赏"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"click-reveal":{},"sectionx":{},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"isShowTocTitleIcon":true,"printLog":false,"multipleH1":true,"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"katex-plus":{},"alerts":{},"github-buttons":{"repo":"windmissing/NLP-important-papers","types":["star","watch","fork"],"size":"small"},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"b622481cb88eba2f32db","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["windmissing"],"createIssueManually":false,"distractionFreeMode":false,"repo":"NLP-important-papers","owner":"windmissing","enableHotKey":true,"clientSecret":"1d8550b28cfbf3afb71fff648b67cf6fe708b90c","pagerDirection":"last","labels":["Gitalk"]},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"windmissing","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.2.3"},"file":{"path":"ELLM/Improvements.md","mtime":"2021-02-07T09:12:16.533Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-07T09:13:42.963Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+        
+    
+        
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mygitalk/mygitalk.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-click-reveal/click_reveal.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

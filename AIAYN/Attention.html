@@ -1,0 +1,2006 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.2 Attention · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="windmissing">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-plus/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-click-reveal/click_reveal.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="PositionwiseFeedForwardNetworks.html" />
+    
+    
+    <link rel="prev" href="EncoderAndDecoderStacks.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"windmissing/NLP-important-papers","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    Attention Is All You Need
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Abstract.html">
+            
+                <a href="Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="Introduction.html">
+            
+                <a href="Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="Background.html">
+            
+                <a href="Background.html">
+            
+                    
+                    2 Background
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="ModelArchitecture.html">
+            
+                <a href="ModelArchitecture.html">
+            
+                    
+                    3 Model Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="EncoderAndDecoderStacks.html">
+            
+                <a href="EncoderAndDecoderStacks.html">
+            
+                    
+                    3.1 Encoder and Decoder Stacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4.2" data-path="Attention.html">
+            
+                <a href="Attention.html">
+            
+                    
+                    3.2 Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="PositionwiseFeedForwardNetworks.html">
+            
+                <a href="PositionwiseFeedForwardNetworks.html">
+            
+                    
+                    3.3 Position-wise Feed-Forward Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="EmbeddingsAndSoftmax.html">
+            
+                <a href="EmbeddingsAndSoftmax.html">
+            
+                    
+                    3.4 Embeddings and Softmax
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="PositionalEncoding.html">
+            
+                <a href="PositionalEncoding.html">
+            
+                    
+                    3.5 Positional Encoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="WhySelfAttention.html">
+            
+                <a href="WhySelfAttention.html">
+            
+                    
+                    4 Why Self-Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    论文
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ACL_2020/6.html">
+            
+                <a href="../ACL_2020/6.html">
+            
+                    
+                    2020.acl-main.6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ACL_2020/7.html">
+            
+                <a href="../ACL_2020/7.html">
+            
+                    
+                    2020.acl-main.7
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ACL_2020/8.html">
+            
+                <a href="../ACL_2020/8.html">
+            
+                    
+                    2020.acl-main.8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ACL_2020/9.html">
+            
+                <a href="../ACL_2020/9.html">
+            
+                    
+                    2020.acl-main.9
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../ACL_2020/10.html">
+            
+                <a href="../ACL_2020/10.html">
+            
+                    
+                    2020.acl-main.10
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../ACL_2020/11.html">
+            
+                <a href="../ACL_2020/11.html">
+            
+                    
+                    2020.acl-main.11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../ACL_2020/15.html">
+            
+                <a href="../ACL_2020/15.html">
+            
+                    
+                    2020.acl-main.11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../ACL_2020/20.html">
+            
+                <a href="../ACL_2020/20.html">
+            
+                    
+                    2020.acl-main.20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../ACL_2020/23.html">
+            
+                <a href="../ACL_2020/23.html">
+            
+                    
+                    2020.acl-main.23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../ACL_2020/25.html">
+            
+                <a href="../ACL_2020/25.html">
+            
+                    
+                    2020.acl-main.25
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../ACL_2020/34.html">
+            
+                <a href="../ACL_2020/34.html">
+            
+                    
+                    2020.acl-main.34
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../ACL_2020/36.html">
+            
+                <a href="../ACL_2020/36.html">
+            
+                    
+                    2020.acl-main.36
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../ACL_2020/40.html">
+            
+                <a href="../ACL_2020/40.html">
+            
+                    
+                    2020.acl-main.40
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="../ACL_2020/41.html">
+            
+                <a href="../ACL_2020/41.html">
+            
+                    
+                    2020.acl-main.41
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="../ACL_2020/42.html">
+            
+                <a href="../ACL_2020/42.html">
+            
+                    
+                    2020.acl-main.42
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="../ACL_2020/54.html">
+            
+                <a href="../ACL_2020/54.html">
+            
+                    
+                    2020.acl-main.54
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.17" data-path="../ACL_2020/57.html">
+            
+                <a href="../ACL_2020/57.html">
+            
+                    
+                    2020.acl-main.57
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.18" data-path="../ACL_2020/55.html">
+            
+                <a href="../ACL_2020/55.html">
+            
+                    
+                    2020.acl-main.55
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.19" data-path="../ACL_2020/60.html">
+            
+                <a href="../ACL_2020/60.html">
+            
+                    
+                    2020.acl-main.60
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.20" data-path="../ACL_2020/61.html">
+            
+                <a href="../ACL_2020/61.html">
+            
+                    
+                    2020.acl-main.61
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.21" data-path="../ACL_2020/64.html">
+            
+                <a href="../ACL_2020/64.html">
+            
+                    
+                    2020.acl-main.64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.22" data-path="../ACL_2020/67.html">
+            
+                <a href="../ACL_2020/67.html">
+            
+                    
+                    2020.acl-main.67
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.23" data-path="../ACL_2020/68.html">
+            
+                <a href="../ACL_2020/68.html">
+            
+                    
+                    2020.acl-main.68
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.24" data-path="../ACL_2020/76.html">
+            
+                <a href="../ACL_2020/76.html">
+            
+                    
+                    2020.acl-main.76
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.25" data-path="../ACL_2020/80.html">
+            
+                <a href="../ACL_2020/80.html">
+            
+                    
+                    2020.acl-main.80
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.26" data-path="../ACL_2020/94.html">
+            
+                <a href="../ACL_2020/94.html">
+            
+                    
+                    2020.acl-main.94
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.27" data-path="../ACL_2020/98.html">
+            
+                <a href="../ACL_2020/98.html">
+            
+                    
+                    2020.acl-main.98
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.28" data-path="../ACL_2020/101.html">
+            
+                <a href="../ACL_2020/101.html">
+            
+                    
+                    2020.acl-main.101
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.29" data-path="../ACL_2020/127.md">
+            
+                <span>
+            
+                    
+                    2020.acl-main.127
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.30" data-path="../ACL_2020/130.html">
+            
+                <a href="../ACL_2020/130.html">
+            
+                    
+                    2020.acl-main.130
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.31" data-path="../ACL_2020/131.html">
+            
+                <a href="../ACL_2020/131.html">
+            
+                    
+                    2020.acl-main.131
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.32" data-path="../ACL_2020/143.html">
+            
+                <a href="../ACL_2020/143.html">
+            
+                    
+                    2020.acl-main.143
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.33" data-path="../ACL_2020/144.html">
+            
+                <a href="../ACL_2020/144.html">
+            
+                    
+                    2020.acl-main.144
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.34" data-path="../ACL_2020/145.html">
+            
+                <a href="../ACL_2020/145.html">
+            
+                    
+                    2020.acl-main.145
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.35" data-path="../ACL_2020/147.html">
+            
+                <a href="../ACL_2020/147.html">
+            
+                    
+                    2020.acl-main.147
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.36" data-path="../ACL_2020/148.html">
+            
+                <a href="../ACL_2020/148.html">
+            
+                    
+                    2020.acl-main.148
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.37" data-path="../ACL_2020/150.html">
+            
+                <a href="../ACL_2020/150.html">
+            
+                    
+                    2020.acl-main.150
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.38" data-path="../ACL_2020/152.html">
+            
+                <a href="../ACL_2020/152.html">
+            
+                    
+                    2020.acl-main.152
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.39" data-path="../ACL_2020/154.html">
+            
+                <a href="../ACL_2020/154.html">
+            
+                    
+                    2020.acl-main.154
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.40" data-path="../ACL_2020/155.html">
+            
+                <a href="../ACL_2020/155.html">
+            
+                    
+                    2020.acl-main.155
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.41" data-path="../ACL_2020/164.html">
+            
+                <a href="../ACL_2020/164.html">
+            
+                    
+                    2020.acl-main.164
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.42" data-path="../ACL_2020/165.html">
+            
+                <a href="../ACL_2020/165.html">
+            
+                    
+                    2020.acl-main.165
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.43" data-path="../ACL_2020/167.html">
+            
+                <a href="../ACL_2020/167.html">
+            
+                    
+                    2020.acl-main.167
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.44" data-path="../ACL_2020/171.html">
+            
+                <a href="../ACL_2020/171.html">
+            
+                    
+                    2020.acl-main.171
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.45" data-path="../ACL_2020/184.html">
+            
+                <a href="../ACL_2020/184.html">
+            
+                    
+                    2020.acl-main.184
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.46" data-path="../ACL_2020/185.html">
+            
+                <a href="../ACL_2020/185.html">
+            
+                    
+                    2020.acl-main.185
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.47" data-path="../ACL_2020/186.html">
+            
+                <a href="../ACL_2020/186.html">
+            
+                    
+                    2020.acl-main.186
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.48" data-path="../ACL_2020/201.html">
+            
+                <a href="../ACL_2020/201.html">
+            
+                    
+                    2020.acl-main.201
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.49" data-path="../ACL_2020/218.html">
+            
+                <a href="../ACL_2020/218.html">
+            
+                    
+                    2020.acl-main.218
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.50" data-path="../ACL_2020/219.html">
+            
+                <a href="../ACL_2020/219.html">
+            
+                    
+                    2020.acl-main.219
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.51" data-path="../ACL_2020/221.html">
+            
+                <a href="../ACL_2020/221.html">
+            
+                    
+                    2020.acl-main.221
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.52" data-path="../ACL_2020/222.html">
+            
+                <a href="../ACL_2020/222.html">
+            
+                    
+                    2020.acl-main.222
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.53" data-path="../ACL_2020/223.html">
+            
+                <a href="../ACL_2020/223.html">
+            
+                    
+                    2020.acl-main.223
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.54" data-path="../ACL_2020/224.html">
+            
+                <a href="../ACL_2020/224.html">
+            
+                    
+                    2020.acl-main.224
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.55" data-path="../ACL_2020/227.html">
+            
+                <a href="../ACL_2020/227.html">
+            
+                    
+                    2020.acl-main.227
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.56" data-path="../ACL_2020/228.html">
+            
+                <a href="../ACL_2020/228.html">
+            
+                    
+                    2020.acl-main.228
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.57" data-path="../ACL_2020/251.html">
+            
+                <a href="../ACL_2020/251.html">
+            
+                    
+                    2020.acl-main.251
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.58" data-path="../ACL_2020/252.html">
+            
+                <a href="../ACL_2020/252.html">
+            
+                    
+                    2020.acl-main.252
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.59" data-path="../ACL_2020/254.html">
+            
+                <a href="../ACL_2020/254.html">
+            
+                    
+                    2020.acl-main.254
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../NANER/1.html">
+            
+                <a href="../NANER/1.html">
+            
+                    
+                    Neural Architectures for Named Entity Recognition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../NANER/Abstract.html">
+            
+                <a href="../NANER/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../NANER/Introduction.html">
+            
+                <a href="../NANER/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../NANER/LSTMCRF.html">
+            
+                <a href="../NANER/LSTMCRF.html">
+            
+                    
+                    2 LSTM-CRF Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../NANER/Chunking.html">
+            
+                <a href="../NANER/Chunking.html">
+            
+                    
+                    3 Transition-Based Chunking Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../NANER/Embedding.html">
+            
+                <a href="../NANER/Embedding.html">
+            
+                    
+                    4 Input Word Embeddings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../NANER/Experiments.html">
+            
+                <a href="../NANER/Experiments.html">
+            
+                    
+                    5 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../NANER/Relatedwork.html">
+            
+                <a href="../NANER/Relatedwork.html">
+            
+                    
+                    6 Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../NANER/Conclusion.html">
+            
+                <a href="../NANER/Conclusion.html">
+            
+                    
+                    7 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../NANER/Reference.html">
+            
+                <a href="../NANER/Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../TMRC/1.html">
+            
+                <a href="../TMRC/1.html">
+            
+                    
+                    Teaching Machines to Read and Comprehend
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../TMRC/Abstract.html">
+            
+                <a href="../TMRC/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../TMRC/Introduction.html">
+            
+                <a href="../TMRC/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../TMRC/Supervised.html">
+            
+                <a href="../TMRC/Supervised.html">
+            
+                    
+                    2 Supervised training data for reading comprehension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../TMRC/Models.html">
+            
+                <a href="../TMRC/Models.html">
+            
+                    
+                    3 Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../TMRC/Empirical.html">
+            
+                <a href="../TMRC/Empirical.html">
+            
+                    
+                    4 Empirical Evaluation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../TMRC/Conclusion.html">
+            
+                <a href="../TMRC/Conclusion.html">
+            
+                    
+                    5 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="../TMRC/Reference.html">
+            
+                <a href="../TMRC/Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../ELLM/1.html">
+            
+                <a href="../ELLM/1.html">
+            
+                    
+                    Exploring the Limits of Language Modeling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../ELLM/Abstract.html">
+            
+                <a href="../ELLM/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../ELLM/Introduction.html">
+            
+                <a href="../ELLM/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../ELLM/Related.html">
+            
+                <a href="../ELLM/Related.html">
+            
+                    
+                    2 Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../ELLM/Improvements.html">
+            
+                <a href="../ELLM/Improvements.html">
+            
+                    
+                    3 Language Modeling Improvements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="../ELLM/Experiments.html">
+            
+                <a href="../ELLM/Experiments.html">
+            
+                    
+                    4 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="../ELLM/Results.html">
+            
+                <a href="../ELLM/Results.html">
+            
+                    
+                    5 Results and Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.7" data-path="../ELLM/Discussion.html">
+            
+                <a href="../ELLM/Discussion.html">
+            
+                    
+                    6 Discussion and Conclusions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.8" data-path="../ELLM/References.html">
+            
+                <a href="../ELLM/References.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../EAANMT/1.html">
+            
+                <a href="../EAANMT/1.html">
+            
+                    
+                    Effective Approaches to Attention-based Neural Machine Translation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../EAANMT/Abstract.html">
+            
+                <a href="../EAANMT/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../EAANMT/Introduction.html">
+            
+                <a href="../EAANMT/Introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../EAANMT/Neural.html">
+            
+                <a href="../EAANMT/Neural.html">
+            
+                    
+                    2 Neural Machine Translation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="../EAANMT/Attention.html">
+            
+                <a href="../EAANMT/Attention.html">
+            
+                    
+                    3 Attention-based Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="../EAANMT/Experiments.html">
+            
+                <a href="../EAANMT/Experiments.html">
+            
+                    
+                    4 Experiments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.6" data-path="../EAANMT/Analysis.html">
+            
+                <a href="../EAANMT/Analysis.html">
+            
+                    
+                    5 Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.7" data-path="../EAANMT/Conclusion.html">
+            
+                <a href="../EAANMT/Conclusion.html">
+            
+                    
+                    6 Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.8" data-path="../EAANMT/References.html">
+            
+                <a href="../EAANMT/References.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../CRFRNN/1.html">
+            
+                <a href="../CRFRNN/1.html">
+            
+                    
+                    Conditional random fields as recurrent neural networks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="../CRFRNN/Abstract.html">
+            
+                <a href="../CRFRNN/Abstract.html">
+            
+                    
+                    Abstract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="../CRFRNN/Introduction.html">
+            
+                <a href="../CRFRNN/Introduction.html">
+            
+                    
+                    1. Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3" data-path="../CRFRNN/Related.html">
+            
+                <a href="../CRFRNN/Related.html">
+            
+                    
+                    2. Related Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.4" data-path="../CRFRNN/CRF.html">
+            
+                <a href="../CRFRNN/CRF.html">
+            
+                    
+                    3. Conditional Random Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.5" data-path="../CRFRNN/Iteration.html">
+            
+                <a href="../CRFRNN/Iteration.html">
+            
+                    
+                    4. A Mean-field Iteration as a Stack of CNN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.6" data-path="../CRFCRNN/Network.md">
+            
+                <span>
+            
+                    
+                    5. The End-to-end Trainable Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.2 Attention</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#scaled-dot-product-attention"><b>1. </b>Scaled Dot-Product Attention</a></li><li><span class="title-icon "></span><a href="#multi-head-attention"><b>2. </b>Multi-Head Attention</a></li><li><span class="title-icon "></span><a href="#applications-of-attention-in-our-model"><b>3. </b>Applications of Attention in our Model</a></li></ul></div><a href="#scaled-dot-product-attention" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><p>An attention function can be described as mapping a query and a set of key-value pairs to an output, where the query, keys, values, and output are all vectors. The output is computed as a weighted sum of the values, where the weight assigned to each value is computed by a compatibility function of the query with the corresponding key. </p>
+<blockquote>
+<p><strong>[success]</strong><br>Attention&#x662F;&#x6307;&#x901A;&#x8FC7;&#x67D0;&#x79CD;&#x7B97;&#x6CD5;&#xFF0C;&#x5C06;&#x95EE;&#x9898;&#x5411;&#x91CF;q&#x3001;&#x952E;&#x77E9;&#x9635;K&#x3001;&#x503C;&#x77E9;&#x9635;V&#x5171;&#x540C;&#x6620;&#x5C04;&#x6210;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x5411;&#x91CF;&#x3002;<br>&#x5B9E;&#x9645;&#x4F7F;&#x7528;attention&#x65F6;&#xFF0C;&#x901A;&#x5E38;&#x628A;&#x6240;&#x6709;n_q&#x4E2A;&#x95EE;&#x9898;&#x5411;&#x91CF;&#x5408;&#x5E76;&#x6210;&#x95EE;&#x9898;&#x77E9;&#x9635;Q&#xFF0C;&#x6700;&#x540E;&#x5F97;&#x5230;n_q&#x4E2A;&#x8F93;&#x51FA;&#x5411;&#x91CF;&#x3002;<br>Q&#x7684;&#x5927;&#x5C0F;&#x4E3A;n_q <em> d_k&#xFF0C;n_q&#x4E3A;&#x95EE;&#x9898;&#x4E2A;&#x6570;&#xFF0C;d_k&#x4E3A;&#x95EE;&#x9898;&#x5411;&#x91CF;&#x7684;&#x7EF4;&#x5EA6;&#x3002;<br>K&#x7684;&#x5927;&#x5C0F;&#x4E3A;n_k </em> d_k&#xFF0C;n_k&#x4E3A;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x4E2A;&#x6570;&#xFF0C;d_k&#x4E3A;&#x952E;&#x5411;&#x91CF;&#x7684;&#x7EF4;&#x5EA6;&#x3002;<br>V&#x7684;&#x5927;&#x5C0F;&#x4E3A;n_k * d_v&#xFF0C;n_k&#x4E3A;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x4E2A;&#x6570;&#xFF0C;d_v&#x4E3A;&#x503C;&#x5411;&#x91CF;&#x7684;&#x7EF4;&#x5EA6;&#x3002;   </p>
+<p><strong>[warning]</strong>  [?] &#x5728;&#x672C;&#x6587;&#x4E2D;&#xFF0C;Q&#x3001;K&#x3001;V&#x5206;&#x522B;&#x662F;&#x6307;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;  </p>
+<h1 id="scaled-dot-product-attention"><a name="scaled-dot-product-attention" class="anchor-navigation-ex-anchor" href="#scaled-dot-product-attention"><i class="fa fa-link" aria-hidden="true"></i></a>1. Scaled Dot-Product Attention</h1>
+</blockquote>
+<p><img src="assets/5.png" alt="">  </p>
+<p>We call our particular attention &quot;Scaled Dot-Product Attention&quot; (Figure 2). The input consists of queries and keys of dimension dk, and values of dimension dv. We compute the dot products of the query with all keys, divide each by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{d_k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.85722em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.18278000000000005em;"></span><span class="base"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.85722em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathit">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span><span style="top:-2.81722em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width="400em" height="1.08em" viewbox="0 0 400000 1080" preserveaspectratio="xMinYMin slice"><path d="M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.18278000000000005em;"></span></span></span></span></span></span></span>, and apply a softmax function to obtain the weights on the values.<br>In practice, we compute the attention function on a set of queries simultaneously, packed together into a matrix Q. The keys and values are also packed together into matrices K and V . We compute the matrix of outputs as:   </p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>t</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>(</mo><mi>Q</mi><mo separator="true">,</mo><mi>K</mi><mo separator="true">,</mo><mi>V</mi><mo>)</mo><mo>=</mo><mtext><mi mathvariant="normal">s</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">x</mi></mtext><mo>(</mo><mfrac><mrow><mi>Q</mi><msup><mi>K</mi><mi mathvariant="normal">&#x22A4;</mi></msup></mrow><mrow><msqrt><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow></msqrt></mrow></mfrac><mo>)</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">
+Attention(Q, K, V) = \text{softmax}(\frac{QK^\top}{\sqrt{d_k}})V
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.526108em;"></span><span class="strut bottom" style="height:2.4561080000000004em;vertical-align:-0.9300000000000002em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">A</span><span class="mord mathit">t</span><span class="mord mathit">t</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">o</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">Q</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.22222em;">V</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord text displaystyle textstyle uncramped"><span class="mord mathrm">softmax</span></span><span class="mopen">(</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.7472200000000002em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord sqrt"><span class="sqrt-sign" style="top:-0.017220000000000013em;"><span class="style-wrap reset-textstyle textstyle uncramped">&#x221A;</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord"><span class="mord mathit">d</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span><span style="top:-0.77722em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">Q</span><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">&#x22A4;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.22222em;">V</span></span></span></span></span></p>
+<p>The two most commonly used attention functions are additive attention [2], and dot-product (multiplicative) attention. Dot-product attention is identical to our algorithm, except for the scaling factor of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><msqrt><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{\sqrt{d_k}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.845108em;"></span><span class="strut bottom" style="height:1.383108em;vertical-align:-0.538em;"></span><span class="base"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.5864385em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8622307142857143em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"></span></span></span></span></span></span></span><span style="top:-2.8222307142857144em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg width="400em" height="1.08em" viewbox="0 0 400000 1080" preserveaspectratio="xMinYMin slice"><path d="M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.17776928571428574em;"></span></span></span></span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewbox="0 0 400000 200" preserveaspectratio="xMinYMin slice"><path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"/></svg></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.538em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>. Additive attention computes the compatibility function using a feed-forward network with a single hidden layer. While the two are similar in theoretical complexity, dot-product attention is much faster and more space-efficient in practice, since it can be implemented using highly optimized matrix multiplication code.<br>While for small values of dk the two mechanisms perform similarly, additive attention outperforms dot product attention without scaling for larger values of dk [3]. We suspect that for large values of dk, the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients 4 .   </p>
+<blockquote>
+<p><strong>[info]</strong><br>4 To illustrate why the dot products get large, assume that the components of q and k are independent random variables with mean 0 and variance 1. Then their dot product, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi><mo separator="true">&#x22C5;</mo><mi>k</mi><mo>=</mo><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>d</mi><mi>k</mi></msub></msubsup><msub><mi>q</mi><mi>i</mi></msub><msub><mi>k</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">q &#xB7; k =
+\sum_{i=1}^{d_k}q_ik_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9890079999999999em;"></span><span class="strut bottom" style="height:1.2887179999999998em;vertical-align:-0.29971000000000003em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mpunct">&#x22C5;</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>, has mean 0 and variance <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">d_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>.  </p>
+</blockquote>
+<p>To counteract this effect, we scale the dot products by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><msqrt><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{\sqrt{d_k}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.845108em;"></span><span class="strut bottom" style="height:1.383108em;vertical-align:-0.538em;"></span><span class="base"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.5864385em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8622307142857143em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"></span></span></span></span></span></span></span><span style="top:-2.8222307142857144em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg width="400em" height="1.08em" viewbox="0 0 400000 1080" preserveaspectratio="xMinYMin slice"><path d="M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.17776928571428574em;"></span></span></span></span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewbox="0 0 400000 200" preserveaspectratio="xMinYMin slice"><path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"/></svg></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.538em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>.   </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x5DF2;&#x6709;&#x7684;attention&#x65B9;&#x6CD5;&#xFF1A;<br>&#xFF08;1&#xFF09;dot-product attention&#xFF1A;<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>t</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>(</mo><mi>Q</mi><mo separator="true">,</mo><mi>K</mi><mo separator="true">,</mo><mi>V</mi><mo>)</mo><mo>=</mo><mtext><mi mathvariant="normal">s</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">x</mi></mtext><mo>(</mo><mi>Q</mi><msup><mi>K</mi><mi mathvariant="normal">&#x22A4;</mi></msup><mo>)</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">
+Attention(Q, K, V) = \text{softmax}(QK^\top)V
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8991079999999999em;"></span><span class="strut bottom" style="height:1.149108em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">A</span><span class="mord mathit">t</span><span class="mord mathit">t</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">o</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">Q</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.22222em;">V</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord text displaystyle textstyle uncramped"><span class="mord mathrm">softmax</span></span><span class="mopen">(</span><span class="mord mathit">Q</span><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">&#x22A4;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.22222em;">V</span></span></span></span></span></p>
+<p>softmax&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;n_q * n_k&#x7684;&#x77E9;&#x9635;&#x3002;softmax&#x7684;&#x884C;&#x4E3A;&#x662F;&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x6BCF;&#x4E00;&#x884C;&#x5206;&#x522B;&#x505A;softmax&#x3002;&#x5373;&#x77E9;&#x9635;&#x6BCF;&#x4E00;&#x884C;&#x7684;&#x548C;&#x4E3A;1&#x3002;<br>&#xFF08;2&#xFF09;<a href="https://arxiv.org/pdf/1409.0473" target="_blank">additive attention</a><br>computes the compatibility function using a feed-forward network with a single hidden layer<br>&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x7684;&#x6BD4;&#x8F83;&#xFF1A;<br>&#xFF08;1&#xFF09;&#x6BD4;&#xFF08;2&#xFF09;&#x901F;&#x5EA6;&#x5FEB;&#xFF0C;&#x5360;&#x7528;&#x7A7A;&#x95F4;&#x5C11;&#x3002;<br>&#x5F53;dk&#x4E0D;&#x5927;&#x65F6;&#xFF0C;&#xFF08;1&#xFF09;&#x548C;&#xFF08;2&#xFF09;&#x6027;&#x80FD;&#x5DEE;&#x4E0D;&#x591A;&#x3002;<br>&#x5F53;dk&#x5F88;&#x5927;&#x65F6;&#xFF0C;&#xFF08;2&#xFF09;&#x6027;&#x80FD;&#x66F4;&#x597D;&#x3002;<br>&#x672C;&#x6587;&#x65B9;&#x6CD5;&#xFF1A;<br>scaled dot-product attention&#x662F;&#x672C;&#x6587;&#x7684;&#x521B;&#x65B0;&#x70B9;&#x4E4B;&#x4E00;&#x3002;&#x5B83;&#x5728;&#xFF08;1&#xFF09;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x589E;&#x52A0;scaled&#x3002;<br>&#x7279;&#x70B9;&#xFF1A;<br>&#x5177;&#x6709;&#xFF08;1&#xFF09;&#x7684;&#x4F18;&#x70B9;&#x3002;<br>&#x89E3;&#x51B3;&#x5F53;dk&#x5927;&#x65F6;&#xFF08;1&#xFF09;&#x6027;&#x80FD;&#x4E0D;&#x597D;&#x7684;&#x95EE;&#x9898;&#x3002;&#x56E0;&#x4E3A;dk&#x592A;&#x5927;&#x4F1A;&#x5BFC;&#x81F4;&#x201C;dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients&#x201D;&#x3002;  </p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScaledDotProductAttention</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos; Scaled Dot-Product Attention &apos;&apos;&apos;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, temperature, attn_dropout=<span class="hljs-number">0.1</span>)</span>:</span>
+        super().__init__()
+        self.temperature = temperature
+        self.dropout = nn.Dropout(attn_dropout)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, q, k, v, mask=None)</span>:</span>
+
+        attn = torch.matmul(q / self.temperature, k.transpose(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>))
+
+        <span class="hljs-keyword">if</span> mask <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            attn = attn.masked_fill(mask == <span class="hljs-number">0</span>, <span class="hljs-number">-1e9</span>)
+
+        attn = self.dropout(F.softmax(attn, dim=<span class="hljs-number">-1</span>))
+        output = torch.matmul(attn, v)
+
+        <span class="hljs-keyword">return</span> output, attn
+</code></pre>
+<h1 id="multi-head-attention"><a name="multi-head-attention" class="anchor-navigation-ex-anchor" href="#multi-head-attention"><i class="fa fa-link" aria-hidden="true"></i></a>2. Multi-Head Attention</h1>
+<p>Instead of performing a single attention function with dmodel-dimensional keys, values and queries, we found it beneficial to linearly project the queries, keys and values h times with different, learned linear projections to dk, dk and dv dimensions, respectively. On each of these projected versions of queries, keys and values we then perform the attention function in parallel, yielding dv-dimensional output values. These are concatenated and once again projected, resulting in the final values, as depicted in Figure 2.<br><img src="assets/6.png" alt="">  </p>
+<p>Multi-head attention allows the model to <strong>jointly attend to information from different representation subspaces at different positions</strong>. With a single attention head, averaging inhibits this.<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>u</mi><mi>l</mi><mi>t</mi><mi>i</mi><mi>H</mi><mi>e</mi><mi>a</mi><mi>d</mi><mo>(</mo><mi>Q</mi><mo separator="true">,</mo><mi>K</mi><mo separator="true">,</mo><mi>V</mi><mo>)</mo><mo>=</mo><mi>C</mi><mi>o</mi><mi>n</mi><mi>c</mi><mi>a</mi><mi>t</mi><mo>(</mo><mi>h</mi><mi>e</mi><mi>a</mi><mi>d</mi><mn>1</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>h</mi><mi>e</mi><mi>a</mi><mi>d</mi><mi>h</mi><mo>)</mo><msup><mi>W</mi><mi>O</mi></msup></mrow><annotation encoding="application/x-tex">
+MultiHead(Q, K, V ) = Concat(head1, ..., headh)W^O  
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8913309999999999em;"></span><span class="strut bottom" style="height:1.1413309999999999em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathit">u</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mord mathit">e</span><span class="mord mathit">a</span><span class="mord mathit">d</span><span class="mopen">(</span><span class="mord mathit">Q</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.22222em;">V</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord mathit">o</span><span class="mord mathit">n</span><span class="mord mathit">c</span><span class="mord mathit">a</span><span class="mord mathit">t</span><span class="mopen">(</span><span class="mord mathit">h</span><span class="mord mathit">e</span><span class="mord mathit">a</span><span class="mord mathit">d</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mpunct">,</span><span class="mord mathit">h</span><span class="mord mathit">e</span><span class="mord mathit">a</span><span class="mord mathit">d</span><span class="mord mathit">h</span><span class="mclose">)</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">O</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></p>
+<p>where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>e</mi><mi>a</mi><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><mi>A</mi><mi>t</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>(</mo><mi>Q</mi><msubsup><mi>W</mi><mi>i</mi><mi>Q</mi></msubsup><mo separator="true">,</mo><mi>K</mi><msubsup><mi>W</mi><mi>i</mi><mi>K</mi></msubsup><mo separator="true">,</mo><mi>V</mi><msubsup><mi>W</mi><mi>i</mi><mi>V</mi></msubsup><mo>)</mo></mrow><annotation encoding="application/x-tex">head_i = Attention(QW^Q_i , KW^K_i , VW^V_i )</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.959239em;"></span><span class="strut bottom" style="height:1.236103em;vertical-align:-0.276864em;"></span><span class="base"><span class="mord mathit">h</span><span class="mord mathit">e</span><span class="mord mathit">a</span><span class="mord"><span class="mord mathit">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit">A</span><span class="mord mathit">t</span><span class="mord mathit">t</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">o</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">Q</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.959239em;"><span style="top:-2.4231360000000004em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span><span style="top:-3.1809080000000005em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">Q</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.276864em;"></span></span></span></span></span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.441336em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"></span></span></span></span></span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.22222em;">V</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.441336em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"></span></span></span></span></span><span class="mclose">)</span></span></span></span>  </p>
+<p>Where the projections are parameter matrices <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>W</mi><mi>i</mi><mi>Q</mi></msubsup><mo>&#x2208;</mo><msup><mi>R</mi><mrow><msub><mi>d</mi><mrow><mi>m</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>l</mi></mrow></msub><mo>&#xD7;</mo><msub><mi>d</mi><mi>k</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">W^Q_i \in R^{d_{model}\times d_k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.959239em;"></span><span class="strut bottom" style="height:1.236103em;vertical-align:-0.276864em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.959239em;"><span style="top:-2.4231360000000004em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span><span style="top:-3.1809080000000005em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">Q</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.276864em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2208;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">o</span><span class="mord mathit mtight">d</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"></span></span></span></span></span><span class="mbin mtight">&#xD7;</span><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> , <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>W</mi><mi>i</mi><mi>K</mi></msubsup><mo>&#x2208;</mo><msup><mi>R</mi><mrow><msub><mi>d</mi><mrow><mi>m</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>l</mi></mrow></msub><mo>&#xD7;</mo><msub><mi>d</mi><mi>k</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">W^K_i \in R^{d_{model}\times d_k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8491079999999999em;"></span><span class="strut bottom" style="height:1.1077719999999998em;vertical-align:-0.258664em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.441336em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2208;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">o</span><span class="mord mathit mtight">d</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"></span></span></span></span></span><span class="mbin mtight">&#xD7;</span><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> , <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>W</mi><mi>i</mi><mi>V</mi></msubsup><mo>&#x2208;</mo><msup><mi>R</mi><mrow><msub><mi>d</mi><mrow><mi>m</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>l</mi></mrow></msub><mo>&#xD7;</mo><msub><mi>d</mi><mi>v</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">W^V_i \in R^{d_{model}\times d_v}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8491079999999999em;"></span><span class="strut bottom" style="height:1.1077719999999998em;vertical-align:-0.258664em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.441336em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2208;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">o</span><span class="mord mathit mtight">d</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"></span></span></span></span></span><span class="mbin mtight">&#xD7;</span><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathit mtight" style="margin-right:0.03588em;">v</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>W</mi><mi>O</mi></msup><mo>&#x2208;</mo><msup><mi>R</mi><mrow><mi>h</mi><msub><mi>d</mi><mi>v</mi></msub><mo>&#xD7;</mo><msub><mi>d</mi><mrow><mi>m</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>l</mi></mrow></msub></mrow></msup></mrow><annotation encoding="application/x-tex">W^O \in R^{hd_v\times d_{model}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8491079999999999em;"></span><span class="strut bottom" style="height:0.8882079999999999em;vertical-align:-0.0391em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.02778em;">O</span></span></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2208;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">h</span><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathit mtight" style="margin-right:0.03588em;">v</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"></span></span></span></span></span><span class="mbin mtight">&#xD7;</span><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">o</span><span class="mord mathit mtight">d</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> .<br>In this work we employ h = 8 parallel attention layers, or heads. For each of these we use dk = dv = dmodel/h = 64. Due to the reduced dimension of each head, the total computational cost is similar to that of single-head attention with full dimensionality.   </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x5C06;&#x95EE;&#x9898;&#x3001;&#x952E;&#x3001;&#x503C;&#x5206;&#x522B;&#x751F;&#x6210;&#x51E0;&#x7EC4;&#x4E0D;&#x540C;d_k&#x548C;d_v&#x7684;&#x77E9;&#x9635;&#x3002;<br>&#x6BCF;&#x7EC4;&#x7528;&#x4E0A;&#x9762;&#x7684;scaled dot-product attention&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6216;&#xFF08;n_q&#xFF09;&#x4E2A;&#x8F93;&#x51FA;&#x5411;&#x91CF;&#x3002;<br>&#x540C;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x5BF9;&#x5E94;&#x7684;&#x6240;&#x6709;&#x7EC4;&#x8F93;&#x51FA;&#x5411;&#x91CF;concat&#x5230;&#x4E00;&#x8D77;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x6216;&#xFF08;n_q&#xFF09;&#x4E2A;&#x957F;&#x7684;&#x5411;&#x91CF;&#x3002;  </p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MultiHeadAttention</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos; Multi-Head Attention module &apos;&apos;&apos;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, n_head, d_model, d_k, d_v, dropout=<span class="hljs-number">0.1</span>)</span>:</span>
+        super().__init__()
+
+        self.n_head = n_head
+        self.d_k = d_k
+        self.d_v = d_v
+
+        self.w_qs = nn.Linear(d_model, n_head * d_k, bias=<span class="hljs-keyword">False</span>)
+        self.w_ks = nn.Linear(d_model, n_head * d_k, bias=<span class="hljs-keyword">False</span>)
+        self.w_vs = nn.Linear(d_model, n_head * d_v, bias=<span class="hljs-keyword">False</span>)
+        self.fc = nn.Linear(n_head * d_v, d_model, bias=<span class="hljs-keyword">False</span>)
+
+        self.attention = ScaledDotProductAttention(temperature=d_k ** <span class="hljs-number">0.5</span>)
+
+        self.dropout = nn.Dropout(dropout)
+        self.layer_norm = nn.LayerNorm(d_model, eps=<span class="hljs-number">1e-6</span>)
+
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, q, k, v, mask=None)</span>:</span>
+
+        d_k, d_v, n_head = self.d_k, self.d_v, self.n_head
+        sz_b, len_q, len_k, len_v = q.size(<span class="hljs-number">0</span>), q.size(<span class="hljs-number">1</span>), k.size(<span class="hljs-number">1</span>), v.size(<span class="hljs-number">1</span>)
+
+        residual = q
+
+        <span class="hljs-comment"># Pass through the pre-attention projection: b x lq x (n*dv)</span>
+        <span class="hljs-comment"># Separate different heads: b x lq x n x dv</span>
+        q = self.w_qs(q).view(sz_b, len_q, n_head, d_k)
+        k = self.w_ks(k).view(sz_b, len_k, n_head, d_k)
+        v = self.w_vs(v).view(sz_b, len_v, n_head, d_v)
+
+        <span class="hljs-comment"># Transpose for attention dot product: b x n x lq x dv</span>
+        q, k, v = q.transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), k.transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), v.transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+
+        <span class="hljs-keyword">if</span> mask <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            mask = mask.unsqueeze(<span class="hljs-number">1</span>)   <span class="hljs-comment"># For head axis broadcasting.</span>
+
+        q, attn = self.attention(q, k, v, mask=mask)
+
+        <span class="hljs-comment"># Transpose to move the head dimension back: b x lq x n x dv</span>
+        <span class="hljs-comment"># Combine the last two dimensions to concatenate all the heads together: b x lq x (n*dv)</span>
+        q = q.transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>).contiguous().view(sz_b, len_q, <span class="hljs-number">-1</span>)
+        q = self.dropout(self.fc(q))
+        q += residual
+
+        q = self.layer_norm(q)
+
+        <span class="hljs-keyword">return</span> q, attn
+</code></pre>
+<h1 id="applications-of-attention-in-our-model"><a name="applications-of-attention-in-our-model" class="anchor-navigation-ex-anchor" href="#applications-of-attention-in-our-model"><i class="fa fa-link" aria-hidden="true"></i></a>3. Applications of Attention in our Model</h1>
+<p>The Transformer uses multi-head attention in three different ways:<br>&#x2022; In &quot;encoder-decoder attention&quot; layers, the queries come from the previous decoder layer, and the <strong>memory</strong> keys and values come from the output of the encoder. This allows every position in the decoder to attend over all positions in the input sequence. This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as [38, 2, 9].   </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x8FD9;&#x91CC;&#x7528;&#x7684;&#x662F;recurrent attention mechanism&#x3002;&#x5386;&#x53F2;&#x7684;encoder&#x8F93;&#x5165;&#x90FD;&#x4F1A;&#x88AB;&#x8BB0;&#x5F55;&#x548C;&#x7528;&#x4E8E;&#x8FD9;&#x91CC;&#x7684;&#x6CE8;&#x610F;&#x529B;&#x673A;&#x5236;&#x4E2D;&#x3002;<br>query: decoder<br>key: encoder<br>value: encoder</p>
+</blockquote>
+<p>&#x2022; The encoder contains self-attention layers. In a self-attention layer all of the keys, values and queries come from the same place, in this case, the output of the previous layer in the encoder. Each position in the encoder can attend to all positions in the previous layer of the encoder.   </p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x8FD9;&#x91CC;&#x7528;&#x7684;&#x662F;self-attention&#x3002;<br>query&#x3001;key&#x3001;value&#x90FD;&#x662F;&#x6240;&#x6709;position&#x7684;&#x4E0A;&#x4E00;&#x5C42;encoder&#x7684;&#x8F93;&#x51FA;&#x3002;   </p>
+</blockquote>
+<p>&#x2022; Similarly, self-attention layers in the decoder allow each position in the decoder to attend to all positions in the decoder up to and including that position. We need to prevent leftward information flow in the decoder to preserve the auto-regressive property. We implement this inside of scaled dot-product attention by masking out (setting to &#x2212;&#x221E;) all values in the input of the softmax which correspond to illegal connections. See Figure 2.</p>
+<blockquote>
+<p><strong>[success]</strong><br>&#x8FD9;&#x91CC;&#x7528;&#x7684;&#x662F;self-attention&#x3002;<br>query&#x3001;key&#x3001;value&#x90FD;&#x662F;&#x8FC7;&#x53BB;&#x65F6;&#x95F4;&#x6B65;&#x7684;&#x4E0A;&#x4E00;&#x5C42;decoder&#x7684;&#x8F93;&#x51FA;&#x3002;   </p>
+</blockquote>
+<p>&#x3000;&#x3000;&#x3000;&#x3000;</p>
+<blockquote>
+<p><strong>[warning]</strong> [?] Q/K/V&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x8FD9;&#x6837;&#x8BBE;&#x7F6E;&#xFF1F;  </p>
+<div id="gitalk-container"></div></blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="EncoderAndDecoderStacks.html" class="navigation navigation-prev " aria-label="Previous page: 3.1 Encoder and Decoder Stacks">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="PositionwiseFeedForwardNetworks.html" class="navigation navigation-next " aria-label="Next page: 3.3 Position-wise Feed-Forward Networks">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.2 Attention","level":"1.2.4.2","depth":3,"next":{"title":"3.3 Position-wise Feed-Forward Networks","level":"1.2.4.3","depth":3,"path":"AIAYN/PositionwiseFeedForwardNetworks.md","ref":"AIAYN/PositionwiseFeedForwardNetworks.md","articles":[]},"previous":{"title":"3.1 Encoder and Decoder Stacks","level":"1.2.4.1","depth":3,"path":"AIAYN/EncoderAndDecoderStacks.md","ref":"AIAYN/EncoderAndDecoderStacks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","katex-plus","alerts","mygitalk","github","github-buttons","splitter","-sharing","sharing-plus","donate","copy-code-button","anchor-navigation-ex","sectionx","click-reveal"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/windmissing/NLP-important-papers"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"http://windmissing.github.io/images/2020/alipay.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://windmissing.github.io/images/2020/weixin.jpg","wechatText":"微信打赏"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"click-reveal":{},"sectionx":{},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"isShowTocTitleIcon":true,"printLog":false,"multipleH1":true,"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"katex-plus":{},"alerts":{},"github-buttons":{"repo":"windmissing/NLP-important-papers","types":["star","watch","fork"],"size":"small"},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"b622481cb88eba2f32db","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["windmissing"],"createIssueManually":false,"distractionFreeMode":false,"repo":"NLP-important-papers","owner":"windmissing","enableHotKey":true,"clientSecret":"1d8550b28cfbf3afb71fff648b67cf6fe708b90c","pagerDirection":"last","labels":["Gitalk"]},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"windmissing","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.2.3"},"file":{"path":"AIAYN/Attention.md","mtime":"2021-02-07T09:12:16.525Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-07T09:13:42.963Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+        
+    
+        
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mygitalk/mygitalk.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-click-reveal/click_reveal.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
