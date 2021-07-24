@@ -1,5 +1,6 @@
 # Table of contents
 
+* [A Deep Learning Framework for Character Motion Synthesis and Editing](DLFCMS.md)
 * [Attention Is All You Need](AIAYN/1.md)
     * [Abstract](AIAYN/Abstract.md)
     * [1 Introduction](AIAYN/Introduction.md)
@@ -11,7 +12,7 @@
         * [3.4 Embeddings and Softmax](AIAYN/EmbeddingsAndSoftmax.md)
         * [3.5 Positional Encoding](AIAYN/PositionalEncoding.md)
     * [4 Why Self-Attention](AIAYN/WhySelfAttention.md)
-
+* [A Neural Algorithm of Artistic Style](ANAAS/1.md)
 * 论文
     * [2020.acl-main.6](ACL_2020/6.md)
     * [2020.acl-main.7](ACL_2020/7.md)
